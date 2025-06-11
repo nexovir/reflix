@@ -1,0 +1,3 @@
+https://google.com?param1=value1&param2=value2&param3=value333
+https://www.google.com/?value23Y=mamad&
+https://mail.google.com/?valuex=hasan&value2=mamad

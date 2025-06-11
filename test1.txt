@@ -1,0 +1,5 @@
+https://google.com/?param1=value1&param2=&param3=value3
+https://nasa.gov?param1=value1&param2=value2
+https://nasa.gov/?param1=
+https://nasa.gov/?param1=value1&
+

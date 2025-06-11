@@ -32,8 +32,8 @@ parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection
 # --- Input Group ---
 input_group = parser.add_argument_group('Input Options')
 input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs', required=True)
-input_group.add_argument('-p', '--parameters', help='Comma-separated parameters to test for reflection (default: "nexovir")', default='nexovir', required=False)
-input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)', default=25, required=False)
+input_group.add_argument('-p', '--parameter', help='Comma-separated parameter to test for reflection (default: "nexovir")', default='nexovir', required=False)
+input_group.add_argument('-w', '--wordlist',    help='Path to a file containing parameters to fuzz for reflection',required=False)
 
 # --- Modes ---
 notif_group = parser.add_argument_group('Mode')
@@ -45,6 +45,7 @@ notif_group = parser.add_argument_group('Configurations')
 notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET")', type=str, default='GET', required=False)
 notif_group.add_argument('-H', '--header', help='Custom headers to include in requests (format: "Header1: value1; Header2: value2")', type=str, default='', required=False)
 notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
+input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)', default=25, required=False)
 
 # --- Rate Limit Options ---
 ratelimit_group = parser.add_argument_group('Rate Limit Options')
@@ -66,8 +67,7 @@ args = parser.parse_args()
 
 #Input & Group
 urls_path = args.urlspath
-parameters = args.parameters
-chunk = args.chunk
+parameter = args.parameter
 
 #Mode
 value_mode = args.valuemode
@@ -77,6 +77,7 @@ generate_mode = args.generatemode
 methods = args.methods.split(',')
 header = args.header.split(',')
 proxy = args.proxy
+chunk = args.chunk
 
 #Ratelimit Option
 thread = args.thread
@@ -118,6 +119,11 @@ def read_write_list(list_data: list, file: str, type: str):
                     f.write(item.strip() + '\n')
 
 
+def injector (urls : list , generate_mode : str , value_mode : str , parameter : str) -> list:
+    print(generate_mode)
+    print(value_mode)
+    print(parameter)
+    print(urls)
 
 def light_reflector(urls: list):
     def validate_header(headers: list) -> str:
@@ -194,7 +200,8 @@ def light_reflector(urls: list):
 try:
     all_parameters = []
     urls = read_write_list("", urls_path, 'r')
-    light_reflector(urls)
+    injector(urls , generate_mode , value_mode , parameter)
+    # light_reflector(urls)
 
 except KeyboardInterrupt:
     sendmessage(

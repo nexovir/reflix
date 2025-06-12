@@ -1,6 +1,6 @@
 import colorama, time, subprocess, requests , argparse, os
 from yaspin import yaspin # type: ignore
-
+from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
 
 def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", logger: bool = True , silent : bool = False):
     color = getattr(colorama.Fore, colour, colorama.Fore.YELLOW)
@@ -31,7 +31,7 @@ parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection
 
 # --- Input Group ---
 input_group = parser.add_argument_group('Input Options')
-input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs', required=True)
+input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs for discovery (including .js, .css, etc.). ''Note: When used for parameter fuzzing, URLs with extensions like .js, .png, .jpg, etc. will be excluded.', required=True)
 input_group.add_argument('-p', '--parameter', help='Comma-separated parameter to test for reflection (default: "nexovir")', default='nexovir', required=False)
 input_group.add_argument('-w', '--wordlist',    help='Path to a file containing parameters to fuzz for reflection',required=False)
 
@@ -120,10 +120,40 @@ def read_write_list(list_data: list, file: str, type: str):
 
 
 def injector (urls : list , generate_mode : str , value_mode : str , parameter : str) -> list:
-    print(generate_mode)
-    print(value_mode)
-    print(parameter)
-    print(urls)
+
+    def append_mode(url, parameter , value_mode):
+        urls_generated = []
+        parsed = urlparse(url)
+        query_pairs = parse_qsl(parsed.query, keep_blank_values=True)
+        for i in range(len(query_pairs)):
+            modified_pairs = query_pairs.copy()
+            key, value = modified_pairs[i]
+            modified_pairs[i] = (key, value + parameter) if value_mode == 'append' else (key, parameter)
+            new_query = urlencode(modified_pairs)
+            new_url = urlunparse(parsed._replace(query=new_query))
+            urls_generated.append(new_url)
+
+        return urls_generated
+
+
+    def normal_mode (urls , value_mode , parameter):
+        pass
+    def ignore_mode (urls , value_mode , parameter):
+        pass
+
+    def combine_mode (urls , value_mode , parameter):
+        for url in urls :
+            if '?' in url:
+                urls_generated = append_mode(url , parameter , value_mode)
+                
+
+    if generate_mode == 'combine':
+        combine_mode(urls , value_mode , parameter)
+    elif generate_mode == 'normal':
+        pass
+    elif generate_mode == 'ignore':
+        pass
+
 
 def light_reflector(urls: list):
     def validate_header(headers: list) -> str:

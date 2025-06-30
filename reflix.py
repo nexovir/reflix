@@ -1,4 +1,4 @@
-import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yaml , tempfile
+import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yaml , tempfile, json
 from yaspin import yaspin # type: ignore
 from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
@@ -49,7 +49,7 @@ input_group.add_argument('-w', '--wordlist',    help='Path to a file containing 
 # --- Configurations ---
 notif_group = parser.add_argument_group('Configurations')
 notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
-notif_group.add_argument('-H', '--header', help='Custom headers to include in requests (format: "Header1: value1; Header2: value2")', type=str, default='', required=False)
+notif_group.add_argument('-H', '--headers', help='Custom headers to include in requests (format: Header1: value1,Header2: value2)', type=str, default='', required=False)
 notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
 input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
 
@@ -81,7 +81,7 @@ wordlist_parameters = args.wordlist
 
 #Configuration
 methods = args.methods.split(',')
-header = args.header.split(',')
+headers = args.headers.split(',')
 proxy = args.proxy
 chunk = args.chunk
 
@@ -132,13 +132,13 @@ def read_write_list(list_data: list, file: str, type: str):
 
 def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int):
 
-    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word='nexovir'):        
-        print(target_url)
+    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word='nexovir'):  
+        
         template = {
-            'id': 'dynamic-scan',
+            'id': 'Reflection',
             'info': {
-                'name': 'Dynamic Scan',
-                'author': 'Python-Nuclei Integration',
+                'name': 'Reflix',
+                'author': 'Reflix',
                 'severity': 'info',
             },
             'requests': [
@@ -164,8 +164,31 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as temp_file:
             yaml.dump(template, temp_file)
             temp_path = temp_file.name
-            print(temp_path)
-
+        
+        try:
+            cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent']
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            
+            if result.returncode == 0:
+                raw_output = result.stdout.splitlines()
+                for line in raw_output:
+                    print(line)
+                    
+                return {
+                    'success': True,
+                    'raw_results': raw_output,
+                    'stats': f"تعداد خطوط: {len(raw_output)}"
+                }
+            else:
+                print("خطا در اجرای Nuclei:")
+                print(result.stderr)
+                return {
+                    'success': False,
+                    'error': result.stderr
+                }
+        finally:
+            os.unlink(temp_path)
+        
     command = [
     "./injector",
     "-l",urls_path,
@@ -175,6 +198,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
     "-gm",generate_mode,
     '-s'
     ]
+
     if wordlist_parameters: 
         command.extend(["-w", wordlist_parameters])
     
@@ -187,9 +211,9 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         text=True
     )
     urls = result.stdout.splitlines()
-    run_nuclei_scan(urls[0])
-    # for url in urls :
-    #     run_nuclei_scan (url)
+    for url in urls :      
+        for method in methods:
+            run_nuclei_scan(url , method , headers)
 
 def light_reflix (urls ,):
     pass
@@ -199,7 +223,7 @@ def main():
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
         static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk)
-        light_reflix (urls , )
+        
     except KeyboardInterrupt:
         sendmessage(
             "Process interrupted by user.",

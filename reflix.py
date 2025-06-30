@@ -1,6 +1,19 @@
-import colorama, time, subprocess, requests , argparse, os
+import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yaml , tempfile
 from yaspin import yaspin # type: ignore
+from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
+
+def show_banner():
+    banner = pyfiglet.figlet_format("Reflix")
+    twitter = Style.BRIGHT + Fore.CYAN + "X.com: @nexovir" + Style.RESET_ALL
+    version = Fore.LIGHTBLACK_EX + "v1.0.0" + Style.RESET_ALL
+
+    total_width = 20
+    twitter_centered = twitter.center(total_width)
+    version_right = version.rjust(total_width)
+
+    print(banner + twitter_centered  + version_right + "\n")
+
 
 def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", logger: bool = True , silent : bool = False):
     color = getattr(colorama.Fore, colour, colorama.Fore.YELLOW)
@@ -16,6 +29,7 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
         chat_id = "5028701156"
         url = f"https://api.telegram.org/bot{token_bot}/sendMessage"
         payload = {'chat_id': chat_id, 'text': message}
+
         try:
             response = requests.post(url, data=payload)
             response.raise_for_status()
@@ -23,34 +37,28 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
             print(f"Telegram message failed: {e}")
 
 
-def str2bool(v):
-    return str(v).lower() in ("yes", "true", "t", "1")
-
-
 parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection and fuzzing tool')
 
 # --- Input Group ---
 input_group = parser.add_argument_group('Input Options')
-input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs for discovery (including .js, .css, etc.). ''Note: When used for parameter fuzzing, URLs with extensions like .js, .png, .jpg, etc. will be excluded.', required=True)
+input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs for discovery. Note: During parameter discovery, the tool will request and analyze the full content of each URL. However, during parameter fuzzing, URLs with certain file extensions (e.g., .js, .png, .jpg, .ttf, etc.) will be automatically excluded.', required=True)
 input_group.add_argument('-p', '--parameter', help='Comma-separated parameter to test for reflection (default: "nexovir")', default='nexovir', required=False)
 input_group.add_argument('-w', '--wordlist',    help='Path to a file containing parameters to fuzz for reflection',required=False)
 
-# --- Modes ---
-notif_group = parser.add_argument_group('Mode')
-notif_group.add_argument('-vm' , '--valuemode' ,help='How to apply valuemode: {"append" , "replace"} (default \"append\")',choices=['append', 'replace'],default='append',required=False)
-notif_group.add_argument('-gm', '--generatemode',help='Control how parameters are generated: {"normal", "ignore", "combine", "all"} (default: "all")',choices=['normal', 'ignore', 'combine', 'all'],default='all',required=False)
 
 # --- Configurations ---
 notif_group = parser.add_argument_group('Configurations')
-notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET")', type=str, default='GET', required=False)
+notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
 notif_group.add_argument('-H', '--header', help='Custom headers to include in requests (format: "Header1: value1; Header2: value2")', type=str, default='', required=False)
 notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
-input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)', default=25, required=False)
+input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
+
 
 # --- Rate Limit Options ---
 ratelimit_group = parser.add_argument_group('Rate Limit Options')
 ratelimit_group.add_argument('-t', '--thread',type=int,help='Number of concurrent threads to use (default: 1)',default=5,required=False)
 ratelimit_group.add_argument('-rd', '--delay',type=int,help='Delay (in seconds) between requests (default: 0)',default=0,required=False)
+
 
 # --- Notification & Logging Group ---
 notif_group = parser.add_argument_group('Notification & Logging')
@@ -58,9 +66,10 @@ notif_group.add_argument('-n', '--notify', help='Enable notifications', action='
 notif_group.add_argument('-g', '--logger', help='Enable logger', action='store_true', default=False, required=False)
 notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default False)', action='store_true', default=False, required=False)
 
+
 # --- Output ---
 notif_group = parser.add_argument_group('Outputs')
-notif_group.add_argument('-po', '--paramsoutput', help='Show discovered parameters in Telegram notification', required=False)
+notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved', required=False)
 
 
 args = parser.parse_args()
@@ -68,10 +77,7 @@ args = parser.parse_args()
 #Input & Group
 urls_path = args.urlspath
 parameter = args.parameter
-
-#Mode
-value_mode = args.valuemode
-generate_mode = args.generatemode
+wordlist_parameters = args.wordlist
 
 #Configuration
 methods = args.methods.split(',')
@@ -82,6 +88,10 @@ chunk = args.chunk
 #Ratelimit Option
 thread = args.thread
 delay = args.delay
+
+#Injector Mode 
+value_mode = 'append'
+generate_mode = 'all'
 
 #Notification
 notification = args.notify
@@ -97,8 +107,9 @@ def read_write_list(list_data: list, file: str, type: str):
     
     if type == "read" or type == 'r':
         with open(file, 'r') as f:
-            objects = set(f.read().splitlines())
+            objects = list(set(line.strip() for line in f.read().splitlines() if line.strip()))
         return objects
+
     
     elif type == "write" or type == 'w': 
         with open(file, 'w') as f:
@@ -119,133 +130,93 @@ def read_write_list(list_data: list, file: str, type: str):
                     f.write(item.strip() + '\n')
 
 
-def injector (urls : list , generate_mode : str , value_mode : str , parameter : str) -> list:
+def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int):
 
-    def append_mode(url, parameter , value_mode):
-        urls_generated = []
-        parsed = urlparse(url)
-        query_pairs = parse_qsl(parsed.query, keep_blank_values=True)
-        for i in range(len(query_pairs)):
-            modified_pairs = query_pairs.copy()
-            key, value = modified_pairs[i]
-            modified_pairs[i] = (key, value + parameter) if value_mode == 'append' else (key, parameter)
-            new_query = urlencode(modified_pairs)
-            new_url = urlunparse(parsed._replace(query=new_query))
-            urls_generated.append(new_url)
+    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word='nexovir'):        
+        print(target_url)
+        template = {
+            'id': 'dynamic-scan',
+            'info': {
+                'name': 'Dynamic Scan',
+                'author': 'Python-Nuclei Integration',
+                'severity': 'info',
+            },
+            'requests': [
+                {
+                    'method': method,
+                    'path': ["{{BaseURL}}"],
+                    'headers': headers or {},
+                    'matchers': [
+                        {
+                            'type': 'word',
+                            'words': [search_word],
+                            'part': 'body'
+                        }
+                    ]
+                }
+            ]
+        }
+        if method.upper() == 'POST' and post_data:
+            template['requests'][0]['body'] = post_data
+            if 'Content-Type' not in template['requests'][0]['headers']:
+                template['requests'][0]['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
+        
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as temp_file:
+            yaml.dump(template, temp_file)
+            temp_path = temp_file.name
+            print(temp_path)
 
-        return urls_generated
-
-
-    def normal_mode (urls , value_mode , parameter):
-        pass
-    def ignore_mode (urls , value_mode , parameter):
-        pass
-
-    def combine_mode (urls , value_mode , parameter):
-        for url in urls :
-            if '?' in url:
-                urls_generated = append_mode(url , parameter , value_mode)
-                
-
-    if generate_mode == 'combine':
-        combine_mode(urls , value_mode , parameter)
-    elif generate_mode == 'normal':
-        pass
-    elif generate_mode == 'ignore':
-        pass
-
-
-def light_reflector(urls: list):
-    def validate_header(headers: list) -> str:
-        return ' '.join([f'-H "{header}"' for header in headers]) if headers else ''
-
-    sendmessage(
-        "[INFO] Starting Detective Light Reflection",
-        telegram=notification,
-        colour="YELLOW",
-        logger=logger,
-        silent=silent
+    command = [
+    "./injector",
+    "-l",urls_path,
+    "-p",parameter,
+    "-c",chunk,
+    "-vm",value_mode,
+    "-gm",generate_mode,
+    '-s'
+    ]
+    if wordlist_parameters: 
+        command.extend(["-w", wordlist_parameters])
+    
+    result = subprocess.run(
+        command,
+        shell=False,
+        check=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
     )
+    urls = result.stdout.splitlines()
+    run_nuclei_scan(urls[0])
+    # for url in urls :
+    #     run_nuclei_scan (url)
 
-    for url in urls:
-        try:
-            url_switch = f'-u "{url}"' if url else ''
-            proxy_switch = f'-x {proxy}' if proxy else ''
-            header_switch = validate_header(header)
-            thread_switch = f'-t {thread}' if thread else ''
-            delay_switch = f'-rd {delay}' if delay else ''
+def light_reflix (urls ,):
+    pass
 
-            sendmessage(
-                f"  [INFO] Starting Discover Parameters for URL: {url}",
-                telegram=notification,
-                colour="WHITE",
-                logger=logger,
-                silent=silent
-            )
-
-            discovered_parameters = []
-
-            for method in methods:
-                fallparams_cmd = f'fallparams {url_switch} -silent {proxy_switch} {delay_switch} {thread_switch} {header_switch} -X {method} -o /dev/null 2>&1 '
-                
-                try:
-                    fallparams_output = os.popen(fallparams_cmd).read()
-                    if fallparams_output:
-                        params = [p.strip() for p in fallparams_output.split('\n') if p.strip()]
-                        discovered_parameters.extend(params)
-                except Exception as e:
-                    sendmessage(
-                        f"  [ERROR] Failed to run fallparams for method {method}: {e}",
-                        telegram=notification,
-                        colour="RED",
-                        logger=logger,
-                        silent=silent
-                    )
-
-            discovered_parameters = list(set(discovered_parameters))
-            all_parameters.extend(discovered_parameters)
-            all_parameters[:] = list(set(all_parameters))
-
-            read_write_list (discovered_parameters , 'params.temp' , 'w')
-            read_write_list(all_parameters , f"{params_output}", 'a')
-
-        except KeyError as e:
-            sendmessage(
-                f"[ERROR] Missing config key: {e}",
-                telegram=notification,
-                colour="RED",
-                logger=logger,
-                silent=silent
-            )
-        except Exception as e:
-            sendmessage(
-                f"  [ERROR] Failed to process URL: {url} - {e}",
-                telegram=notification,
-                colour="RED",
-                logger=logger,
-                silent=silent
-            )
+def main():
+    try:
+        show_banner() if not silent else None
+        urls = read_write_list("", urls_path, 'r')
+        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk)
+        light_reflix (urls , )
+    except KeyboardInterrupt:
+        sendmessage(
+            "Process interrupted by user.",
+            telegram=notification,
+            colour="RED",
+            logger=logger,
+            silent=silent
+        )
+    except Exception as e:
+        sendmessage(
+            f"An error occurred: {str(e)}",
+            telegram=notification,
+            colour="RED",
+            logger=logger,
+            silent=silent
+        )
 
 
-try:
-    all_parameters = []
-    urls = read_write_list("", urls_path, 'r')
-    injector(urls , generate_mode , value_mode , parameter)
-    # light_reflector(urls)
-
-except KeyboardInterrupt:
-    sendmessage(
-        "Process interrupted by user.",
-        telegram=notification,
-        colour="RED",
-        logger=logger,
-        silent=silent
-    )
-except Exception as e:
-    sendmessage(
-        f"An error occurred: {str(e)}",
-        telegram=notification,
-        colour="RED",
-        logger=logger,
-        silent=silent
-    )
+if __name__ == "__main__":
+    main()

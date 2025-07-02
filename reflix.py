@@ -50,7 +50,7 @@ input_group.add_argument('-w', '--wordlist',    help='Path to a file containing 
 # --- Configurations ---
 notif_group = parser.add_argument_group('Configurations')
 notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
-notif_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: Header: value)',action='append',required=False,default=[])
+notif_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[])
 notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
 input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
 
@@ -137,19 +137,19 @@ def read_write_list(list_data: list, file: str, type: str):
                     f.write(item.strip() + '\n')
 
 
-def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int):
-
-    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir"):  
+def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int , proxy):
+    
+    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir" , proxy =''):  
         template = {
-            'id': 'Reflection',
+            'id': f'method-{method.upper()}',
             'info': {
-                'name': 'Reflix',
+                'name': f'Reflix ({method.upper()})',
                 'author': 'Reflix',
                 'severity': 'info',
             },
             'requests': [
                 {
-                    'method': method,
+                    'method': method.upper(),
                     'path': ["{{BaseURL}}"],
                     'headers': headers or {},
                     'matchers': [
@@ -162,6 +162,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
                 }
             ]
         }
+
         if method.upper() == 'POST' and post_data:
             template['requests'][0]['body'] = post_data
             if 'Content-Type' not in template['requests'][0]['headers']:
@@ -172,7 +173,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             temp_path = temp_file.name
         try:
 
-            cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent']
+            cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
             result = subprocess.run(cmd, capture_output=True, text=True)
             
             if result.returncode == 0:
@@ -195,7 +196,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             os.unlink(temp_path)
         
     command = [
-    "./injector",
+    "injector",
     "-l",urls_path,
     "-p",parameter,
     "-c",chunk,
@@ -218,7 +219,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
     urls = result.stdout.splitlines()
     for url in urls :      
         for method in methods:
-            run_nuclei_scan(url , method , headers , None , parameter)
+            run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
 def light_reflix (urls ,):
     pass
@@ -227,7 +228,7 @@ def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
-        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk)
+        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
         
     except KeyboardInterrupt:
         sendmessage(

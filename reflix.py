@@ -195,7 +195,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             os.unlink(temp_path)
         
     command = [
-    "./injector",
+    "injector",
     "-l",urls_path,
     "-p",parameter,
     "-c",chunk,

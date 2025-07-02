@@ -198,7 +198,6 @@ importlib-resources==6.0.1
 incremental==22.10.0
 inflect==7.3.1
 iniconfig==2.1.0
-injector @ file:///home/nexovir/Desktop/Hacking/NEXOVIR-bot/tools/Injector
 invoke==2.2.0
 ipwhois==1.2.0
 IPy==1.1

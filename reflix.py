@@ -2,6 +2,7 @@ import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yam
 from yaspin import yaspin # type: ignore
 from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
+from typing import List, Dict
 
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
@@ -49,7 +50,7 @@ input_group.add_argument('-w', '--wordlist',    help='Path to a file containing 
 # --- Configurations ---
 notif_group = parser.add_argument_group('Configurations')
 notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
-notif_group.add_argument('-H', '--headers', help='Custom headers to include in requests (format: Header1: value1,Header2: value2)', type=str, default='', required=False)
+notif_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: Header: value)',action='append',required=False,default=[])
 notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
 input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
 
@@ -81,7 +82,13 @@ wordlist_parameters = args.wordlist
 
 #Configuration
 methods = args.methods.split(',')
-headers = args.headers.split(',')
+headers = {}
+if args.headers:
+    for header in args.headers:
+        if ':' in header:
+            key, value = header.split(':', 1)
+            headers[key.strip()] = value.strip()
+
 proxy = args.proxy
 chunk = args.chunk
 
@@ -132,8 +139,7 @@ def read_write_list(list_data: list, file: str, type: str):
 
 def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int):
 
-    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word='nexovir'):  
-        
+    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir"):  
         template = {
             'id': 'Reflection',
             'info': {
@@ -164,8 +170,8 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as temp_file:
             yaml.dump(template, temp_file)
             temp_path = temp_file.name
-        
         try:
+
             cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent']
             result = subprocess.run(cmd, capture_output=True, text=True)
             
@@ -180,7 +186,6 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
                     'stats': f"تعداد خطوط: {len(raw_output)}"
                 }
             else:
-                print("خطا در اجرای Nuclei:")
                 print(result.stderr)
                 return {
                     'success': False,
@@ -213,7 +218,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
     urls = result.stdout.splitlines()
     for url in urls :      
         for method in methods:
-            run_nuclei_scan(url , method , headers)
+            run_nuclei_scan(url , method , headers , None , parameter)
 
 def light_reflix (urls ,):
     pass

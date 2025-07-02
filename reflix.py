@@ -71,7 +71,8 @@ notif_group.add_argument('-s', '--silent', help='Disable prints output to the co
 # --- Output ---
 notif_group = parser.add_argument_group('Outputs')
 notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved', required=False)
-
+notif_group.add_argument('-o', '--output',help='output file to write found issues/vulnerabilities ', type=str ,required=False)
+notif_group.add_argument('-jo', '--jsonoutput',help='file to export results in JSON format',type=str ,required=False)
 
 args = parser.parse_args()
 
@@ -107,6 +108,8 @@ silent = args.silent
 
 #Output
 params_output = args.paramsoutput
+output = args.output
+json_output = args.jsonoutput
 
 def read_write_list(list_data: list, file: str, type: str):
 
@@ -141,7 +144,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
     
     def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir" , proxy =''):  
         template = {
-            'id': f'method-{method.upper()}',
+            'id': f'{method.upper()}',
             'info': {
                 'name': f'Reflix ({method.upper()})',
                 'author': 'Reflix',
@@ -172,7 +175,8 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             yaml.dump(template, temp_file)
             temp_path = temp_file.name
         try:
-
+            print (output)
+            print(json_output)
             cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
             result = subprocess.run(cmd, capture_output=True, text=True)
             

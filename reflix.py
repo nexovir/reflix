@@ -57,7 +57,7 @@ input_group.add_argument('-c', '--chunk', help='Number of URLs to process per ba
 
 # --- Rate Limit Options ---
 ratelimit_group = parser.add_argument_group('Rate Limit Options')
-ratelimit_group.add_argument('-t', '--thread',type=int,help='Number of concurrent threads to use (default: 1)',default=5,required=False)
+ratelimit_group.add_argument('-t', '--thread',type=int,help='Number of concurrent threads to use (default: 1)',default=1,required=False)
 ratelimit_group.add_argument('-rd', '--delay',type=int,help='Delay (in seconds) between requests (default: 0)',default=0,required=False)
 
 
@@ -224,25 +224,44 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
 
-def run_fallparams(url):
+def run_fallparams(url, proxy, thread, delay, method):
     try:
-        print(url)
+        command = [
+        "fallparams",
+        "-u",url,
+        "-x",proxy if proxy else '',
+        "-X",method,
+        '-silent',
+        '-duc',
+        ]
+        print(command)
+        result = subprocess.run(
+            command,
+            shell=False,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        print(result.stdout)
     except Exception as e:
         sendmessage(f"Error processing URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
         return
 
 
 
-def light_reflix (urls , ):
+def light_reflix (urls, proxy, thread, delay, methods):
     for url in urls :
-        run_fallparams(url)
+        for method in methods:
+            run_fallparams(url, proxy, thread, delay, method)
+            time.sleep(delay)
 
 def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
         # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
-        light_reflix(urls)
+        light_reflix(urls, proxy, thread, delay, methods)
     except KeyboardInterrupt:
         sendmessage(
             "Process interrupted by user.",

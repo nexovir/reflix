@@ -165,8 +165,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
                 }
             ]
         }
-
-        if method.upper() == 'POST' and post_data:
+        if method.upper() == 'POST':
             template['requests'][0]['body'] = post_data
             if 'Content-Type' not in template['requests'][0]['headers']:
                 template['requests'][0]['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
@@ -175,23 +174,22 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             yaml.dump(template, temp_file)
             temp_path = temp_file.name
         try:
-            print (output)
-            print(json_output)
+
             cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
             result = subprocess.run(cmd, capture_output=True, text=True)
             
             if result.returncode == 0:
                 raw_output = result.stdout.splitlines()
                 for line in raw_output:
-                    print(line)
+                    sendmessage(line)
                     
                 return {
                     'success': True,
                     'raw_results': raw_output,
-                    'stats': f"تعداد خطوط: {len(raw_output)}"
+                    'stats': f"line count: {len(raw_output)}"
                 }
             else:
-                print(result.stderr)
+                sendmessage(result.stderr)
                 return {
                     'success': False,
                     'error': result.stderr
@@ -225,15 +223,26 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         for method in methods:
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
-def light_reflix (urls ,):
-    pass
+
+def run_fallparams(url):
+    try:
+        print(url)
+    except Exception as e:
+        sendmessage(f"Error processing URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
+        return
+
+
+
+def light_reflix (urls , ):
+    for url in urls :
+        run_fallparams(url)
 
 def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
-        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
-        
+        # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
+        light_reflix(urls)
     except KeyboardInterrupt:
         sendmessage(
             "Process interrupted by user.",

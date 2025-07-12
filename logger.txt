@@ -98,3 +98,445 @@ Reflix - Smart parameter injection and fuzzing tool -> 11/06/2025, 21:48:39
 Reflix - Smart parameter injection and fuzzing tool -> 11/06/2025, 21:50:24
 Starting Reflix -> 30/06/2025, 10:02:48
 Starting Reflix -> 30/06/2025, 10:02:56
+[*] Starting scan -> 12/07/2025, 18:19:59
+[*] Strting Static Reflix in -> 12/07/2025, 18:23:15
+[*] Strting Static Reflix ... -> 12/07/2025, 18:28:04
+ [*] Strting Static Injector... -> 12/07/2025, 18:28:04
+[[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 12/07/2025, 18:28:05
+[[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 12/07/2025, 18:28:05
+[[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 12/07/2025, 18:28:05
+[[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 12/07/2025, 18:28:05
+[[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 12/07/2025, 18:28:05
+[*] Strting Static Reflix ... -> 12/07/2025, 18:28:25
+ [*] Strting Static Injector... -> 12/07/2025, 18:28:25
+[*] Starting Static Reflix ... -> 12/07/2025, 18:35:17
+[*] Running injector ... -> 12/07/2025, 18:35:17
+[+] Injector finished successfully -> 12/07/2025, 18:35:17
+[*] Starting Static Reflix ... -> 12/07/2025, 18:35:36
+   [*] Running injector ... -> 12/07/2025, 18:35:36
+   [+] Injector finished successfully -> 12/07/2025, 18:35:36
+[*] Starting Static Reflix ... -> 12/07/2025, 18:37:17
+   [*] Running injector ... -> 12/07/2025, 18:37:17
+   [+] Injector finished successfully -> 12/07/2025, 18:37:17
+[*] Running nuclei scan on https://nasa.gov/?param1=nexovir [GET] ... -> 12/07/2025, 18:37:17
+[*] Running nuclei scan on https://google.com/?param1=value1nexovir&param2=&param3=value3 [GET] ... -> 12/07/2025, 18:37:31
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1nexovir&param2&param3=value3 -> 12/07/2025, 18:37:33
+[*] Running nuclei scan on https://google.com/?param1=value1&param2=nexovir&param3=value3 [GET] ... -> 12/07/2025, 18:37:33
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2=nexovir&param3=value3 -> 12/07/2025, 18:37:33
+[*] Running nuclei scan on https://google.com/?param1=value1&param2=&param3=value3nexovir [GET] ... -> 12/07/2025, 18:37:33
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2&param3=value3nexovir -> 12/07/2025, 18:37:35
+[*] Running nuclei scan on https://memoryleaks.ir/?search=nexovir [GET] ... -> 12/07/2025, 18:37:35
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 18:37:36
+[*] Running nuclei scan on https://nasa.gov?param1=value1nexovir&param2=value2 [GET] ... -> 12/07/2025, 18:37:36
+[*] Running nuclei scan on https://nasa.gov?param1=value1&param2=value2nexovir [GET] ... -> 12/07/2025, 18:37:38
+[*] Starting Static Reflix ... -> 12/07/2025, 18:38:31
+   [*] Running injector ... -> 12/07/2025, 18:38:31
+   [+] Injector finished successfully -> 12/07/2025, 18:38:31
+[*] Running nuclei scan on https://nasa.gov/?param1=value1nexovir&param2=value2&param3=value3 [GET] ... -> 12/07/2025, 18:38:31
+[*] Running nuclei scan on https://nasa.gov/?param1=value1nexovir&param2=value2&param3=value3 [POST] ... -> 12/07/2025, 18:38:32
+[*] Running nuclei scan on https://nasa.gov/?param1=value1&param2=value2nexovir&param3=value3 [GET] ... -> 12/07/2025, 18:38:34
+[*] Running nuclei scan on https://nasa.gov/?param1=value1&param2=value2nexovir&param3=value3 [POST] ... -> 12/07/2025, 18:38:35
+[*] Running nuclei scan on https://nasa.gov/?param1=value1&param2=value2&param3=value3nexovir [GET] ... -> 12/07/2025, 18:38:43
+[*] Running nuclei scan on https://nasa.gov/?param1=value1&param2=value2&param3=value3nexovir [POST] ... -> 12/07/2025, 18:38:44
+[*] Running nuclei scan on https://memoryleaks.ir/?search=nexovir [GET] ... -> 12/07/2025, 18:38:46
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 18:38:51
+[*] Running nuclei scan on https://memoryleaks.ir/?search=nexovir [POST] ... -> 12/07/2025, 18:38:51
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 18:38:53
+[*] Running nuclei scan on https://google.com/?param1=value1nexovir&param2=&param3=value3 [GET] ... -> 12/07/2025, 18:38:53
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1nexovir&param2&param3=value3 -> 12/07/2025, 18:38:54
+[*] Running nuclei scan on https://google.com/?param1=value1nexovir&param2=&param3=value3 [POST] ... -> 12/07/2025, 18:38:54
+[*] Running nuclei scan on https://google.com/?param1=value1&param2=nexovir&param3=value3 [GET] ... -> 12/07/2025, 18:38:55
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2=nexovir&param3=value3 -> 12/07/2025, 18:38:55
+[*] Running nuclei scan on https://google.com/?param1=value1&param2=nexovir&param3=value3 [POST] ... -> 12/07/2025, 18:38:55
+[*] Running nuclei scan on https://google.com/?param1=value1&param2=&param3=value3nexovir [GET] ... -> 12/07/2025, 18:38:56
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2&param3=value3nexovir -> 12/07/2025, 18:38:57
+[*] Running nuclei scan on https://google.com/?param1=value1&param2=&param3=value3nexovir [POST] ... -> 12/07/2025, 18:38:57
+[*] Running nuclei scan on https://nasa.gov/?param1=nexovir [GET] ... -> 12/07/2025, 18:38:58
+[*] Running nuclei scan on https://nasa.gov/?param1=nexovir [POST] ... -> 12/07/2025, 18:38:59
+[*] Running nuclei scan on https://nasa.gov?param1=value1nexovir&param2=value2 [GET] ... -> 12/07/2025, 18:39:01
+[*] Running nuclei scan on https://nasa.gov?param1=value1nexovir&param2=value2 [POST] ... -> 12/07/2025, 18:39:03
+[*] Starting Static Reflix ... -> 12/07/2025, 18:41:17
+   [*] Running injector ... -> 12/07/2025, 18:41:17
+   [+] Injector finished successfully -> 12/07/2025, 18:41:17
+  [*] Running nuclei scan methods :[['GET', 'POST']] ... -> 12/07/2025, 18:41:17
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 18:41:18
+[*] Starting Static Reflix ... -> 12/07/2025, 18:41:27
+   [*] Running injector ... -> 12/07/2025, 18:41:27
+   [+] Injector finished successfully -> 12/07/2025, 18:41:28
+  [*] Running nuclei scan methods: ['GET', 'POST'] ... -> 12/07/2025, 18:41:28
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1nexovir&param2&param3=value3 -> 12/07/2025, 18:41:28
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2=nexovir&param3=value3 -> 12/07/2025, 18:41:30
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2&param3=value3nexovir -> 12/07/2025, 18:41:32
+[*] Starting Static Reflix ... -> 12/07/2025, 18:41:43
+   [*] Running injector ... -> 12/07/2025, 18:41:43
+   [+] Injector finished successfully -> 12/07/2025, 18:41:43
+  [*] Running nuclei scan methods: ['GET', 'POST'] ... -> 12/07/2025, 18:41:43
+[*] Starting Static Reflix ... -> 12/07/2025, 18:41:48
+   [*] Running injector ... -> 12/07/2025, 18:41:48
+   [+] Injector finished successfully -> 12/07/2025, 18:41:48
+   [*] Running nuclei scan methods: ['GET', 'POST'] ... -> 12/07/2025, 18:41:48
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1nexovir&param2&param3=value3 -> 12/07/2025, 18:41:49
+[*] Starting Static Reflix ... -> 12/07/2025, 18:42:24
+   [*] Running injector ... -> 12/07/2025, 18:42:24
+   [+] Injector finished successfully -> 12/07/2025, 18:42:24
+  [*] Running nuclei scan on generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 18:42:24
+[*] Starting Static Reflix ... -> 12/07/2025, 18:42:44
+   [*] Running injector ... -> 12/07/2025, 18:42:44
+   [+] Injector finished successfully -> 12/07/2025, 18:42:44
+  [*] Running nuclei scan on 23 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 18:42:44
+[*] Starting Static Reflix ... -> 12/07/2025, 18:43:54
+   [*] Running injector ... -> 12/07/2025, 18:43:54
+   [+] Injector finished successfully -> 12/07/2025, 18:43:54
+  [*] Running nuclei scan on 23 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 18:43:54
+[*] Starting Static Reflix ... -> 12/07/2025, 18:44:09
+   [*] Running injector ... -> 12/07/2025, 18:44:09
+   [+] Injector finished successfully -> 12/07/2025, 18:44:09
+  [*] Running nuclei scan on 23 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 18:44:09
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 18:44:48
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 18:44:49
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1nexovir&param2&param3=value3 -> 12/07/2025, 18:45:17
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2=nexovir&param3=value3 -> 12/07/2025, 18:45:19
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param2&param3=value3nexovir -> 12/07/2025, 18:45:22
+[*] Starting Static Reflix ... -> 12/07/2025, 18:47:27
+   [*] Running injector ... -> 12/07/2025, 18:47:27
+   [+] Injector finished successfully -> 12/07/2025, 18:47:27
+  [*] Running nuclei scan on 23 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 18:47:27
+[*] Starting Light Reflix ... -> 12/07/2025, 18:47:37
+   [*] Starting parameter discovery ... -> 12/07/2025, 18:47:37
+[*] Starting Light Reflix ... -> 12/07/2025, 18:57:34
+[*] Starting Light Reflix ... -> 12/07/2025, 18:59:55
+[*] Starting Light Reflix ... -> 12/07/2025, 19:01:03
+[*] Starting Light Reflix ... -> 12/07/2025, 19:01:56
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 19:01:56
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 19:02:20
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 19:02:40
+[*] Starting Light Reflix ... -> 12/07/2025, 19:02:47
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:02:47
+[*] Starting Light Reflix ... -> 12/07/2025, 19:03:28
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:03:28
+[*] Starting Light Reflix ... -> 12/07/2025, 19:04:34
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 19:04:34
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 19:05:11
+[*] Starting Light Reflix ... -> 12/07/2025, 19:05:31
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 19:05:31
+[*] Starting Light Reflix ... -> 12/07/2025, 19:05:46
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 19:05:46
+[*] Starting Light Reflix ... -> 12/07/2025, 19:05:52
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 19:05:52
+[*] Starting Light Reflix ... -> 12/07/2025, 19:07:03
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:07:03
+[*] Starting Light Reflix ... -> 12/07/2025, 19:07:20
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 19:07:20
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 19:07:23
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:07:25
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:08:05
+[*] Starting Light Reflix ... -> 12/07/2025, 19:08:24
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:08:24
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:08:58
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 19:09:17
+[*] Starting Light Reflix ... -> 12/07/2025, 19:09:35
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 19:09:35
+[*] Starting Light Reflix ... -> 12/07/2025, 19:09:52
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 19:09:52
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 19:09:55
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:09:58
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 19:10:28
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 19:10:45
+[*] Starting Light Reflix ... -> 12/07/2025, 19:22:10
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 19:22:10
+[*] Starting Light Reflix ... -> 12/07/2025, 19:22:22
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 19:22:22
+[*] Starting Light Reflix ... -> 12/07/2025, 19:22:24
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 19:22:24
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 19:23:09
+[*] Starting Light Reflix ... -> 12/07/2025, 20:06:20
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:06:20
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:06:51
+[*] Starting Light Reflix ... -> 12/07/2025, 20:07:01
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:07:01
+[*] Starting Light Reflix ... -> 12/07/2025, 20:40:41
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:40:41
+[*] Starting Light Reflix ... -> 12/07/2025, 20:42:11
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 20:42:11
+[*] Starting Light Reflix ... -> 12/07/2025, 20:42:46
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 20:42:46
+[*] Starting Light Reflix ... -> 12/07/2025, 20:45:17
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 20:45:17
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 20:45:19
+[*] Starting Light Reflix ... -> 12/07/2025, 20:47:47
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 20:47:47
+[*] Starting Light Reflix ... -> 12/07/2025, 20:48:12
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:48:12
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 20:48:16
+Error in run_x8 with URL https://nasa.gov/?param1=: 'str' object cannot be interpreted as an integer -> 12/07/2025, 20:48:16
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:48:17
+[*] Starting Light Reflix ... -> 12/07/2025, 20:49:02
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:49:02
+[*] Generating test URLs for https://google.com/?param1=value1&param2=&param3=value3 ... -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?param1=nexovir&param2=nexovir&param3=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?w=nexovir&a=nexovir&d=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?_g=nexovir&g=nexovir&l=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?m=nexovir&b=nexovir&e=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?f=nexovir&h=nexovir&k=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?n=nexovir&c=nexovir&p=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?ba=nexovir&ca=nexovir&da=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?C=nexovir&H=nexovir&J=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?K=nexovir&M=nexovir&ha=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?W=nexovir&ka=nexovir&la=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?ma=nexovir&B=nexovir&D=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?G=nexovir&I=nexovir&L=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?t=nexovir&sdo=nexovir&mei=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?diel=nexovir&csart=nexovir&cbtf=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?A=nexovir&linkEl=nexovir&pmc=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?r=nexovir&deia=nexovir&x=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?object=nexovir&function=nexovir&mouseover=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?mouseout=nexovir&pointerover=nexovir&pointerout=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?AxmQvE=nexovir&AxmQvI=nexovir&AxmQvM=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?AxmQvQ=nexovir&AxmQvU=nexovir&AxmQvY=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?Im6cmf=nexovir&Yllh3e=nexovir&w2btAe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?SNlM0e=nexovir&GWsdKe=nexovir&d2zrDf=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?ocxFnb=nexovir&zChJod=nexovir&STfaRd=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?LVIXXb=nexovir&S06Grb=nexovir&QrtxK=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?S6lZl=nexovir&Ylvpqb=nexovir&eptZe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?oxN3nb=nexovir&1=nexovir&ivyWed=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?A5tF3b=nexovir&Fcb4A=nexovir&PUenT=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?Z0DEKf=nexovir&khoEPb=nexovir&zhkRO=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?ea2VK=nexovir&pxO4Zd=nexovir&mXOY5d=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?SsQ4x=nexovir&Ht1O2b=nexovir&d6J1ld=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?nfxEDe=nexovir&auIt8=nexovir&MuJWjd=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?N1ycab=nexovir&AB5Xwb=nexovir&BZUDzc=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?MgUcDb=nexovir&SIsrTd=nexovir&fyLpDc=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?JPnTp=nexovir&ZxtPCd=nexovir&DwYRY=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?NyzCwe=nexovir&spz2q=nexovir&geiQxc=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?xFmcof=nexovir&lDqiof=nexovir&Gpnz4c=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?kXVUzd=nexovir&sCU50d=nexovir&w9Zicc=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?IkSsrf=nexovir&MR0w4=nexovir&OItNqf=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?JMyuH=nexovir&j2FoS=nexovir&e2zoW=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?W1Bte=nexovir&pbvshf=nexovir&u9mep=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?mrqaQb=nexovir&Umq10e=nexovir&k7Tqye=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?y50LC=nexovir&jfSEkd=nexovir&GVtPm=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?MexNte=nexovir&Aahcnf=nexovir&PFhmed=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?mf1yif=nexovir&B4pZbd=nexovir&aKXqGc=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?o0P8Hf=nexovir&rkD25=nexovir&WiLzZe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?rNyuJc=nexovir&LU5fGb=nexovir&gXkHoe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?hevonc=nexovir&id=nexovir&this=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?Z=nexovir&css=nexovir&--IXoxUe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?-=nexovir&undefined=nexovir&true=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?atyp=nexovir&s=nexovir&hl=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?utm_source=nexovir&sa=nexovir&subid=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?fg=nexovir&eom=nexovir&ei=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?lei=nexovir&cshid=nexovir&zx=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?opi=nexovir&ct=nexovir&cad=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?rt=nexovir&jexpid=nexovir&srcpg=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?jsr=nexovir&bver=nexovir&dpf=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?line=nexovir&script=nexovir&jsel=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?emsg=nexovir&jsst=nexovir&vet=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?ved=nexovir&astyp=nexovir&twt=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?mwt=nexovir&lvhr=nexovir&referrer=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?RNNXgb=nexovir&uFMOof=nexovir&gLFyf=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?vdLsw=nexovir&q=nexovir&RP0xob=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?pkjasb=nexovir&itVqKe=nexovir&s1VaRe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?R5mgy=nexovir&mvaK7d=nexovir&UUbT9=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?aadvhe=nexovir&GkjeIf=nexovir&RjPuVb=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?aajZCb=nexovir&erkvQe=nexovir&tovEib=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?E80e9e=nexovir&bw4e9b=nexovir&VlcLAe=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?btnK=nexovir&btnI=nexovir&JUypV=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?sca_esv=nexovir&source=nexovir&iflsig=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?FAeNCb=nexovir&cgsKlb=nexovir&V68bde=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?oYxtQd=nexovir&LgbsSe=nexovir&xl07Ob=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?NNJLud=nexovir&ibnC6b=nexovir&csi=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?gb=nexovir&23=nexovir&2=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?gbwa=nexovir&APjFqb=nexovir&5010715=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?_oJhyaJLtBuz-1e8P7KbswAk_1=nexovir&_oJhyaJLtBuz-1e8P7KbswAk_4=nexovir&_oJhyaJLtBuz-1e8P7KbswAk_6=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?Alh6id=nexovir&shJ2Vb=nexovir&ynRric=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?YMXe=nexovir&AutocompletePrediction=nexovir&d6ItKb=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?fU0xAb=nexovir&mitGyb=nexovir&TN4rFf=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?tophf=nexovir&_oJhyaJLtBuz-1e8P7KbswAk_8=nexovir&_oJhyaJLtBuz-1e8P7KbswAk_9=nexovir -> 12/07/2025, 20:49:04
+Generated: https://google.com/?param1=value1&param2=&param3=value3?YUIDDb=nexovir&lb=nexovir&ogb_ss=nexovir -> 12/07/2025, 20:49:04
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:49:05
+[*] Generating test URLs for https://google.com/?param1=value1&param2=&param3=value3 ... -> 12/07/2025, 20:49:06
+Generated: https://google.com/?param1=value1&param2=&param3=value3?param1=nexovir&param2=nexovir&param3=nexovir -> 12/07/2025, 20:49:06
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:49:07
+[*] Starting Light Reflix ... -> 12/07/2025, 20:49:42
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 20:49:42
+[*] Generating test URLs for https://nasa.gov/?param1=value1& ... -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?param1=nexovir&gform=nexovir&d=nexovir&t=nexovir&e=nexovir&popupData=nexovir&f=nexovir&contents=nexovir&is_postback=nexovir&form_content=nexovir&is_confirmation=nexovir&is_redirect=nexovir&is_form=nexovir&mt=nexovir&current_page=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?confirmation_content=nexovir&gformWrapperDiv=nexovir&visibilitySpan=nexovir&visibilityTestDiv=nexovir&postRenderFired=nexovir&timeout=nexovir&context=nexovir&later=nexovir&callNow=nexovir&debouncedTriggerPostRender=nexovir&observer=nexovir&edac_frontend_fixes=nexovir&gf_global=nexovir&gform_i18n=nexovir&gf_legacy_multi=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?gform_gravityforms=nexovir&gform_theme_config=nexovir&pum_vars=nexovir&pum_sub_vars=nexovir&pum_popups=nexovir&name=nexovir&url=nexovir&publisher=nexovir&inLanguage=nexovir&potentialAction=nexovir&target=nexovir&query-input=nexovir&width=nexovir&height=nexovir&caption=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?datePublished=nexovir&dateModified=nexovir&about=nexovir&isPartOf=nexovir&primaryImageOfPage=nexovir&image=nexovir&worksFor=nexovir&headline=nexovir&description=nexovir&author=nexovir&mainEntityOfPage=nexovir&uploadDate=nexovir&thumbnailUrl=nexovir&contentUrl=nexovir&isFamilyFriendly=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?popupId=nexovir&randomChance=nexovir&closepopup=nexovir&closedelay=nexovir&openpopup=nexovir&openpopup_id=nexovir&gf_currency_config=nexovir&symbol_left=nexovir&symbol_right=nexovir&symbol_padding=nexovir&thousand_separator=nexovir&decimal_separator=nexovir&decimals=nexovir&code=nexovir&base_url=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?number_formats=nexovir&spinnerUrl=nexovir&version_hash=nexovir&strings=nexovir&newRowAdded=nexovir&rowRemoved=nexovir&formSaved=nexovir&datepicker=nexovir&days=nexovir&monday=nexovir&tuesday=nexovir&wednesday=nexovir&thursday=nexovir&friday=nexovir&saturday=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?sunday=nexovir&months=nexovir&january=nexovir&february=nexovir&march=nexovir&april=nexovir&may=nexovir&june=nexovir&july=nexovir&august=nexovir&september=nexovir&october=nexovir&november=nexovir&december=nexovir&firstDay=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?iconText=nexovir&117=nexovir&invalid_file_extension=nexovir&delete_file=nexovir&in_progress=nexovir&file_exceeds_limit=nexovir&illegal_extension=nexovir&max_reached=nexovir&unknown_error=nexovir&currently_uploading=nexovir&cancel=nexovir&cancel_upload=nexovir&cancelled=nexovir&vars=nexovir&images_url=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?common=nexovir&form=nexovir&honeypot=nexovir&ajax=nexovir&ajaxurl=nexovir&ajax_submission_nonce=nexovir&i18n=nexovir&step_announcement=nexovir&hmr_dev=nexovir&public_path=nexovir&config_nonce=nexovir&version=nexovir&pm_dir_url=nexovir&restapi=nexovir&rest_nonce=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?default_theme=nexovir&debug_mode=nexovir&disable_tracking=nexovir&home_url=nexovir&message_position=nexovir&core_sub_forms_enabled=nexovir&popups=nexovir&cookie_domain=nexovir&pum-872473=nexovir&triggers=nexovir&type=nexovir&settings=nexovir&cookie_name=nexovir&delay=nexovir&cookies=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?event=nexovir&key=nexovir&session=nexovir&path=nexovir&time=nexovir&only_in_popup=nexovir&disable_on_mobile=nexovir&disable_on_tablet=nexovir&atc_promotion=nexovir&explain=nexovir&type_section=nexovir&theme_id=nexovir&size=nexovir&responsive_min_width=nexovir&responsive_max_width=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?custom_width=nexovir&custom_height_auto=nexovir&custom_height=nexovir&scrollable_content=nexovir&animation_type=nexovir&animation_speed=nexovir&animation_origin=nexovir&open_sound=nexovir&custom_sound=nexovir&location=nexovir&position_top=nexovir&position_bottom=nexovir&position_left=nexovir&position_right=nexovir&position_from_trigger=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?position_fixed=nexovir&overlay_disabled=nexovir&stackable=nexovir&disable_reposition=nexovir&zindex=nexovir&close_button_delay=nexovir&fi_promotion=nexovir&close_on_form_submission=nexovir&close_on_form_submission_delay=nexovir&close_on_overlay_click=nexovir&close_on_esc_press=nexovir&close_on_f4_press=nexovir&disable_form_reopen=nexovir&disable_accessibility=nexovir&theme_slug=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?id=nexovir&slug=nexovir&o=nexovir&--wp-admin--admin-bar--height=nexovir&180deg=nexovir&JSON=nexovir&XML=nexovir&w=nexovir&s=nexovir&j=nexovir&window=nexovir&noscript=nexovir&1=nexovir&JAXA=nexovir&this=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?mutation=nexovir&-90deg=nexovir&r=nexovir&0px=nexovir&document=nexovir&formId=nexovir&script=nexovir&fields=nexovir&l=nexovir&dataLayer=nexovir&isInit=nexovir&i=nexovir&GTM-NLJ258M=nexovir&m=nexovir&agency=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?terms=nexovir&search=nexovir&resize=nexovir&ver=nexovir&viewport=nexovir&robots=nexovir&application-name=nexovir&msapplication-TileColor=nexovir&theme-color=nexovir&msapplication-TileImage=nexovir&msapplication-config=nexovir&msapplication-square70x70logo=nexovir&msapplication-wide310x150logo=nexovir&generator=nexovir&searchgov_custom1=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?searchgov_custom2=nexovir&searchgov_custom3=nexovir&keywords=nexovir&parsely-title=nexovir&parsely-link=nexovir&parsely-type=nexovir&input_1=nexovir&gform_ajax=nexovir&gform_submission_method=nexovir&gform_theme=nexovir&gform_style_settings=nexovir&is_submit_117=nexovir&gform_submit=nexovir&gform_unique_id=nexovir&state_117=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?gform_target_page_number_117=nexovir&gform_source_page_number_117=nexovir&gform_field_values=nexovir&gform_ajax_frame_117=nexovir&wp-block-library-inline-css=nexovir&all-css-2=nexovir&all-css-4=nexovir&popup-maker-site-inline-css=nexovir&random-popup-display-js-extra=nexovir&gform_recaptcha-js=nexovir&_fed_an_ua_tag=nexovir&mobile-header-logo=nexovir&global-navigation-trigger=nexovir&search-field-en-small--desktop=nexovir&header-logo=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?news-events-submenu=nexovir&news-galleries-submenu=nexovir&search-field-en-small--mobile=nexovir&global-navigation=nexovir&global-nav-home=nexovir&global-nav-missions=nexovir&global-nav-humans-in-space=nexovir&global-nav-earth-climate=nexovir&global-nav-solar-system=nexovir&global-nav-universe=nexovir&global-nav-science=nexovir&global-nav-aeronautics=nexovir&global-nav-technology=nexovir&global-nav-learning-resources=nexovir&global-nav-about-nasa=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?global-nav-espanol=nexovir&media=nexovir&galleries=nexovir&primary=nexovir&post-128943=nexovir&popmake-872473=nexovir&gform_wrapper_117=nexovir&gform_117=nexovir&gform_fields_117=nexovir&field_117_1=nexovir&input_117_1=nexovir&choice_117_1_0=nexovir&label_117_1_0=nexovir&choice_117_1_1=nexovir&label_117_1_1=nexovir -> 12/07/2025, 20:49:45
+Generated: https://nasa.gov/?param1=value1&?gform_submit_button_117=nexovir&gform_theme_117=nexovir&gform_style_settings_117=nexovir&gform_visibility_test_117=nexovir&wp-i18n-js=nexovir&wp-i18n-js-after=nexovir&wp-parsely-loader-js-before=nexovir&wp-parsely-loader-js=nexovir&wp-parsely-tracker-js-before=nexovir&parsely-cfg=nexovir&edac-frontend-fixes-js-extra=nexovir&wp-a11y-js=nexovir&gform_gravityforms-js-extra=nexovir&popup-maker-site-js-extra=nexovir -> 12/07/2025, 20:49:45
+[*] Starting Light Reflix ... -> 12/07/2025, 20:49:53
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:49:53
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?param1=asgharx&gform=asgharx&d=asgharx&t=asgharx&e=asgharx&popupData=asgharx&f=asgharx&contents=asgharx&is_postback=asgharx&form_content=asgharx&is_confirmation=asgharx&is_redirect=asgharx&is_form=asgharx&mt=asgharx&current_page=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?confirmation_content=asgharx&gformWrapperDiv=asgharx&visibilitySpan=asgharx&visibilityTestDiv=asgharx&postRenderFired=asgharx&timeout=asgharx&context=asgharx&later=asgharx&callNow=asgharx&debouncedTriggerPostRender=asgharx&observer=asgharx&edac_frontend_fixes=asgharx&gf_global=asgharx&gform_i18n=asgharx&gf_legacy_multi=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?gform_gravityforms=asgharx&gform_theme_config=asgharx&pum_vars=asgharx&pum_sub_vars=asgharx&pum_popups=asgharx&name=asgharx&url=asgharx&publisher=asgharx&inLanguage=asgharx&potentialAction=asgharx&target=asgharx&query-input=asgharx&width=asgharx&height=asgharx&caption=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?datePublished=asgharx&dateModified=asgharx&about=asgharx&isPartOf=asgharx&primaryImageOfPage=asgharx&image=asgharx&worksFor=asgharx&headline=asgharx&description=asgharx&author=asgharx&mainEntityOfPage=asgharx&uploadDate=asgharx&thumbnailUrl=asgharx&contentUrl=asgharx&isFamilyFriendly=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?popupId=asgharx&randomChance=asgharx&closepopup=asgharx&closedelay=asgharx&openpopup=asgharx&openpopup_id=asgharx&gf_currency_config=asgharx&symbol_left=asgharx&symbol_right=asgharx&symbol_padding=asgharx&thousand_separator=asgharx&decimal_separator=asgharx&decimals=asgharx&code=asgharx&base_url=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?number_formats=asgharx&spinnerUrl=asgharx&version_hash=asgharx&strings=asgharx&newRowAdded=asgharx&rowRemoved=asgharx&formSaved=asgharx&datepicker=asgharx&days=asgharx&monday=asgharx&tuesday=asgharx&wednesday=asgharx&thursday=asgharx&friday=asgharx&saturday=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?sunday=asgharx&months=asgharx&january=asgharx&february=asgharx&march=asgharx&april=asgharx&may=asgharx&june=asgharx&july=asgharx&august=asgharx&september=asgharx&october=asgharx&november=asgharx&december=asgharx&firstDay=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?iconText=asgharx&117=asgharx&invalid_file_extension=asgharx&delete_file=asgharx&in_progress=asgharx&file_exceeds_limit=asgharx&illegal_extension=asgharx&max_reached=asgharx&unknown_error=asgharx&currently_uploading=asgharx&cancel=asgharx&cancel_upload=asgharx&cancelled=asgharx&vars=asgharx&images_url=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?common=asgharx&form=asgharx&honeypot=asgharx&ajax=asgharx&ajaxurl=asgharx&ajax_submission_nonce=asgharx&i18n=asgharx&step_announcement=asgharx&hmr_dev=asgharx&public_path=asgharx&config_nonce=asgharx&version=asgharx&pm_dir_url=asgharx&restapi=asgharx&rest_nonce=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?default_theme=asgharx&debug_mode=asgharx&disable_tracking=asgharx&home_url=asgharx&message_position=asgharx&core_sub_forms_enabled=asgharx&popups=asgharx&cookie_domain=asgharx&pum-872473=asgharx&triggers=asgharx&type=asgharx&settings=asgharx&cookie_name=asgharx&delay=asgharx&cookies=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?event=asgharx&key=asgharx&session=asgharx&path=asgharx&time=asgharx&only_in_popup=asgharx&disable_on_mobile=asgharx&disable_on_tablet=asgharx&atc_promotion=asgharx&explain=asgharx&type_section=asgharx&theme_id=asgharx&size=asgharx&responsive_min_width=asgharx&responsive_max_width=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?custom_width=asgharx&custom_height_auto=asgharx&custom_height=asgharx&scrollable_content=asgharx&animation_type=asgharx&animation_speed=asgharx&animation_origin=asgharx&open_sound=asgharx&custom_sound=asgharx&location=asgharx&position_top=asgharx&position_bottom=asgharx&position_left=asgharx&position_right=asgharx&position_from_trigger=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?position_fixed=asgharx&overlay_disabled=asgharx&stackable=asgharx&disable_reposition=asgharx&zindex=asgharx&close_button_delay=asgharx&fi_promotion=asgharx&close_on_form_submission=asgharx&close_on_form_submission_delay=asgharx&close_on_overlay_click=asgharx&close_on_esc_press=asgharx&close_on_f4_press=asgharx&disable_form_reopen=asgharx&disable_accessibility=asgharx&theme_slug=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?id=asgharx&slug=asgharx&o=asgharx&--wp-admin--admin-bar--height=asgharx&180deg=asgharx&JSON=asgharx&XML=asgharx&w=asgharx&s=asgharx&j=asgharx&window=asgharx&noscript=asgharx&1=asgharx&JAXA=asgharx&this=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?mutation=asgharx&-90deg=asgharx&r=asgharx&0px=asgharx&document=asgharx&formId=asgharx&script=asgharx&fields=asgharx&l=asgharx&dataLayer=asgharx&isInit=asgharx&i=asgharx&GTM-NLJ258M=asgharx&m=asgharx&agency=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?terms=asgharx&search=asgharx&resize=asgharx&ver=asgharx&viewport=asgharx&robots=asgharx&application-name=asgharx&msapplication-TileColor=asgharx&theme-color=asgharx&msapplication-TileImage=asgharx&msapplication-config=asgharx&msapplication-square70x70logo=asgharx&msapplication-wide310x150logo=asgharx&generator=asgharx&searchgov_custom1=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?searchgov_custom2=asgharx&searchgov_custom3=asgharx&keywords=asgharx&parsely-title=asgharx&parsely-link=asgharx&parsely-type=asgharx&input_1=asgharx&gform_ajax=asgharx&gform_submission_method=asgharx&gform_theme=asgharx&gform_style_settings=asgharx&is_submit_117=asgharx&gform_submit=asgharx&gform_unique_id=asgharx&state_117=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?gform_target_page_number_117=asgharx&gform_source_page_number_117=asgharx&gform_field_values=asgharx&gform_ajax_frame_117=asgharx&wp-block-library-inline-css=asgharx&all-css-2=asgharx&all-css-4=asgharx&popup-maker-site-inline-css=asgharx&random-popup-display-js-extra=asgharx&gform_recaptcha-js=asgharx&_fed_an_ua_tag=asgharx&mobile-header-logo=asgharx&global-navigation-trigger=asgharx&search-field-en-small--desktop=asgharx&header-logo=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?news-events-submenu=asgharx&news-galleries-submenu=asgharx&search-field-en-small--mobile=asgharx&global-navigation=asgharx&global-nav-home=asgharx&global-nav-missions=asgharx&global-nav-humans-in-space=asgharx&global-nav-earth-climate=asgharx&global-nav-solar-system=asgharx&global-nav-universe=asgharx&global-nav-science=asgharx&global-nav-aeronautics=asgharx&global-nav-technology=asgharx&global-nav-learning-resources=asgharx&global-nav-about-nasa=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?global-nav-espanol=asgharx&media=asgharx&galleries=asgharx&primary=asgharx&post-128943=asgharx&popmake-872473=asgharx&gform_wrapper_117=asgharx&gform_117=asgharx&gform_fields_117=asgharx&field_117_1=asgharx&input_117_1=asgharx&choice_117_1_0=asgharx&label_117_1_0=asgharx&choice_117_1_1=asgharx&label_117_1_1=asgharx -> 12/07/2025, 20:49:56
+Generated: https://nasa.gov/?param1=?gform_submit_button_117=asgharx&gform_theme_117=asgharx&gform_style_settings_117=asgharx&gform_visibility_test_117=asgharx&wp-i18n-js=asgharx&wp-i18n-js-after=asgharx&wp-parsely-loader-js-before=asgharx&wp-parsely-loader-js=asgharx&wp-parsely-tracker-js-before=asgharx&parsely-cfg=asgharx&edac-frontend-fixes-js-extra=asgharx&wp-a11y-js=asgharx&gform_gravityforms-js-extra=asgharx&popup-maker-site-js-extra=asgharx -> 12/07/2025, 20:49:56
+[*] Starting Light Reflix ... -> 12/07/2025, 20:54:59
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:54:59
+[*] Starting Light Reflix ... -> 12/07/2025, 20:55:31
+   [*] Starting parameter discovery and check reflection https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 20:55:31
+[*] Starting Light Reflix ... -> 12/07/2025, 20:55:58
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:55:58
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 20:56:08
+Error in run_x8 with URL https://nasa.gov/?param1=: 'str' object cannot be interpreted as an integer -> 12/07/2025, 20:56:08
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:56:09
+[*] Starting Light Reflix ... -> 12/07/2025, 20:56:59
+   [*] Starting parameter discovery and check reflection https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 20:56:59
+[*] Generating test URLs for https://nasa.gov?param1=value1&param2=value2 ... -> 12/07/2025, 20:57:09
+Generated: https://nasa.gov?param1=asgharx&param2=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx -> 12/07/2025, 20:57:09
+Generated: https://nasa.gov?param1=value1&param2=value2&linear-gradient-10=asgharx&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:57:09
+   [*] Starting parameter discovery and check reflection https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 20:57:10
+[*] Generating test URLs for https://nasa.gov?param1=value1&param2=value2 ... -> 12/07/2025, 20:57:20
+Generated: https://nasa.gov?param1=asgharx&param2=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx -> 12/07/2025, 20:57:20
+Generated: https://nasa.gov?param1=value1&param2=value2&linear-gradient-10=asgharx&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:57:20
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:57:21
+[*] Generating test URLs for https://google.com/?param1=value1&param2=&param3=value3 ... -> 12/07/2025, 20:57:31
+Generated: https://google.com/?param1=asgharx&param3=asgharx&param2=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx -> 12/07/2025, 20:57:31
+Generated: https://google.com/?param1=value1&param3=value3&linear-gradient-9=asgharx&linear-gradient-10=asgharx&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:57:31
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 20:57:32
+[*] Generating test URLs for https://google.com/?param1=value1&param2=&param3=value3 ... -> 12/07/2025, 20:57:42
+Generated: https://google.com/?param1=asgharx&param3=asgharx&param2=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx -> 12/07/2025, 20:57:42
+Generated: https://google.com/?param1=value1&param3=value3&linear-gradient-9=asgharx&linear-gradient-10=asgharx&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:57:42
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 20:57:43
+[*] Generating test URLs for https://asghar.com/ ... -> 12/07/2025, 20:57:53
+Generated: https://asghar.com/?--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx&linear-gradient-11=asgharx -> 12/07/2025, 20:57:53
+Generated: https://asghar.com/?linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:57:53
+   [*] Starting parameter discovery and check reflection https://asghar.com/... -> 12/07/2025, 20:57:54
+[*] Generating test URLs for https://asghar.com/ ... -> 12/07/2025, 20:58:04
+Generated: https://asghar.com/?--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx&linear-gradient-11=asgharx -> 12/07/2025, 20:58:04
+Generated: https://asghar.com/?linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:58:04
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 20:58:05
+[*] Generating test URLs for https://nasa.gov/?param1=value1& ... -> 12/07/2025, 20:58:15
+Generated: https://nasa.gov/?param1=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx -> 12/07/2025, 20:58:15
+Generated: https://nasa.gov/?param1=value1&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:58:15
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 20:58:16
+[*] Generating test URLs for https://nasa.gov/?param1=value1& ... -> 12/07/2025, 20:58:27
+Generated: https://nasa.gov/?param1=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx -> 12/07/2025, 20:58:27
+Generated: https://nasa.gov/?param1=value1&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:58:27
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 20:58:28
+[*] Generating test URLs for https://memoryleaks.ir/?search= ... -> 12/07/2025, 20:58:38
+Generated: https://memoryleaks.ir/?search=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx -> 12/07/2025, 20:58:38
+Generated: https://memoryleaks.ir/?linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:58:38
+   [*] Starting parameter discovery and check reflection https://memoryleaks.ir/?search=... -> 12/07/2025, 20:58:39
+[*] Generating test URLs for https://memoryleaks.ir/?search= ... -> 12/07/2025, 20:58:49
+Generated: https://memoryleaks.ir/?search=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx -> 12/07/2025, 20:58:49
+Generated: https://memoryleaks.ir/?linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:58:49
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:58:50
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 20:59:00
+Generated: https://nasa.gov/?param1=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx -> 12/07/2025, 20:59:00
+Generated: https://nasa.gov/?linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:59:00
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 20:59:01
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 20:59:11
+Generated: https://nasa.gov/?param1=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx&linear-gradient-9=asgharx&linear-gradient-10=asgharx -> 12/07/2025, 20:59:11
+Generated: https://nasa.gov/?linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:59:11
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 20:59:12
+[*] Generating test URLs for https://nasa.gov/?param1=value1&param2=value2&param3=value3 ... -> 12/07/2025, 20:59:22
+Generated: https://nasa.gov/?param1=asgharx&param2=asgharx&param3=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx -> 12/07/2025, 20:59:22
+Generated: https://nasa.gov/?param1=value1&param2=value2&param3=value3&linear-gradient-9=asgharx&linear-gradient-10=asgharx&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:59:22
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 20:59:23
+[*] Generating test URLs for https://nasa.gov/?param1=value1&param2=value2&param3=value3 ... -> 12/07/2025, 20:59:33
+Generated: https://nasa.gov/?param1=asgharx&param2=asgharx&param3=asgharx&--main-background=asgharx&--main-accent=asgharx&--card-background=asgharx&--active-accent=asgharx&linear-gradient=asgharx&linear-gradient-2=asgharx&linear-gradient-3=asgharx&linear-gradient-4=asgharx&linear-gradient-5=asgharx&linear-gradient-6=asgharx&linear-gradient-7=asgharx&linear-gradient-8=asgharx -> 12/07/2025, 20:59:33
+Generated: https://nasa.gov/?param1=value1&param2=value2&param3=value3&linear-gradient-9=asgharx&linear-gradient-10=asgharx&linear-gradient-11=asgharx&linear-gradient-12=asgharx&linear-gradient-13=asgharx&linear-gradient-14=asgharx&linear-gradient-15=asgharx&linear-gradient-16=asgharx&Layer_2=asgharx&Layer_1-2=asgharx -> 12/07/2025, 20:59:33
+[*] Starting Light Reflix ... -> 12/07/2025, 21:04:19
+   [*] Starting parameter discovery and check reflection https://google.com/?param1=value1&param2=&param3=value3... -> 12/07/2025, 21:04:19
+[*] Generating test URLs for https://google.com/?param1=value1&param2=&param3=value3 ... -> 12/07/2025, 21:04:20
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=asgharx&param3=asgharx&param2=asgharx&w=asgharx&a=asgharx&d=asgharx&_g=asgharx&g=asgharx&l=asgharx&m=asgharx&b=asgharx&e=asgharx&f=asgharx&h=asgharx&k=asgharx -> 12/07/2025, 21:04:23
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&n=asgharx&c=asgharx&p=asgharx&ba=asgharx&ca=asgharx&da=asgharx&C=asgharx&H=asgharx&J=asgharx&K=asgharx&M=asgharx&ha=asgharx&W=asgharx&ka=asgharx&la=asgharx -> 12/07/2025, 21:04:26
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&ma=asgharx&B=asgharx&D=asgharx&G=asgharx&I=asgharx&L=asgharx&t=asgharx&sdo=asgharx&mei=asgharx&diel=asgharx&csart=asgharx&cbtf=asgharx&A=asgharx&linkEl=asgharx&pmc=asgharx -> 12/07/2025, 21:04:28
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&r=asgharx&deia=asgharx&x=asgharx&object=asgharx&function=asgharx&mouseover=asgharx&mouseout=asgharx&pointerover=asgharx&pointerout=asgharx&BdR7lk=asgharx&BdR7lo=asgharx&BdR7ls=asgharx&BdR7lw=asgharx&BdR7l0=asgharx&BdR7l4=asgharx -> 12/07/2025, 21:04:30
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&Im6cmf=asgharx&Yllh3e=asgharx&w2btAe=asgharx&SNlM0e=asgharx&GWsdKe=asgharx&d2zrDf=asgharx&ocxFnb=asgharx&zChJod=asgharx&STfaRd=asgharx&LVIXXb=asgharx&S06Grb=asgharx&QrtxK=asgharx&S6lZl=asgharx&oxN3nb=asgharx&1=asgharx -> 12/07/2025, 21:04:33
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&Ylvpqb=asgharx&eptZe=asgharx&ivyWed=asgharx&A5tF3b=asgharx&Fcb4A=asgharx&PUenT=asgharx&Z0DEKf=asgharx&khoEPb=asgharx&zhkRO=asgharx&ea2VK=asgharx&pxO4Zd=asgharx&mXOY5d=asgharx&SsQ4x=asgharx&Ht1O2b=asgharx&d6J1ld=asgharx -> 12/07/2025, 21:04:34
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&nfxEDe=asgharx&auIt8=asgharx&MuJWjd=asgharx&N1ycab=asgharx&AB5Xwb=asgharx&BZUDzc=asgharx&MgUcDb=asgharx&SIsrTd=asgharx&fyLpDc=asgharx&JPnTp=asgharx&ZxtPCd=asgharx&DwYRY=asgharx&NyzCwe=asgharx&spz2q=asgharx&geiQxc=asgharx -> 12/07/2025, 21:04:35
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&xFmcof=asgharx&lDqiof=asgharx&Gpnz4c=asgharx&kXVUzd=asgharx&sCU50d=asgharx&w9Zicc=asgharx&IkSsrf=asgharx&MR0w4=asgharx&OItNqf=asgharx&JMyuH=asgharx&j2FoS=asgharx&e2zoW=asgharx&W1Bte=asgharx&pbvshf=asgharx&u9mep=asgharx -> 12/07/2025, 21:04:37
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&mrqaQb=asgharx&Umq10e=asgharx&k7Tqye=asgharx&y50LC=asgharx&jfSEkd=asgharx&GVtPm=asgharx&MexNte=asgharx&Aahcnf=asgharx&PFhmed=asgharx&mf1yif=asgharx&B4pZbd=asgharx&aKXqGc=asgharx&o0P8Hf=asgharx&rkD25=asgharx&WiLzZe=asgharx -> 12/07/2025, 21:04:38
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&rNyuJc=asgharx&LU5fGb=asgharx&gXkHoe=asgharx&hevonc=asgharx&id=asgharx&this=asgharx&Z=asgharx&css=asgharx&--IXoxUe=asgharx&-=asgharx&undefined=asgharx&true=asgharx&atyp=asgharx&s=asgharx&hl=asgharx -> 12/07/2025, 21:04:39
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&utm_source=asgharx&sa=asgharx&subid=asgharx&fg=asgharx&eom=asgharx&ei=asgharx&lei=asgharx&cshid=asgharx&zx=asgharx&opi=asgharx&ct=asgharx&cad=asgharx&rt=asgharx&jexpid=asgharx&srcpg=asgharx -> 12/07/2025, 21:04:40
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&jsr=asgharx&bver=asgharx&dpf=asgharx&line=asgharx&script=asgharx&jsel=asgharx&emsg=asgharx&jsst=asgharx&vet=asgharx&ved=asgharx&astyp=asgharx&twt=asgharx&mwt=asgharx&lvhr=asgharx&referrer=asgharx -> 12/07/2025, 21:04:41
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&RNNXgb=asgharx&uFMOof=asgharx&gLFyf=asgharx&vdLsw=asgharx&q=asgharx&RP0xob=asgharx&pkjasb=asgharx&itVqKe=asgharx&s1VaRe=asgharx&R5mgy=asgharx&mvaK7d=asgharx&UUbT9=asgharx&aadvhe=asgharx&GkjeIf=asgharx&RjPuVb=asgharx -> 12/07/2025, 21:04:42
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&aajZCb=asgharx&erkvQe=asgharx&tovEib=asgharx&E80e9e=asgharx&bw4e9b=asgharx&VlcLAe=asgharx&btnK=asgharx&btnI=asgharx&JUypV=asgharx&sca_esv=asgharx&source=asgharx&iflsig=asgharx&FAeNCb=asgharx&cgsKlb=asgharx&V68bde=asgharx -> 12/07/2025, 21:04:43
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://google.com/?param1=value1&param3=value3&oYxtQd=asgharx&LgbsSe=asgharx&xl07Ob=asgharx&NNJLud=asgharx&ibnC6b=asgharx&csi=asgharx&gb=asgharx&23=asgharx&2=asgharx&gbwa=asgharx&APjFqb=asgharx&5010715=asgharx&_NJxyaLfOC9ee4-EP3MDhkQo_1=asgharx&_NJxyaLfOC9ee4-EP3MDhkQo_4=asgharx&_NJxyaLfOC9ee4-EP3MDhkQo_6=asgharx -> 12/07/2025, 21:04:45
+[*] Starting Light Reflix ... -> 12/07/2025, 21:05:10
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:05:10
+[*] Generating test URLs for https://nasa.gov/?param1=value1&param2=value2&param3=value3 ... -> 12/07/2025, 21:05:12
+[*] Starting Light Reflix ... -> 12/07/2025, 21:05:29
+   [*] Starting parameter discovery and check reflection https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:05:29
+[*] Starting Light Reflix ... -> 12/07/2025, 21:05:49
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 21:05:49
+[*] Generating test URLs for https://nasa.gov/?param1=value1& ... -> 12/07/2025, 21:05:53
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&... -> 12/07/2025, 21:06:15
+[*] Generating test URLs for https://nasa.gov/?param1=value1& ... -> 12/07/2025, 21:06:18
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 21:06:41
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 21:06:43
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 21:07:07
+[*] Generating test URLs for https://nasa.gov/?param1= ... -> 12/07/2025, 21:07:09
+[*] Starting Light Reflix ... -> 12/07/2025, 21:07:58
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:07:58
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:08:23
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=... -> 12/07/2025, 21:08:46
+[*] Starting Light Reflix ... -> 12/07/2025, 21:08:57
+   [*] Starting parameter discovery and check reflection https://nasa.gov/?param1=...GET -> 12/07/2025, 21:08:57
+[*] Starting Light Reflix ... -> 12/07/2025, 21:09:18
+   [*] Starting parameter discovery and check reflection method: GET https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:09:18
+[*] Starting Light Reflix ... -> 12/07/2025, 21:09:27
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=... -> 12/07/2025, 21:09:27
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=... -> 12/07/2025, 21:09:50
+   [*] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search=... -> 12/07/2025, 21:10:14
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=asgharx&potentialAction=asgharx&target=asgharx&urlTemplate=asgharx&query-input=asgharx&valueRequired=asgharx&valueName=asgharx&baseUrl=asgharx&ext=asgharx&svgUrl=asgharx&svgExt=asgharx&source=asgharx&concatemoji=asgharx&flag=asgharx&emoji=asgharx -> 12/07/2025, 21:10:19
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=asgharx&wp-block-library-rtl-css=asgharx&global-styles-inline-css=asgharx&wp-pagenavi-css=asgharx&c4wp-checkout-css=asgharx&c4wp-v3-lp-form-css=asgharx&pagen=asgharx -> 12/07/2025, 21:10:22
+   [*] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir/?search=... -> 12/07/2025, 21:10:23
+[*] Starting Light Reflix ... -> 12/07/2025, 21:10:25
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=... -> 12/07/2025, 21:10:25
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=... -> 12/07/2025, 21:10:48
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:11:12
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:11:36
+   [*] Starting parameter discovery and check reflection (method: GET) https://asghar.com/... -> 12/07/2025, 21:12:03
+   [*] Starting parameter discovery and check reflection (method: POST) https://asghar.com/... -> 12/07/2025, 21:13:00
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&... -> 12/07/2025, 21:13:57
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&... -> 12/07/2025, 21:14:04
+   [*] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search=... -> 12/07/2025, 21:14:18
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=asgharx&potentialAction=asgharx&target=asgharx&urlTemplate=asgharx&query-input=asgharx&valueRequired=asgharx&valueName=asgharx&baseUrl=asgharx&ext=asgharx&svgUrl=asgharx&svgExt=asgharx&source=asgharx&concatemoji=asgharx&flag=asgharx&emoji=asgharx -> 12/07/2025, 21:14:20
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=asgharx&wp-block-library-rtl-css=asgharx&global-styles-inline-css=asgharx&wp-pagenavi-css=asgharx&c4wp-checkout-css=asgharx&c4wp-v3-lp-form-css=asgharx&pagen=asgharx -> 12/07/2025, 21:14:22
+   [*] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir/?search=... -> 12/07/2025, 21:14:23
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=asgharx&potentialAction=asgharx&target=asgharx&urlTemplate=asgharx&query-input=asgharx&valueRequired=asgharx&valueName=asgharx&baseUrl=asgharx&ext=asgharx&svgUrl=asgharx&svgExt=asgharx&source=asgharx&concatemoji=asgharx&flag=asgharx&emoji=asgharx -> 12/07/2025, 21:14:25
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=asgharx&wp-block-library-rtl-css=asgharx&global-styles-inline-css=asgharx&wp-pagenavi-css=asgharx&c4wp-checkout-css=asgharx&c4wp-v3-lp-form-css=asgharx&pagen=asgharx -> 12/07/2025, 21:14:27
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:14:28
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:14:35

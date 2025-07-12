@@ -1,10 +1,9 @@
 import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yaml , tempfile, json
 from yaspin import yaspin # type: ignore
 from colorama import Fore, Style
-from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
+from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse , parse_qs
 from typing import List, Dict
 
-PARAMETER_TMP = '/tmp/parameters.txt'
 
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
@@ -38,6 +37,33 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
             print(f"Telegram message failed: {e}")
+
+def log_event(message: str, level: str = "INFO", telegram: bool = False):
+    levels = {
+        "INFO": "YELLOW",
+        "SUCCESS": "GREEN",
+        "WARNING": "MAGENTA",
+        "ERROR": "RED",
+        "DEBUG": "BLUE"
+    }
+    prefix = {
+        "INFO": "[*] ",
+        "SUCCESS": "[+] ",
+        "WARNING": "[!] ",
+        "ERROR": "[-] ",
+        "DEBUG": "[#] "
+    }
+
+    colour = levels.get(level.upper(), "YELLOW")
+    prefix_msg = prefix.get(level.upper(), "")
+    sendmessage(
+        prefix_msg + message,
+        telegram=telegram,
+        colour=colour,
+        logger=logger,
+        silent=silent
+    )
+
 
 
 parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection and fuzzing tool')
@@ -142,10 +168,9 @@ def read_write_list(list_data: list, file: str, type: str):
                     f.write(item.strip() + '\n')
 
 
-def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int , proxy):
+def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir" , proxy =''):  
     
-    def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir" , proxy =''):  
-        template = {
+    template = {
             'id': f'{method.upper()}',
             'info': {
                 'name': f'Reflix ({method.upper()})',
@@ -166,69 +191,88 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
                     ]
                 }
             ]
-        }
-        if method.upper() == 'POST':
-            template['requests'][0]['body'] = post_data
-            if 'Content-Type' not in template['requests'][0]['headers']:
-                template['requests'][0]['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
+    }
         
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as temp_file:
-            yaml.dump(template, temp_file)
-            temp_path = temp_file.name
-        try:
-
-            cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
-            result = subprocess.run(cmd, capture_output=True, text=True)
+    if method.upper() == 'POST':
+        template['requests'][0]['body'] = post_data
+        if 'Content-Type' not in template['requests'][0]['headers']:
+            template['requests'][0]['headers']['Content-Type'] = 'application/x-www-form-urlencoded'
+        
+    with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as temp_file:
+        yaml.dump(template, temp_file)
+        temp_path = temp_file.name
+    try:
+        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
+        result = subprocess.run(cmd, capture_output=True, text=True)
             
-            if result.returncode == 0:
-                raw_output = result.stdout.splitlines()
-                for line in raw_output:
-                    sendmessage(line)
-                    
-                return {
-                    'success': True,
-                    'raw_results': raw_output,
-                    'stats': f"line count: {len(raw_output)}"
-                }
-            else:
-                sendmessage(result.stderr)
-                return {
-                    'success': False,
-                    'error': result.stderr
-                }
-        finally:
-            os.unlink(temp_path)
-        
-    command = [
-    "injector",
-    "-l",urls_path,
-    "-p",parameter,
-    "-c",chunk,
-    "-vm",value_mode,
-    "-gm",generate_mode,
-    '-s'
-    ]
-
-    if wordlist_parameters: 
-        command.extend(["-w", wordlist_parameters])
+        if result.returncode == 0:
+            raw_output = result.stdout.splitlines()
+            for line in raw_output:
+                sendmessage(line)
+                
+            return {
+                'success': True,
+                'raw_results': raw_output,
+                'stats': f"line count: {len(raw_output)}"
+            }
+        else:
+            sendmessage(f"  [-] Nuclei error: {result.stderr}", colour="RED")
+            return {
+                'success': False,
+                'error': result.stderr
+            }
+    finally:
+        os.unlink(temp_path)
     
-    result = subprocess.run(
-        command,
-        shell=False,
-        check=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
+
+def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int , proxy):
+    
+    sendmessage("[*] Starting Static Reflix ...", colour="YELLOW")
+
+    try : 
+        command = [
+        "injector",
+        "-l",urls_path,
+        "-p",parameter,
+        "-c",chunk,
+        "-vm",value_mode,
+        "-gm",generate_mode,
+        '-s'
+        ]
+
+        if wordlist_parameters: 
+            command.extend(["-w", wordlist_parameters])
+        
+        sendmessage("   [*] Running injector ...", colour="YELLOW")
+
+        result = subprocess.run(
+            command,
+            shell=False,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        sendmessage("   [+] Injector finished successfully", colour="GREEN")
+
+    except subprocess.CalledProcessError as e:
+        sendmessage(f"  [-] Injector failed: {e.stderr}", colour="RED")
+        return
+    except Exception as e:
+        sendmessage(f"  [-] Unexpected error during injector: {str(e)}", colour="RED")
+        return
+        
     urls = result.stdout.splitlines()
+    sendmessage(f"  [*] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...", colour="YELLOW")
     for url in urls :      
         for method in methods:
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
 
 def run_fallparams(url, proxy, thread, delay, method , headers):
-
+    
     try:
+        
         command = [
         "fallparams",
         "-u",url,
@@ -249,57 +293,52 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
         )
         return result.stdout.splitlines()
     except Exception as e:
-        sendmessage(f"Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
+        sendmessage(f"  [-] Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
         return
 
-def run_x8 (url , proxy , thread , delay , method , headers):
 
-    try : 
-        command = [
-        "x8",
-        "-u",url,
-        "-x",proxy if proxy else '',
-        "-X",method,
-        "-w" ,PARAMETER_TMP,
-        "-H"
-        ]
-        for k, v in headers.items():
-            command.append(f"{k}:{v}")
-        
-        result = subprocess.run(
-            command,
-            shell=False,
-            check=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        
-    except Exception as e :
-        sendmessage(f"Error x8 URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
-    
+def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , parameter):
+    try:
+        chunked_params = [parameters[i:i + int(chunk)] for i in range(0, len(parameters), int(chunk))]
+
+        parsed = urlparse(url)
+        base_query = parse_qs(parsed.query)
+
+        for group in chunked_params:
+            current_params = base_query.copy()
+            for param in group:
+                current_params[param] = parameter
+
+            new_query = urlencode(current_params, doseq=True)
+            full_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
+            run_nuclei_scan(full_url , method , headers , None , parameter , proxy)
+
+    except Exception as e:
+        sendmessage(f"Error in run_x8 with URL {url}: {str(e)}", colour="RED")
+        return []
+
 
 def light_reflix (urls, proxy, thread, delay, methods):
-    
+
+    sendmessage("[*] Starting Light Reflix ...", colour="YELLOW")
     for url in urls :
         for method in methods:
+            sendmessage(f"   [*] Starting parameter discovery and check reflection (method: {method}) {url}...", colour="YELLOW")
             parameters = run_fallparams(url, proxy, thread, delay, method, headers)
             
-            # saving tmp parameters then going to x8
-            read_write_list(parameters , PARAMETER_TMP , 'w')
             # save paramters output for client
             read_write_list(parameters , params_output , 'a')
 
-            run_x8(url , proxy , thread , delay , method, headers)
+            run_x8(url , parameters,  proxy , thread , delay , method, headers, chunk , parameter)
             time.sleep(delay)
 
 def main():
     try:
-        
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
         # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
         light_reflix(urls, proxy, thread, delay, methods)
+
     except KeyboardInterrupt:
         sendmessage(
             "Process interrupted by user.",

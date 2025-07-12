@@ -4,6 +4,8 @@ from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse
 from typing import List, Dict
 
+PARAMETER_TMP = '/tmp/parameters.txt'
+
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
     twitter = Style.BRIGHT + Fore.CYAN + "X.com: @nexovir" + Style.RESET_ALL
@@ -65,12 +67,12 @@ ratelimit_group.add_argument('-rd', '--delay',type=int,help='Delay (in seconds) 
 notif_group = parser.add_argument_group('Notification & Logging')
 notif_group.add_argument('-n', '--notify', help='Enable notifications', action='store_true', default=False, required=False)
 notif_group.add_argument('-g', '--logger', help='Enable logger', action='store_true', default=False, required=False)
-notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default False)', action='store_true', default=False, required=False)
+notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default: False)', action='store_true', default=False, required=False)
 
 
 # --- Output ---
 notif_group = parser.add_argument_group('Outputs')
-notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved', required=False)
+notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved (default: paramters.txt)', required=False , default='all_params.txt')
 notif_group.add_argument('-o', '--output',help='output file to write found issues/vulnerabilities ', type=str ,required=False)
 notif_group.add_argument('-jo', '--jsonoutput',help='file to export results in JSON format',type=str ,required=False)
 
@@ -224,7 +226,8 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
 
-def run_fallparams(url, proxy, thread, delay, method):
+def run_fallparams(url, proxy, thread, delay, method , headers):
+
     try:
         command = [
         "fallparams",
@@ -234,7 +237,8 @@ def run_fallparams(url, proxy, thread, delay, method):
         '-silent',
         '-duc',
         ]
-        print(command)
+        for key, value in headers.items():
+            command.extend(["-H", f"{key}: {value}"])
         result = subprocess.run(
             command,
             shell=False,
@@ -243,21 +247,55 @@ def run_fallparams(url, proxy, thread, delay, method):
             stderr=subprocess.PIPE,
             text=True
         )
-        print(result.stdout)
+        return result.stdout.splitlines()
     except Exception as e:
-        sendmessage(f"Error processing URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
+        sendmessage(f"Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
         return
 
+def run_x8 (url , proxy , thread , delay , method , headers):
 
+    try : 
+        command = [
+        "x8",
+        "-u",url,
+        "-x",proxy if proxy else '',
+        "-X",method,
+        "-w" ,PARAMETER_TMP,
+        "-H"
+        ]
+        for k, v in headers.items():
+            command.append(f"{k}:{v}")
+        
+        result = subprocess.run(
+            command,
+            shell=False,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        
+    except Exception as e :
+        sendmessage(f"Error x8 URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
+    
 
 def light_reflix (urls, proxy, thread, delay, methods):
+    
     for url in urls :
         for method in methods:
-            run_fallparams(url, proxy, thread, delay, method)
+            parameters = run_fallparams(url, proxy, thread, delay, method, headers)
+            
+            # saving tmp parameters then going to x8
+            read_write_list(parameters , PARAMETER_TMP , 'w')
+            # save paramters output for client
+            read_write_list(parameters , params_output , 'a')
+
+            run_x8(url , proxy , thread , delay , method, headers)
             time.sleep(delay)
 
 def main():
     try:
+        
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
         # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)

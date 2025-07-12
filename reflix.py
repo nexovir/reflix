@@ -204,7 +204,6 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
     try:
         cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
         result = subprocess.run(cmd, capture_output=True, text=True)
-            
         if result.returncode == 0:
             raw_output = result.stdout.splitlines()
             for line in raw_output:
@@ -332,11 +331,12 @@ def light_reflix (urls, proxy, thread, delay, methods):
             run_x8(url , parameters,  proxy , thread , delay , method, headers, chunk , parameter)
             time.sleep(delay)
 
+
 def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
-        # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
+        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
         light_reflix(urls, proxy, thread, delay, methods)
 
     except KeyboardInterrupt:

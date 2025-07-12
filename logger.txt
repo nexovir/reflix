@@ -540,3 +540,41 @@ Generated: https://nasa.gov/?param1=value1&param2=value2&param3=value3&linear-gr
 [[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=asgharx&wp-block-library-rtl-css=asgharx&global-styles-inline-css=asgharx&wp-pagenavi-css=asgharx&c4wp-checkout-css=asgharx&c4wp-v3-lp-form-css=asgharx&pagen=asgharx -> 12/07/2025, 21:14:27
    [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:14:28
    [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:14:35
+[*] Starting Light Reflix ... -> 12/07/2025, 21:27:43
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:27:43
+[*] Starting Light Reflix ... -> 12/07/2025, 21:27:50
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&... -> 12/07/2025, 21:27:50
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&... -> 12/07/2025, 21:28:27
+[*] Starting Light Reflix ... -> 12/07/2025, 21:28:37
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:28:37
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:29:26
+[*] Starting Light Reflix ... -> 12/07/2025, 21:30:32
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 21:30:32
+[*] Starting Light Reflix ... -> 12/07/2025, 21:38:34
+   [*] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search=... -> 12/07/2025, 21:38:34
+[*] Starting Static Reflix ... -> 12/07/2025, 21:38:40
+   [*] Running injector ... -> 12/07/2025, 21:38:40
+   [+] Injector finished successfully -> 12/07/2025, 21:38:40
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 21:38:40
+[*] Starting Static Reflix ... -> 12/07/2025, 21:38:46
+   [*] Running injector ... -> 12/07/2025, 21:38:46
+   [+] Injector finished successfully -> 12/07/2025, 21:38:46
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 21:38:46
+[*] Starting Static Reflix ... -> 12/07/2025, 21:39:06
+   [*] Running injector ... -> 12/07/2025, 21:39:06
+   [+] Injector finished successfully -> 12/07/2025, 21:39:06
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 21:39:06
+[*] Starting Static Reflix ... -> 12/07/2025, 21:43:43
+   [*] Running injector ... -> 12/07/2025, 21:43:43
+   [+] Injector finished successfully -> 12/07/2025, 21:43:43
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 21:43:43
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 21:43:45
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 21:43:46
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p2=nexovir&w_p3=nexovir&w_p1=nexovir -> 12/07/2025, 21:44:02
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p2=nexovir&w_p3=nexovir&w_p1=nexovir -> 12/07/2025, 21:44:03
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p2=nexovir&w_p3=nexovir&w_p1=nexovir -> 12/07/2025, 21:44:55
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p2=nexovir&w_p3=nexovir&w_p1=nexovir -> 12/07/2025, 21:44:56
+[*] Starting Light Reflix ... -> 12/07/2025, 21:45:50
+   [*] Starting parameter discovery and check reflection (method: GET) https://asghar.com/... -> 12/07/2025, 21:45:50
+   [*] Starting parameter discovery and check reflection (method: POST) https://asghar.com/... -> 12/07/2025, 21:46:45
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:47:39

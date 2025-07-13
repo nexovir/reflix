@@ -238,7 +238,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         "-gm",generate_mode,
         '-s'
         ]
-
+        print(command)
         if wordlist_parameters: 
             command.extend(["-w", wordlist_parameters])
         
@@ -290,6 +290,7 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
             stderr=subprocess.PIPE,
             text=True
         )
+        
         return result.stdout.splitlines()
     except Exception as e:
         sendmessage(f"  [-] Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
@@ -311,7 +312,7 @@ def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , param
             new_query = urlencode(current_params, doseq=True)
             full_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
             run_nuclei_scan(full_url , method , headers , None , parameter , proxy)
-
+            
     except Exception as e:
         sendmessage(f"Error in run_x8 with URL {url}: {str(e)}", colour="RED")
         return []

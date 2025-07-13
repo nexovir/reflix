@@ -578,3 +578,34 @@ Generated: https://nasa.gov/?param1=value1&param2=value2&param3=value3&linear-gr
    [*] Starting parameter discovery and check reflection (method: GET) https://asghar.com/... -> 12/07/2025, 21:45:50
    [*] Starting parameter discovery and check reflection (method: POST) https://asghar.com/... -> 12/07/2025, 21:46:45
    [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:47:39
+[*] Starting Static Reflix ... -> 12/07/2025, 21:49:09
+   [*] Running injector ... -> 12/07/2025, 21:49:09
+   [+] Injector finished successfully -> 12/07/2025, 21:49:09
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 21:49:09
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 21:50:17
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 21:50:17
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 12/07/2025, 21:52:33
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 12/07/2025, 21:52:34
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 12/07/2025, 21:53:35
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 12/07/2025, 21:53:37
+[*] Starting Light Reflix ... -> 12/07/2025, 21:54:08
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:54:08
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2... -> 12/07/2025, 21:56:36
+[*] Starting Static Reflix ... -> 12/07/2025, 21:58:46
+   [*] Running injector ... -> 12/07/2025, 21:58:46
+   [+] Injector finished successfully -> 12/07/2025, 21:58:46
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 12/07/2025, 21:58:46
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 21:59:15
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 12/07/2025, 21:59:16
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p2=nexovir&w_p1=nexovir&w_p3=nexovir -> 12/07/2025, 22:00:47
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p2=nexovir&w_p1=nexovir&w_p3=nexovir -> 12/07/2025, 22:00:48
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p2=nexovir&w_p1=nexovir&w_p3=nexovir -> 12/07/2025, 22:01:49
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p2=nexovir&w_p1=nexovir&w_p3=nexovir -> 12/07/2025, 22:01:50
+[*] Starting Light Reflix ... -> 12/07/2025, 22:01:53
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&... -> 12/07/2025, 22:01:53
+[*] Starting Light Reflix ... -> 12/07/2025, 22:02:36
+   [*] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search=... -> 12/07/2025, 22:02:36
+[*] Starting Light Reflix ... -> 12/07/2025, 22:02:55
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=... -> 12/07/2025, 22:02:55
+[*] Starting Light Reflix ... -> 12/07/2025, 22:03:17
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 22:03:17

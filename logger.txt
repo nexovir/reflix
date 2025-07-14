@@ -804,3 +804,183 @@ Generated: https://nasa.gov/?param1=value1&param2=value2&param3=value3&linear-gr
    [INFO] Running injector ... -> 14/07/2025, 13:14:29
    [SUCCESS] Injector finished successfully -> 14/07/2025, 13:14:29
   [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:14:29
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:17:08
+   [INFO] Running injector ... -> 14/07/2025, 13:17:08
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:17:08
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:17:08
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:17:11
+   [INFO] Running injector ... -> 14/07/2025, 13:17:11
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:17:11
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:17:11
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:17:13
+   [INFO] Running injector ... -> 14/07/2025, 13:17:13
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:17:13
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:17:13
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:21:53
+   [INFO] Running injector ... -> 14/07/2025, 13:21:53
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:21:54
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:21:54
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:36:24
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 13:36:24
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 13:36:24
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:36:52
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search= -> 14/07/2025, 13:36:52
+      [INFO] Start Fuzzing parameters (method: GET) https://memoryleaks.ir/?search= -> 14/07/2025, 13:36:52
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:36:59
+      [INFO] Start Fuzzing parameters (method: GET) https://memoryleaks.ir/?search= -> 14/07/2025, 13:36:59
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:38:44
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov/?param1=value1& -> 14/07/2025, 13:38:44
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:38:58
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3 -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:38:58
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:39:19
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:19
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:20
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:20
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:20
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:20
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:39:22
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov/?param1=value1& -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:39:22
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:40:09
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov/?param1= -> 14/07/2025, 13:40:09
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:10
+[INFO] Starting Heavy Reflix ... -> 14/07/2025, 13:40:23
+      [INFO] Start Fuzzing parameters (method: GET) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:23
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24
+  [ERROR] Nuclei error: [[1;31mFTL[0m] Program exiting: [proxyutils:RUNTIME] all proxies are dead got : dial tcp 127.0.0.1:8080: connect: connection refused
+ -> 14/07/2025, 13:40:24

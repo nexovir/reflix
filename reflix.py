@@ -20,7 +20,7 @@ def show_banner():
 def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", logger: bool = True , silent : bool = False):
     color = getattr(colorama.Fore, colour, colorama.Fore.YELLOW)
     if not silent:
-        if debug.lower() == 'True':
+        if debug :
             print(color + message + colorama.Style.RESET_ALL)
     time_string = time.strftime("%d/%m/%Y, %H:%M:%S", time.localtime())
     if logger:
@@ -57,6 +57,7 @@ notif_group.add_argument('-X', '--methods', help='HTTP methods to use for reques
 notif_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[])
 notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
 input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
+input_group.add_argument('-he', '--heavy', help='If enabled, it re-fuzzes all discovered parameters after light completes (default: False)',action='store_true',  default=False, required=False)
 
 
 # --- Rate Limit Options ---
@@ -70,7 +71,7 @@ notif_group = parser.add_argument_group('Notification & Logging')
 notif_group.add_argument('-n', '--notify', help='Enable notifications', action='store_true', default=False, required=False)
 notif_group.add_argument('-g', '--logger', help='Enable logger', action='store_true', default=False, required=False)
 notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default: False)', action='store_true', default=False, required=False)
-input_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)',type=str,  default='False', required=False)
+input_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)', action='store_true', default=False, required=False)
 
 
 # --- Output ---
@@ -97,6 +98,7 @@ if args.headers:
 
 proxy = args.proxy
 chunk = args.chunk
+heavy = args.heavy
 
 #Ratelimit Option
 thread = args.thread
@@ -249,7 +251,8 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
 
 
 def run_fallparams(url, proxy, thread, delay, method , headers):
-    
+    sendmessage(f"   [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW")
+
     try:
         
         command = [
@@ -280,6 +283,7 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
 
 def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , parameter):
     try:
+        sendmessage(f"      [INFO] Start Fuzzing parameters (method: {method}) {url}" , colour="YELLOW")
         chunked_params = [parameters[i:i + int(chunk)] for i in range(0, len(parameters), int(chunk))]
 
         parsed = urlparse(url)
@@ -293,7 +297,8 @@ def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , param
             new_query = urlencode(current_params, doseq=True)
             full_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
             run_nuclei_scan(full_url , method , headers , None , parameter , proxy)
-            
+            time.sleep(delay)
+
     except Exception as e:
         sendmessage(f"[ERROR] Error in run_x8 with URL {url}: {str(e)}", colour="RED")
         return []
@@ -304,22 +309,34 @@ def light_reflix (urls, proxy, thread, delay, methods):
     sendmessage("[INFO] Starting Light Reflix ...", colour="YELLOW")
     for url in urls :
         for method in methods:
-            sendmessage(f"   [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW")
+            
             parameters = run_fallparams(url, proxy, thread, delay, method, headers)
             
             # save paramters output for client
             read_write_list(parameters , params_output , 'a')
 
             run_x8(url , parameters,  proxy , thread , delay , method, headers, chunk , parameter)
-            time.sleep(delay)
+            
 
+def heavy_reflix (urls , proxy , thread , delay , methods) : 
+    
+    sendmessage(f"[INFO] Starting Heavy Reflix ...", colour="YELLOW")
+    parameters = read_write_list('' , params_output , 'r')
 
+    for url in urls :
+        for method in methods :
+            
+            run_x8(url , parameters , proxy , thread , delay , method , headers , chunk , parameter)
+            
+    
 def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
-        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
-        light_reflix(urls, proxy, thread, delay, methods)
+        # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
+        # light_reflix(urls, proxy, thread, delay, methods)
+        if heavy : 
+            heavy_reflix(urls , proxy , thread , delay , methods)
 
     except KeyboardInterrupt:
         sendmessage(

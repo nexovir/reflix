@@ -251,7 +251,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
 
 
 def run_fallparams(url, proxy, thread, delay, method , headers):
-    sendmessage(f"   [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW")
+    sendmessage(f"  [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW")
 
     try:
         
@@ -283,7 +283,7 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
 
 def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , parameter):
     try:
-        sendmessage(f"      [INFO] Start Fuzzing parameters (method: {method}) {url}" , colour="YELLOW")
+        sendmessage(f"  [INFO] Start Fuzzing {len(parameters)} parameters (method: {method}) {url}" , colour="YELLOW")
         chunked_params = [parameters[i:i + int(chunk)] for i in range(0, len(parameters), int(chunk))]
 
         parsed = urlparse(url)
@@ -333,8 +333,8 @@ def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
-        # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
-        # light_reflix(urls, proxy, thread, delay, methods)
+        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
+        light_reflix(urls, proxy, thread, delay, methods)
         if heavy : 
             heavy_reflix(urls , proxy , thread , delay , methods)
 

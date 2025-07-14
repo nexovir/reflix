@@ -609,3 +609,198 @@ Generated: https://nasa.gov/?param1=value1&param2=value2&param3=value3&linear-gr
    [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=... -> 12/07/2025, 22:02:55
 [*] Starting Light Reflix ... -> 12/07/2025, 22:03:17
    [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 12/07/2025, 22:03:17
+[*] Starting Static Reflix ... -> 14/07/2025, 11:49:12
+   [*] Running injector ... -> 14/07/2025, 11:49:12
+   [+] Injector finished successfully -> 14/07/2025, 11:49:12
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 11:49:12
+[*] Starting Static Reflix ... -> 14/07/2025, 11:49:50
+   [*] Running injector ... -> 14/07/2025, 11:49:50
+   [+] Injector finished successfully -> 14/07/2025, 11:49:50
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 11:49:50
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 14/07/2025, 11:50:02
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 14/07/2025, 11:50:04
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 11:51:09
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 11:51:11
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 11:52:02
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 11:52:04
+[*] Starting Light Reflix ... -> 14/07/2025, 11:52:14
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 14/07/2025, 11:52:14
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 14/07/2025, 11:52:57
+   [*] Starting parameter discovery and check reflection (method: GET) https://asghar.com/... -> 14/07/2025, 11:53:39
+   [*] Starting parameter discovery and check reflection (method: POST) https://asghar.com/... -> 14/07/2025, 11:53:50
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 14/07/2025, 11:54:00
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2... -> 14/07/2025, 11:54:39
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&... -> 14/07/2025, 11:55:15
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&... -> 14/07/2025, 11:55:53
+   [*] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search=... -> 14/07/2025, 11:56:33
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=nexovir&potentialAction=nexovir&target=nexovir&urlTemplate=nexovir&query-input=nexovir&valueRequired=nexovir&valueName=nexovir&baseUrl=nexovir&ext=nexovir&svgUrl=nexovir&svgExt=nexovir&source=nexovir&concatemoji=nexovir&flag=nexovir&emoji=nexovir -> 14/07/2025, 11:56:37
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=nexovir&wp-block-library-rtl-css=nexovir&global-styles-inline-css=nexovir&wp-pagenavi-css=nexovir&c4wp-checkout-css=nexovir&c4wp-v3-lp-form-css=nexovir&pagen=nexovir -> 14/07/2025, 11:56:40
+   [*] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir/?search=... -> 14/07/2025, 11:56:40
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=nexovir&potentialAction=nexovir&target=nexovir&urlTemplate=nexovir&query-input=nexovir&valueRequired=nexovir&valueName=nexovir&baseUrl=nexovir&ext=nexovir&svgUrl=nexovir&svgExt=nexovir&source=nexovir&concatemoji=nexovir&flag=nexovir&emoji=nexovir -> 14/07/2025, 11:56:45
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=nexovir&wp-block-library-rtl-css=nexovir&global-styles-inline-css=nexovir&wp-pagenavi-css=nexovir&c4wp-checkout-css=nexovir&c4wp-v3-lp-form-css=nexovir&pagen=nexovir -> 14/07/2025, 11:56:49
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=... -> 14/07/2025, 11:56:49
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=... -> 14/07/2025, 11:57:29
+[*] Starting Static Reflix ... -> 14/07/2025, 12:32:13
+   [*] Running injector ... -> 14/07/2025, 12:32:13
+   [+] Injector finished successfully -> 14/07/2025, 12:32:13
+  [*] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:32:13
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 14/07/2025, 12:32:42
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 14/07/2025, 12:32:43
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 14/07/2025, 12:33:34
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 14/07/2025, 12:33:36
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 14/07/2025, 12:34:34
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p3=nexovir&w_p2=nexovir -> 14/07/2025, 12:34:36
+[*] Starting Light Reflix ... -> 14/07/2025, 12:34:36
+   [*] Starting parameter discovery and check reflection (method: GET) https://asghar.com/... -> 14/07/2025, 12:34:36
+      [*] find 0 -> 14/07/2025, 12:34:46
+   [*] Starting parameter discovery and check reflection (method: POST) https://asghar.com/... -> 14/07/2025, 12:34:46
+      [*] find 0 -> 14/07/2025, 12:34:56
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&... -> 14/07/2025, 12:34:56
+      [*] find 314 -> 14/07/2025, 12:34:59
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&... -> 14/07/2025, 12:35:38
+      [*] find 314 -> 14/07/2025, 12:35:39
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=... -> 14/07/2025, 12:36:17
+      [*] find 314 -> 14/07/2025, 12:36:19
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=... -> 14/07/2025, 12:36:56
+      [*] find 314 -> 14/07/2025, 12:36:57
+   [*] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search=... -> 14/07/2025, 12:37:33
+      [*] find 52 -> 14/07/2025, 12:37:34
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=nexovir&potentialAction=nexovir&target=nexovir&urlTemplate=nexovir&query-input=nexovir&valueRequired=nexovir&valueName=nexovir&baseUrl=nexovir&ext=nexovir&svgUrl=nexovir&svgExt=nexovir&source=nexovir&concatemoji=nexovir&flag=nexovir&emoji=nexovir -> 14/07/2025, 12:37:38
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=nexovir&wp-block-library-rtl-css=nexovir&global-styles-inline-css=nexovir&wp-pagenavi-css=nexovir&c4wp-checkout-css=nexovir&c4wp-v3-lp-form-css=nexovir&pagen=nexovir -> 14/07/2025, 12:37:41
+   [*] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir/?search=... -> 14/07/2025, 12:37:41
+      [*] find 52 -> 14/07/2025, 12:37:42
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?position=nexovir&potentialAction=nexovir&target=nexovir&urlTemplate=nexovir&query-input=nexovir&valueRequired=nexovir&valueName=nexovir&baseUrl=nexovir&ext=nexovir&svgUrl=nexovir&svgExt=nexovir&source=nexovir&concatemoji=nexovir&flag=nexovir&emoji=nexovir -> 14/07/2025, 12:37:45
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?wp-emoji-styles-inline-css=nexovir&wp-block-library-rtl-css=nexovir&global-styles-inline-css=nexovir&wp-pagenavi-css=nexovir&c4wp-checkout-css=nexovir&c4wp-v3-lp-form-css=nexovir&pagen=nexovir -> 14/07/2025, 12:37:49
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 14/07/2025, 12:37:49
+      [*] find 316 -> 14/07/2025, 12:37:51
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&param2=value2&param3=value3... -> 14/07/2025, 12:38:29
+      [*] find 316 -> 14/07/2025, 12:38:30
+   [*] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2... -> 14/07/2025, 12:39:08
+      [*] find 315 -> 14/07/2025, 12:39:10
+   [*] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2... -> 14/07/2025, 12:39:46
+      [*] find 315 -> 14/07/2025, 12:39:47
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:45:01
+   [INFO] Running injector ... -> 14/07/2025, 12:45:01
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:45:01
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:45:01
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 14/07/2025, 12:45:03
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search=nexovir -> 14/07/2025, 12:45:05
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 12:45:34
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 12:45:36
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 12:46:27
+[[92mPOST[0m] [[94mhttp[0m] [[34minfo[0m] https://memoryleaks.ir/?search&w_p1=nexovir&w_p2=nexovir&w_p3=nexovir -> 14/07/2025, 12:46:29
+[INFO] Starting Light Reflix ... -> 14/07/2025, 12:47:26
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 12:47:26
+      [INFO] find 315 parameters -> 14/07/2025, 12:47:28
+   [INFO] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 12:48:06
+      [INFO] find 315 parameters -> 14/07/2025, 12:48:07
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:48:33
+   [INFO] Running injector ... -> 14/07/2025, 12:48:33
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:48:33
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:48:33
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:49:48
+   [INFO] Running injector ... -> 14/07/2025, 12:49:48
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:49:48
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:49:48
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:49:55
+   [INFO] Running injector ... -> 14/07/2025, 12:49:55
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:49:55
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:49:55
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:52:00
+   [INFO] Running injector ... -> 14/07/2025, 12:52:00
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:52:00
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:52:00
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:52:06
+   [INFO] Running injector ... -> 14/07/2025, 12:52:06
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:52:06
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:52:06
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:52:43
+   [INFO] Running injector ... -> 14/07/2025, 12:52:43
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:52:43
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:52:43
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:53:02
+   [INFO] Running injector ... -> 14/07/2025, 12:53:02
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:53:02
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:53:02
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:53:23
+   [INFO] Running injector ... -> 14/07/2025, 12:53:23
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:53:23
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:53:23
+[INFO] Starting Light Reflix ... -> 14/07/2025, 12:55:47
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 12:55:47
+      [INFO] 315 parameters found  -> 14/07/2025, 12:55:49
+   [INFO] Starting parameter discovery and check reflection (method: POST) https://nasa.gov?param1=value1&param2=value2 -> 14/07/2025, 12:56:26
+      [INFO] 315 parameters found  -> 14/07/2025, 12:56:27
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir/?search= -> 14/07/2025, 12:57:03
+      [INFO] 52 parameters found  -> 14/07/2025, 12:57:04
+   [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir/?search= -> 14/07/2025, 12:57:11
+      [INFO] 52 parameters found  -> 14/07/2025, 12:57:12
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://nasa.gov/?param1=value1&param2=value2&param3=value3 -> 14/07/2025, 12:57:19
+      [INFO] 316 parameters found  -> 14/07/2025, 12:57:21
+   [INFO] Starting parameter discovery and check reflection (method: POST) https://nasa.gov/?param1=value1&param2=value2&param3=value3 -> 14/07/2025, 12:58:01
+      [INFO] 316 parameters found  -> 14/07/2025, 12:58:02
+   [INFO] Starting parameter discovery and check reflection (method: GET) https://asghar.com/ -> 14/07/2025, 12:58:42
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:58:46
+   [INFO] Running injector ... -> 14/07/2025, 12:58:46
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:58:46
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:58:46
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:58:54
+   [INFO] Running injector ... -> 14/07/2025, 12:58:54
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:58:54
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:58:54
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:59:02
+   [INFO] Running injector ... -> 14/07/2025, 12:59:02
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:59:02
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:59:02
+[INFO] Starting Static Reflix ... -> 14/07/2025, 12:59:07
+   [INFO] Running injector ... -> 14/07/2025, 12:59:07
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 12:59:07
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 12:59:07
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:00:21
+   [INFO] Running injector ... -> 14/07/2025, 13:00:21
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:00:21
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:00:21
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:00:29
+   [INFO] Running injector ... -> 14/07/2025, 13:00:29
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:00:29
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:00:29
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:02:32
+   [INFO] Running injector ... -> 14/07/2025, 13:02:32
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:02:32
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:02:32
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:03:52
+   [INFO] Running injector ... -> 14/07/2025, 13:03:52
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:03:52
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:03:52
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:13:09
+   [INFO] Running injector ... -> 14/07/2025, 13:13:09
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:13:10
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:13:10
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:13:14
+   [INFO] Running injector ... -> 14/07/2025, 13:13:14
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:13:14
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:13:14
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:13:18
+   [INFO] Running injector ... -> 14/07/2025, 13:13:18
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:13:18
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:13:18
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:13:22
+   [INFO] Running injector ... -> 14/07/2025, 13:13:22
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:13:22
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:13:22
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:13:28
+   [INFO] Running injector ... -> 14/07/2025, 13:13:28
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:13:28
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:13:28
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:13:58
+   [INFO] Running injector ... -> 14/07/2025, 13:13:58
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:13:58
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:13:58
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:14:01
+   [INFO] Running injector ... -> 14/07/2025, 13:14:01
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:14:01
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:14:01
+[INFO] Starting Static Reflix ... -> 14/07/2025, 13:14:29
+   [INFO] Running injector ... -> 14/07/2025, 13:14:29
+   [SUCCESS] Injector finished successfully -> 14/07/2025, 13:14:29
+  [INFO] Running nuclei scan on 18 generated urls & methods: ['GET', 'POST'] ... -> 14/07/2025, 13:14:29

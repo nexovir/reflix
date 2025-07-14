@@ -20,7 +20,8 @@ def show_banner():
 def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", logger: bool = True , silent : bool = False):
     color = getattr(colorama.Fore, colour, colorama.Fore.YELLOW)
     if not silent:
-        print(color + message + colorama.Style.RESET_ALL)
+        if debug.lower() == 'True':
+            print(color + message + colorama.Style.RESET_ALL)
     time_string = time.strftime("%d/%m/%Y, %H:%M:%S", time.localtime())
     if logger:
         with open('logger.txt', 'a') as file:
@@ -38,31 +39,6 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
         except requests.exceptions.RequestException as e:
             print(f"Telegram message failed: {e}")
 
-def log_event(message: str, level: str = "INFO", telegram: bool = False):
-    levels = {
-        "INFO": "YELLOW",
-        "SUCCESS": "GREEN",
-        "WARNING": "MAGENTA",
-        "ERROR": "RED",
-        "DEBUG": "BLUE"
-    }
-    prefix = {
-        "INFO": "[*] ",
-        "SUCCESS": "[+] ",
-        "WARNING": "[!] ",
-        "ERROR": "[-] ",
-        "DEBUG": "[#] "
-    }
-
-    colour = levels.get(level.upper(), "YELLOW")
-    prefix_msg = prefix.get(level.upper(), "")
-    sendmessage(
-        prefix_msg + message,
-        telegram=telegram,
-        colour=colour,
-        logger=logger,
-        silent=silent
-    )
 
 
 
@@ -94,12 +70,13 @@ notif_group = parser.add_argument_group('Notification & Logging')
 notif_group.add_argument('-n', '--notify', help='Enable notifications', action='store_true', default=False, required=False)
 notif_group.add_argument('-g', '--logger', help='Enable logger', action='store_true', default=False, required=False)
 notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default: False)', action='store_true', default=False, required=False)
+input_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)',type=str,  default='False', required=False)
 
 
 # --- Output ---
 notif_group = parser.add_argument_group('Outputs')
-notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved (default: paramters.txt)', required=False , default='all_params.txt')
 notif_group.add_argument('-o', '--output',help='output file to write found issues/vulnerabilities ', type=str ,required=False)
+notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved (default: all_params.txt)', required=False , default='all_params.txt')
 notif_group.add_argument('-jo', '--jsonoutput',help='file to export results in JSON format',type=str ,required=False)
 
 args = parser.parse_args()
@@ -133,10 +110,11 @@ generate_mode = 'all'
 notification = args.notify
 logger = args.logger
 silent = args.silent
+debug = args.debug
 
 #Output
-params_output = args.paramsoutput
 output = args.output
+params_output = args.paramsoutput
 json_output = args.jsonoutput
 
 def read_write_list(list_data: list, file: str, type: str):
@@ -202,20 +180,23 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
         yaml.dump(template, temp_file)
         temp_path = temp_file.name
     try:
-        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy]
+        lines = []
+        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy ]
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
             raw_output = result.stdout.splitlines()
-            for line in raw_output:
-                sendmessage(line)
-                
+            for line in raw_output :
+                lines.append(line)
+                print(line)
+
+            read_write_list(lines , output , 'a')
             return {
                 'success': True,
                 'raw_results': raw_output,
                 'stats': f"line count: {len(raw_output)}"
             }
         else:
-            sendmessage(f"  [-] Nuclei error: {result.stderr}", colour="RED")
+            sendmessage(f"  [ERROR] Nuclei error: {result.stderr}", colour="RED")
             return {
                 'success': False,
                 'error': result.stderr
@@ -226,7 +207,7 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
 
 def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int , proxy):
     
-    sendmessage("[*] Starting Static Reflix ...", colour="YELLOW")
+    sendmessage("[INFO] Starting Static Reflix ...", colour="YELLOW")
 
     try : 
         command = [
@@ -238,11 +219,10 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         "-gm",generate_mode,
         '-s'
         ]
-        print(command)
         if wordlist_parameters: 
             command.extend(["-w", wordlist_parameters])
         
-        sendmessage("   [*] Running injector ...", colour="YELLOW")
+        sendmessage("   [INFO] Running injector ...", colour="YELLOW")
 
         result = subprocess.run(
             command,
@@ -252,17 +232,17 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             stderr=subprocess.PIPE,
             text=True
         )
-        sendmessage("   [+] Injector finished successfully", colour="GREEN")
+        sendmessage("   [SUCCESS] Injector finished successfully", colour="GREEN")
 
     except subprocess.CalledProcessError as e:
-        sendmessage(f"  [-] Injector failed: {e.stderr}", colour="RED")
+        sendmessage(f"  [ERROR] Injector failed: {e.stderr}", colour="RED")
         return
     except Exception as e:
-        sendmessage(f"  [-] Unexpected error during injector: {str(e)}", colour="RED")
+        sendmessage(f"  [ERROR] Unexpected error during injector: {str(e)}", colour="RED")
         return
         
     urls = result.stdout.splitlines()
-    sendmessage(f"  [*] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...", colour="YELLOW")
+    sendmessage(f"  [INFO] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...", colour="YELLOW")
     for url in urls :      
         for method in methods:
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
@@ -290,10 +270,11 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
             stderr=subprocess.PIPE,
             text=True
         )
-        
-        return result.stdout.splitlines()
+        parameters = result.stdout.splitlines()
+        sendmessage(f"      [INFO] {len(parameters)} parameters found ")
+        return parameters
     except Exception as e:
-        sendmessage(f"  [-] Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
+        sendmessage(f"  [ERROR] Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
         return
 
 
@@ -314,16 +295,16 @@ def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , param
             run_nuclei_scan(full_url , method , headers , None , parameter , proxy)
             
     except Exception as e:
-        sendmessage(f"Error in run_x8 with URL {url}: {str(e)}", colour="RED")
+        sendmessage(f"[ERROR] Error in run_x8 with URL {url}: {str(e)}", colour="RED")
         return []
 
 
 def light_reflix (urls, proxy, thread, delay, methods):
 
-    sendmessage("[*] Starting Light Reflix ...", colour="YELLOW")
+    sendmessage("[INFO] Starting Light Reflix ...", colour="YELLOW")
     for url in urls :
         for method in methods:
-            sendmessage(f"   [*] Starting parameter discovery and check reflection (method: {method}) {url}...", colour="YELLOW")
+            sendmessage(f"   [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW")
             parameters = run_fallparams(url, proxy, thread, delay, method, headers)
             
             # save paramters output for client
@@ -342,7 +323,7 @@ def main():
 
     except KeyboardInterrupt:
         sendmessage(
-            "Process interrupted by user.",
+            "[ERROR] Process interrupted by user.",
             telegram=notification,
             colour="RED",
             logger=logger,
@@ -350,7 +331,7 @@ def main():
         )
     except Exception as e:
         sendmessage(
-            f"An error occurred: {str(e)}",
+            f"[ERROR] An error occurred: {str(e)}",
             telegram=notification,
             colour="RED",
             logger=logger,

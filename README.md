@@ -36,4 +36,22 @@ Thanks to these tools, Reflix combines parameter discovery, injection, and vulne
    ```bash
    git clone https://github.com/yourusername/reflix.git
    cd reflix
+   ./install.sh
+   pip install -r requirementes.txt
 
+
+## Usage
+
+python reflix.py -l <urls_file> [options]
+
+
+## Example
+
+python reflix.py -l test1.txt -w wordlist.txt -X GET,POST -H "header2: value2" -H "header1: value1" -p nexovir -o t.txt -po params.txt 
+-c 15 -p nexovir -d -he
+
+## Contact
+
+Developed by Nexovir
+Twitter: @nexovir
+GitHub: https://github.com/nexovir

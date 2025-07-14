@@ -38,7 +38,6 @@ Thanks to these tools, Reflix combines parameter discovery, injection, and vulne
    cd reflix
    ./install.sh
    pip install -r requirementes.txt
-```
 
 ## Usage
 

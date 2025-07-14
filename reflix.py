@@ -17,29 +17,29 @@ def show_banner():
     print(banner + twitter_centered  + version_right + "\n")
 
 
-def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", logger: bool = True , silent : bool = False):
+def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", logger : str = "logger.txt" , silent : bool = False):
     color = getattr(colorama.Fore, colour, colorama.Fore.YELLOW)
     if not silent:
         if debug :
             print(color + message + colorama.Style.RESET_ALL)
+
     time_string = time.strftime("%d/%m/%Y, %H:%M:%S", time.localtime())
+
     if logger:
-        with open('logger.txt', 'a') as file:
+        with open(logger, 'a') as file:
             file.write(message + ' -> ' + time_string + '\n')
 
     if telegram:
-        token_bot = {YOUR_TOKEN_BOT} 
+        bot_token = {BOT_TOKEN}
         chat_id = "5028701156"
-        url = f"https://api.telegram.org/bot{token_bot}/sendMessage"
+        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         payload = {'chat_id': chat_id, 'text': message}
 
         try:
-            response = requests.post(url, data=payload)
+            response = requests.post(url, data=payload, timeout=10)
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
-            print(f"Telegram message failed: {e}")
-
-
+            sendmessage(f"[ERROR] Telegram message failed: {e}", colour="RED")
 
 
 parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection and fuzzing tool')
@@ -69,7 +69,7 @@ ratelimit_group.add_argument('-rd', '--delay',type=int,help='Delay (in seconds) 
 # --- Notification & Logging Group ---
 notif_group = parser.add_argument_group('Notification & Logging')
 notif_group.add_argument('-n', '--notify', help='Enable notifications', action='store_true', default=False, required=False)
-notif_group.add_argument('-g', '--logger', help='Enable logger', action='store_true', default=False, required=False)
+notif_group.add_argument('-log', '--logger', help='Enable logger (default: logger.txt)', type=str, default='logger.txt', required=False)
 notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default: False)', action='store_true', default=False, required=False)
 input_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)', action='store_true', default=False, required=False)
 
@@ -118,6 +118,7 @@ debug = args.debug
 output = args.output
 params_output = args.paramsoutput
 json_output = args.jsonoutput
+
 
 def read_write_list(list_data: list, file: str, type: str):
 
@@ -198,7 +199,7 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
                 'stats': f"line count: {len(raw_output)}"
             }
         else:
-            sendmessage(f"  [ERROR] Nuclei error: {result.stderr}", colour="RED")
+            sendmessage(f"  [ERROR] Nuclei error: {result.stderr}", colour="RED", logger=logger , telegram=notification , silent=silent)
             return {
                 'success': False,
                 'error': result.stderr
@@ -209,7 +210,7 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
 
 def static_reflix (urls_path : str , generate_mode : str , value_mode : str , parameter : str , wordlist_parameters : list , chunk : int , proxy):
     
-    sendmessage("[INFO] Starting Static Reflix ...", colour="YELLOW")
+    sendmessage("[INFO] Starting Static Reflix ...", colour="YELLOW" , logger=logger , telegram=notification , silent=silent)
 
     try : 
         command = [
@@ -224,7 +225,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
         if wordlist_parameters: 
             command.extend(["-w", wordlist_parameters])
         
-        sendmessage("   [INFO] Running injector ...", colour="YELLOW")
+        sendmessage("   [INFO] Running injector ...", colour="YELLOW" , logger=logger , silent=silent)
 
         result = subprocess.run(
             command,
@@ -234,24 +235,24 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
             stderr=subprocess.PIPE,
             text=True
         )
-        sendmessage("   [SUCCESS] Injector finished successfully", colour="GREEN")
+        sendmessage("   [SUCCESS] Injector finished successfully", colour="GREEN", logger=logger , silent=silent)
 
     except subprocess.CalledProcessError as e:
-        sendmessage(f"  [ERROR] Injector failed: {e.stderr}", colour="RED")
+        sendmessage(f"  [ERROR] Injector failed: {e.stderr}", colour="RED", logger=logger , silent=silent)
         return
     except Exception as e:
-        sendmessage(f"  [ERROR] Unexpected error during injector: {str(e)}", colour="RED")
+        sendmessage(f"  [ERROR] Unexpected error during injector: {str(e)}", colour="RED", logger=logger , silent=silent)
         return
         
     urls = result.stdout.splitlines()
-    sendmessage(f"  [INFO] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...", colour="YELLOW")
+    sendmessage(f"  [INFO] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...", colour="YELLOW", logger=logger , silent=silent)
     for url in urls :      
         for method in methods:
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
 
 def run_fallparams(url, proxy, thread, delay, method , headers):
-    sendmessage(f"  [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW")
+    sendmessage(f"  [INFO] Starting parameter discovery and check reflection (method: {method}) {url}", colour="YELLOW" , logger=logger , silent=silent)
 
     try:
         
@@ -274,7 +275,7 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
             text=True
         )
         parameters = result.stdout.splitlines()
-        sendmessage(f"      [INFO] {len(parameters)} parameters found ")
+        sendmessage(f"      [INFO] {len(parameters)} parameters found ", logger=logger , silent=silent)
         return parameters
     except Exception as e:
         sendmessage(f"  [ERROR] Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
@@ -283,7 +284,7 @@ def run_fallparams(url, proxy, thread, delay, method , headers):
 
 def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , parameter):
     try:
-        sendmessage(f"  [INFO] Start Fuzzing {len(parameters)} parameters (method: {method}) {url}" , colour="YELLOW")
+        sendmessage(f"  [INFO] Start Fuzzing {len(parameters)} parameters (method: {method}) {url}" , colour="YELLOW" , logger=logger , silent=silent)
         chunked_params = [parameters[i:i + int(chunk)] for i in range(0, len(parameters), int(chunk))]
 
         parsed = urlparse(url)
@@ -300,13 +301,13 @@ def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , param
             time.sleep(delay)
 
     except Exception as e:
-        sendmessage(f"[ERROR] Error in run_x8 with URL {url}: {str(e)}", colour="RED")
+        sendmessage(f"[ERROR] Error in run_x8 with URL {url}: {str(e)}", colour="RED" , logger=logger , silent=silent)
         return []
 
 
 def light_reflix (urls, proxy, thread, delay, methods):
 
-    sendmessage("[INFO] Starting Light Reflix ...", colour="YELLOW")
+    sendmessage("[INFO] Starting Light Reflix ...", colour="YELLOW" , logger=logger , silent=silent)
     for url in urls :
         for method in methods:
             
@@ -320,7 +321,7 @@ def light_reflix (urls, proxy, thread, delay, methods):
 
 def heavy_reflix (urls , proxy , thread , delay , methods) : 
     
-    sendmessage(f"[INFO] Starting Heavy Reflix ...", colour="YELLOW")
+    sendmessage(f"[INFO] Starting Heavy Reflix ...", colour="YELLOW" , logger=logger , silent=silent)
     parameters = read_write_list('' , params_output , 'r')
 
     for url in urls :

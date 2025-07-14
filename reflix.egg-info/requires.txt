@@ -1,0 +1,5 @@
+colorama
+requests
+pyfiglet
+yaspin
+pyyaml

@@ -1,0 +1,13 @@
+.gitignore
+LICENSE
+README.md
+install.sh
+reflix.py
+requirements.txt
+setup.py
+reflix.egg-info/PKG-INFO
+reflix.egg-info/SOURCES.txt
+reflix.egg-info/dependency_links.txt
+reflix.egg-info/entry_points.txt
+reflix.egg-info/requires.txt
+reflix.egg-info/top_level.txt

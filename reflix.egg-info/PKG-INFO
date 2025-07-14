@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: reflix
+Version: 1.0.0
+License-File: LICENSE
+Requires-Dist: colorama
+Requires-Dist: requests
+Requires-Dist: pyfiglet
+Requires-Dist: yaspin
+Requires-Dist: pyyaml

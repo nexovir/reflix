@@ -1,0 +1,194 @@
+[ERROR] An error occurred: [Errno 2] No such file or directory: 'urls.txt' -> 20/07/2025, 02:27:55
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:28:22
+   [INFO] Running injector ... -> 20/07/2025, 02:28:22
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:28:22
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:28:22
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:28:23
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:28:42
+   [INFO] Running injector ... -> 20/07/2025, 02:28:42
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:28:42
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:28:42
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:28:43
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:28:50
+   [INFO] Running injector ... -> 20/07/2025, 02:28:50
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:28:50
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:28:50
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:28:51
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:29:26
+   [INFO] Running injector ... -> 20/07/2025, 02:29:26
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:29:26
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:29:26
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:29:27
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:29:54
+   [INFO] Running injector ... -> 20/07/2025, 02:29:54
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:29:54
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:29:54
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:29:58
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:30:07
+   [INFO] Running injector ... -> 20/07/2025, 02:30:07
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:30:07
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:30:07
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:30:08
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:30:16
+   [INFO] Running injector ... -> 20/07/2025, 02:30:16
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:30:16
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:30:16
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:30:16
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:30:51
+   [INFO] Running injector ... -> 20/07/2025, 02:30:51
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:30:51
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:30:51
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:30:51
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:32:41
+   [INFO] Running injector ... -> 20/07/2025, 02:32:41
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:32:41
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:32:41
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:32:42
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:32:55
+   [INFO] Running injector ... -> 20/07/2025, 02:32:55
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:32:55
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:32:55
+[ERROR] An error occurred: [Errno 13] Permission denied: '/Users/apple/Desktop/Hacking/Hunting/Nexovir-Bot/tools/reflix/temp/tmptp9fj5ga.yaml' -> 20/07/2025, 02:32:55
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:33:11
+   [INFO] Running injector ... -> 20/07/2025, 02:33:11
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:33:11
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:33:11
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:33:12
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:34:48
+   [INFO] Running injector ... -> 20/07/2025, 02:34:48
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:34:48
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:34:48
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:34:51
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:35:23
+   [INFO] Running injector ... -> 20/07/2025, 02:35:23
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:35:23
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:35:23
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:35:25
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:35:55
+   [INFO] Running injector ... -> 20/07/2025, 02:35:55
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:35:55
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:35:55
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:36:04
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:36:55
+   [INFO] Running injector ... -> 20/07/2025, 02:36:55
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:36:55
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:36:55
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:36:56
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:37:38
+   [INFO] Running injector ... -> 20/07/2025, 02:37:38
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:37:38
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:37:38
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:37:40
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:38:58
+   [INFO] Running injector ... -> 20/07/2025, 02:38:58
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:38:58
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:38:58
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:38:59
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:39:42
+   [INFO] Running injector ... -> 20/07/2025, 02:39:42
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:39:42
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:39:42
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:39:43
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:41:00
+   [INFO] Running injector ... -> 20/07/2025, 02:41:00
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:41:00
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:41:00
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:00
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:01
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:04
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:05
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:06
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:07
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:08
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:09
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:10
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:10
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:11
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:41:12
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:41:13
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:42:58
+   [INFO] Running injector ... -> 20/07/2025, 02:42:58
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:42:58
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:42:58
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:03
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:04
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:04
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:05
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:06
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:06
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:07
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:08
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:09
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:09
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:10
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:10
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:12
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:13
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:13
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:14
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:15
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:43:15
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:43:20
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:44:08
+   [INFO] Running injector ... -> 20/07/2025, 02:44:08
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:44:09
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:44:09
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:09
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:09
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:10
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:11
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:12
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:13
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:14
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:44:14
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:44:28
+   [INFO] Running injector ... -> 20/07/2025, 02:44:28
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:44:28
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:44:28
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:29
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:30
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:31
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:32
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:33
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:44:33
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:44:49
+   [INFO] Running injector ... -> 20/07/2025, 02:44:49
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:44:50
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:44:50
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:50
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:51
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:53
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:54
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:44:57
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:44:59
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:45:41
+   [INFO] Running injector ... -> 20/07/2025, 02:45:41
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:45:41
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:45:41
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:42
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:42
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:44
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:44
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:45
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:46
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:45:46
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:45:47
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:46:37
+   [INFO] Running injector ... -> 20/07/2025, 02:46:37
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:46:37
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:46:37
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:38
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:38
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:39
+expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:40
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:46:42
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:47:20
+   [INFO] Running injector ... -> 20/07/2025, 02:47:20
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:47:20
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:47:20
+[ERROR] An error occurred: expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:47:21
+[INFO] Starting Static Reflix ... -> 20/07/2025, 02:48:21
+   [INFO] Running injector ... -> 20/07/2025, 02:48:21
+   [SUCCESS] Injector finished successfully -> 20/07/2025, 02:48:22
+  [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:48:22
+[ERROR] Process interrupted by user. -> 20/07/2025, 02:48:26

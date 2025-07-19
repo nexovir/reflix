@@ -76,7 +76,7 @@ input_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: Fals
 
 # --- Output ---
 notif_group = parser.add_argument_group('Outputs')
-notif_group.add_argument('-o', '--output',help='output file to write found issues/vulnerabilities ', type=str ,required=False)
+notif_group.add_argument('-o', '--output',help='output file to write found issues/vulnerabilities ', type=str , default='reflix.output' , required=False)
 notif_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved (default: all_params.txt)', required=False , default='all_params.txt')
 notif_group.add_argument('-jo', '--jsonoutput',help='file to export results in JSON format',type=str ,required=False)
 
@@ -184,6 +184,7 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
         temp_path = temp_file.name
     try:
         lines = []
+        
         cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy ]
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
@@ -247,7 +248,7 @@ def static_reflix (urls_path : str , generate_mode : str , value_mode : str , pa
     urls = result.stdout.splitlines()
     sendmessage(f"  [INFO] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...", colour="YELLOW", logger=logger , silent=silent)
     for url in urls :      
-        for method in methods:
+        for method in methods: 
             run_nuclei_scan(url , method , headers , None , parameter , proxy)
 
 

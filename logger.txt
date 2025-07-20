@@ -192,3 +192,4 @@ expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:40
    [SUCCESS] Injector finished successfully -> 20/07/2025, 02:48:22
   [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:48:22
 [ERROR] Process interrupted by user. -> 20/07/2025, 02:48:26
+[ERROR] An error occurred: [Errno 2] No such file or directory: 'urls.txt' -> 19/07/2025, 19:22:31

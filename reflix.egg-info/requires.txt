@@ -1,5 +1,5 @@
 colorama
-requests
 pyfiglet
-yaspin
 pyyaml
+requests
+yaspin

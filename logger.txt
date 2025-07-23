@@ -193,3 +193,17 @@ expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:40
   [INFO] Running nuclei scan on 165 generated urls & methods: ['GET', 'POST'] ... -> 20/07/2025, 02:48:22
 [ERROR] Process interrupted by user. -> 20/07/2025, 02:48:26
 [ERROR] An error occurred: [Errno 2] No such file or directory: 'urls.txt' -> 19/07/2025, 19:22:31
+[ERROR] An error occurred: [Errno 2] No such file or directory: 'nice_urls.txt' -> 23/07/2025, 18:44:25
+[INFO] Starting Static Reflix ... -> 23/07/2025, 18:48:48
+   [INFO] Running injector ... -> 23/07/2025, 18:48:48
+   [SUCCESS] Injector finished successfully -> 23/07/2025, 18:48:48
+  [INFO] Running nuclei scan on 4 generated urls & methods: ['GET', 'POST'] ... -> 23/07/2025, 18:48:48
+[INFO] Starting Light Reflix ... -> 23/07/2025, 18:48:59
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://mail.tabdeal.org/Debug/ -> 23/07/2025, 18:48:59
+      [INFO] 0 parameters found  -> 23/07/2025, 18:49:10
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://mail.tabdeal.org/Debug/ -> 23/07/2025, 18:49:10
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://mail.tabdeal.org/Debug/ -> 23/07/2025, 18:49:10
+      [INFO] 0 parameters found  -> 23/07/2025, 18:49:16
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://mail.tabdeal.org/Debug/ -> 23/07/2025, 18:49:16
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://tabdeal.org/margin -> 23/07/2025, 18:49:16
+[ERROR] Process interrupted by user. -> 23/07/2025, 18:49:22

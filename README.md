@@ -34,7 +34,7 @@ Thanks to these tools, Reflix combines parameter discovery, injection, and vulne
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/nexovire/reflix.git
+   git clone https://github.com/nexovir/reflix.git
    cd reflix
    ```
 

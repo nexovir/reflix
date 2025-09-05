@@ -207,3 +207,1074 @@ expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:40
   [INFO] Start Fuzzing 0 parameters (method: POST) https://mail.tabdeal.org/Debug/ -> 23/07/2025, 18:49:16
   [INFO] Starting parameter discovery and check reflection (method: GET) https://tabdeal.org/margin -> 23/07/2025, 18:49:16
 [ERROR] Process interrupted by user. -> 23/07/2025, 18:49:22
+[INFO] Starting Static Reflix ... -> 04/09/2025, 23:59:23
+   [INFO] Running injector ... -> 04/09/2025, 23:59:23
+   [SUCCESS] Injector finished successfully -> 04/09/2025, 23:59:23
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 04/09/2025, 23:59:23
+[INFO] Starting Light Reflix ... -> 04/09/2025, 23:59:23
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 04/09/2025, 23:59:23
+      [INFO] 14 parameters found  -> 04/09/2025, 23:59:26
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 04/09/2025, 23:59:26
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 04/09/2025, 23:59:31
+      [INFO] 14 parameters found  -> 04/09/2025, 23:59:32
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 04/09/2025, 23:59:32
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 04/09/2025, 23:59:34
+      [INFO] 50 parameters found  -> 04/09/2025, 23:59:37
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 04/09/2025, 23:59:37
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 04/09/2025, 23:59:41
+      [INFO] 50 parameters found  -> 04/09/2025, 23:59:41
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 04/09/2025, 23:59:41
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 04/09/2025, 23:59:45
+      [INFO] 20 parameters found  -> 04/09/2025, 23:59:46
+  [INFO] Start Fuzzing 20 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 04/09/2025, 23:59:46
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 04/09/2025, 23:59:48
+      [INFO] 20 parameters found  -> 04/09/2025, 23:59:48
+  [INFO] Start Fuzzing 20 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 04/09/2025, 23:59:48
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 04/09/2025, 23:59:51
+      [INFO] 0 parameters found  -> 04/09/2025, 23:59:51
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 04/09/2025, 23:59:51
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 04/09/2025, 23:59:51
+      [INFO] 0 parameters found  -> 04/09/2025, 23:59:52
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 04/09/2025, 23:59:52
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://google.com -> 04/09/2025, 23:59:52
+      [INFO] 232 parameters found  -> 04/09/2025, 23:59:54
+  [INFO] Start Fuzzing 232 parameters (method: GET) https://google.com -> 04/09/2025, 23:59:54
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://google.com -> 05/09/2025, 00:00:12
+      [INFO] 0 parameters found  -> 05/09/2025, 00:00:13
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://google.com -> 05/09/2025, 00:00:13
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:01:43
+   [INFO] Running injector ... -> 05/09/2025, 00:01:43
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:01:43
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:01:43
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:01:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:01:43
+      [INFO] 0 parameters found  -> 05/09/2025, 00:01:44
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:01:44
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:01:44
+      [INFO] 0 parameters found  -> 05/09/2025, 00:01:44
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:01:44
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:01:44
+      [INFO] 50 parameters found  -> 05/09/2025, 00:01:45
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:01:45
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:01:49
+      [INFO] 50 parameters found  -> 05/09/2025, 00:01:50
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:01:50
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:01:55
+      [INFO] 14 parameters found  -> 05/09/2025, 00:01:56
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:01:56
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:01:58
+      [INFO] 14 parameters found  -> 05/09/2025, 00:01:58
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:01:58
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:02:01
+      [INFO] 20 parameters found  -> 05/09/2025, 00:02:01
+  [INFO] Start Fuzzing 20 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:02:01
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:02:03
+      [INFO] 20 parameters found  -> 05/09/2025, 00:02:04
+  [INFO] Start Fuzzing 20 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:02:04
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:07:41
+   [INFO] Running injector ... -> 05/09/2025, 00:07:41
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:07:41
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:07:41
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:07:41
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:07:41
+      [INFO] 50 parameters found  -> 05/09/2025, 00:07:43
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:07:43
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:07:50
+      [INFO] 50 parameters found  -> 05/09/2025, 00:07:50
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:07:50
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:07:55
+      [INFO] 0 parameters found  -> 05/09/2025, 00:07:55
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:07:55
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:07:55
+      [INFO] 0 parameters found  -> 05/09/2025, 00:07:56
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:07:56
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:07:56
+      [INFO] 14 parameters found  -> 05/09/2025, 00:07:57
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:07:57
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:07:59
+      [INFO] 14 parameters found  -> 05/09/2025, 00:08:00
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:08:00
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:08:02
+      [INFO] 22 parameters found  -> 05/09/2025, 00:08:03
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:08:03
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:08:05
+      [INFO] 22 parameters found  -> 05/09/2025, 00:08:06
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:08:06
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:09:30
+   [INFO] Running injector ... -> 05/09/2025, 00:09:30
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:09:30
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:09:30
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:09:30
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:09:30
+      [INFO] 14 parameters found  -> 05/09/2025, 00:09:32
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:09:32
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:09:34
+      [INFO] 14 parameters found  -> 05/09/2025, 00:09:35
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:09:35
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:09:37
+      [INFO] 50 parameters found  -> 05/09/2025, 00:09:38
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:09:38
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:09:42
+      [INFO] 50 parameters found  -> 05/09/2025, 00:09:43
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:09:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:09:48
+      [INFO] 0 parameters found  -> 05/09/2025, 00:09:49
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:09:49
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:09:49
+      [INFO] 0 parameters found  -> 05/09/2025, 00:09:49
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:09:49
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:09:49
+      [INFO] 22 parameters found  -> 05/09/2025, 00:09:50
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:09:50
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:09:52
+      [INFO] 22 parameters found  -> 05/09/2025, 00:09:53
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:09:53
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:27:36
+   [INFO] Running injector ... -> 05/09/2025, 00:27:36
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:27:36
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:27:36
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:27:36
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:27:36
+      [INFO] 14 parameters found  -> 05/09/2025, 00:27:37
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:27:37
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:27:39
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:27:42
+      [INFO] 14 parameters found  -> 05/09/2025, 00:27:42
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:27:42
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:27:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:27:45
+      [INFO] 22 parameters found  -> 05/09/2025, 00:27:45
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:27:45
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:27:46
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:27:48
+      [INFO] 22 parameters found  -> 05/09/2025, 00:27:49
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:27:49
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:27:49
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:27:51
+      [INFO] 50 parameters found  -> 05/09/2025, 00:27:52
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:27:52
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:27:53
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:27:57
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:28:00
+      [INFO] 50 parameters found  -> 05/09/2025, 00:28:00
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:28:00
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:28:01
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:28:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:28:07
+      [INFO] 0 parameters found  -> 05/09/2025, 00:28:08
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:28:08
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:28:08
+      [INFO] 0 parameters found  -> 05/09/2025, 00:28:09
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:28:09
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:29:15
+   [INFO] Running injector ... -> 05/09/2025, 00:29:15
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:29:15
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:29:15
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:29:15
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:29:15
+      [INFO] 14 parameters found  -> 05/09/2025, 00:29:16
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:29:16
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:16
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:29:18
+      [INFO] 14 parameters found  -> 05/09/2025, 00:29:19
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:29:19
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:19
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:22
+      [INFO] 22 parameters found  -> 05/09/2025, 00:29:23
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:23
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:24
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:26
+      [INFO] 22 parameters found  -> 05/09/2025, 00:29:27
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:27
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:27
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:29:29
+      [INFO] 50 parameters found  -> 05/09/2025, 00:29:30
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:29:30
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:31
+[ERROR] Process interrupted by user. -> 05/09/2025, 00:29:32
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:29:37
+   [INFO] Running injector ... -> 05/09/2025, 00:29:37
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:29:38
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:29:38
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:29:38
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:29:38
+      [INFO] 14 parameters found  -> 05/09/2025, 00:29:39
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:29:39
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:39
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:29:42
+      [INFO] 14 parameters found  -> 05/09/2025, 00:29:42
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:29:42
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:45
+      [INFO] 22 parameters found  -> 05/09/2025, 00:29:46
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:46
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:46
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:48
+      [INFO] 22 parameters found  -> 05/09/2025, 00:29:49
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:29:49
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:50
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:29:52
+      [INFO] 0 parameters found  -> 05/09/2025, 00:29:53
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:29:53
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:29:53
+      [INFO] 0 parameters found  -> 05/09/2025, 00:29:53
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:29:53
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:29:53
+      [INFO] 50 parameters found  -> 05/09/2025, 00:29:54
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:29:54
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:54
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:29:57
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:30:00
+      [INFO] 50 parameters found  -> 05/09/2025, 00:30:00
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:30:00
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:01
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:04
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:30:08
+   [INFO] Running injector ... -> 05/09/2025, 00:30:08
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:30:08
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:30:08
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:30:08
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:30:08
+      [INFO] 0 parameters found  -> 05/09/2025, 00:30:09
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:30:09
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:30:09
+      [INFO] 0 parameters found  -> 05/09/2025, 00:30:10
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:30:10
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:30:10
+      [INFO] 22 parameters found  -> 05/09/2025, 00:30:11
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:30:11
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:11
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:30:14
+      [INFO] 22 parameters found  -> 05/09/2025, 00:30:15
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:30:15
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:15
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:30:17
+      [INFO] 50 parameters found  -> 05/09/2025, 00:30:18
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:30:18
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:18
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:21
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:30:23
+      [INFO] 50 parameters found  -> 05/09/2025, 00:30:23
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:30:23
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:24
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:26
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:30:28
+      [INFO] 14 parameters found  -> 05/09/2025, 00:30:29
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:30:29
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:29
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:30:32
+      [INFO] 14 parameters found  -> 05/09/2025, 00:30:33
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:30:33
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:30:33
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:32:31
+   [INFO] Running injector ... -> 05/09/2025, 00:32:31
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:32:32
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:32:32
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:32:32
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:32:32
+      [INFO] 22 parameters found  -> 05/09/2025, 00:32:32
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:32:32
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:33
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:32:35
+      [INFO] 22 parameters found  -> 05/09/2025, 00:32:35
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:32:35
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:36
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:32:38
+      [INFO] 14 parameters found  -> 05/09/2025, 00:32:39
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:32:39
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:39
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:32:41
+      [INFO] 14 parameters found  -> 05/09/2025, 00:32:42
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:32:42
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:32:46
+      [INFO] 0 parameters found  -> 05/09/2025, 00:32:47
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:32:47
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:32:47
+      [INFO] 0 parameters found  -> 05/09/2025, 00:32:48
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:32:48
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:32:48
+      [INFO] 50 parameters found  -> 05/09/2025, 00:32:49
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:32:49
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:49
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:52
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:32:54
+      [INFO] 50 parameters found  -> 05/09/2025, 00:32:54
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:32:54
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:55
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:32:57
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:34:20
+   [INFO] Running injector ... -> 05/09/2025, 00:34:20
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:34:20
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:34:20
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:34:20
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:34:20
+      [INFO] 14 parameters found  -> 05/09/2025, 00:34:20
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:34:20
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:21
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:34:23
+      [INFO] 14 parameters found  -> 05/09/2025, 00:34:23
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:34:23
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:24
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:34:27
+      [INFO] 50 parameters found  -> 05/09/2025, 00:34:29
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:34:29
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:30
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:33
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:34:36
+      [INFO] 50 parameters found  -> 05/09/2025, 00:34:36
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:34:36
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:37
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:39
+[ERROR] Process interrupted by user. -> 05/09/2025, 00:34:41
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:34:46
+   [INFO] Running injector ... -> 05/09/2025, 00:34:46
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:34:46
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:34:46
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:34:46
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:34:46
+      [INFO] 14 parameters found  -> 05/09/2025, 00:34:47
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:34:47
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:48
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:34:50
+      [INFO] 14 parameters found  -> 05/09/2025, 00:34:50
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:34:50
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:51
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:34:53
+      [INFO] 0 parameters found  -> 05/09/2025, 00:34:54
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:34:54
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:34:54
+      [INFO] 0 parameters found  -> 05/09/2025, 00:34:55
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:34:55
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:34:55
+      [INFO] 50 parameters found  -> 05/09/2025, 00:34:56
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:34:56
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:56
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:34:58
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:35:01
+      [INFO] 50 parameters found  -> 05/09/2025, 00:35:02
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:35:02
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:02
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:08
+      [INFO] 22 parameters found  -> 05/09/2025, 00:35:08
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:08
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:09
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:11
+      [INFO] 22 parameters found  -> 05/09/2025, 00:35:12
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:12
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:12
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:35:28
+   [INFO] Running injector ... -> 05/09/2025, 00:35:28
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:35:28
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:35:28
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:35:28
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:35:28
+      [INFO] 50 parameters found  -> 05/09/2025, 00:35:29
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:35:29
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:29
+[ERROR] Process interrupted by user. -> 05/09/2025, 00:35:30
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:35:45
+   [INFO] Running injector ... -> 05/09/2025, 00:35:45
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:35:45
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:35:45
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:35:45
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:35:45
+      [INFO] 14 parameters found  -> 05/09/2025, 00:35:46
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:35:46
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:46
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:35:49
+      [INFO] 14 parameters found  -> 05/09/2025, 00:35:50
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:35:50
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:51
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:53
+      [INFO] 22 parameters found  -> 05/09/2025, 00:35:53
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:53
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:54
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:56
+      [INFO] 22 parameters found  -> 05/09/2025, 00:35:57
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:35:57
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:35:57
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:36:00
+      [INFO] 50 parameters found  -> 05/09/2025, 00:36:01
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:36:01
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:01
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:03
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:36:05
+      [INFO] 50 parameters found  -> 05/09/2025, 00:36:06
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:36:06
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:07
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:09
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:36:11
+      [INFO] 0 parameters found  -> 05/09/2025, 00:36:12
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:36:12
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:36:12
+      [INFO] 0 parameters found  -> 05/09/2025, 00:36:13
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:36:13
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:36:46
+   [INFO] Running injector ... -> 05/09/2025, 00:36:46
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:36:46
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:36:46
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:36:46
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:36:46
+      [INFO] 22 parameters found  -> 05/09/2025, 00:36:47
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:36:47
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:48
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:36:49
+      [INFO] 22 parameters found  -> 05/09/2025, 00:36:50
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:36:50
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:50
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:36:52
+      [INFO] 0 parameters found  -> 05/09/2025, 00:36:53
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:36:53
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:36:53
+      [INFO] 0 parameters found  -> 05/09/2025, 00:36:54
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:36:54
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:36:54
+      [INFO] 14 parameters found  -> 05/09/2025, 00:36:55
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:36:55
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:55
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:36:57
+      [INFO] 14 parameters found  -> 05/09/2025, 00:36:58
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:36:58
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:36:58
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:37:00
+      [INFO] 50 parameters found  -> 05/09/2025, 00:37:01
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:37:01
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:37:01
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:37:04
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:37:07
+      [INFO] 50 parameters found  -> 05/09/2025, 00:37:09
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:37:09
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:37:09
+[ERROR] Headless scan failed: BrowserType.launch: Executable doesn't exist at /Users/apple/Library/Caches/ms-playwright/chromium_headless_shell-1187/chrome-mac/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 00:37:11
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:38:47
+   [INFO] Running injector ... -> 05/09/2025, 00:38:47
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:38:47
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:38:47
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:38:47
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:38:47
+      [INFO] 22 parameters found  -> 05/09/2025, 00:38:48
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:38:48
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:38:48
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:38:50
+      [INFO] 22 parameters found  -> 05/09/2025, 00:38:51
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:38:51
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:38:51
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:38:53
+      [INFO] 50 parameters found  -> 05/09/2025, 00:38:53
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:38:53
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:38:53
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:38:55
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:38:57
+      [INFO] 50 parameters found  -> 05/09/2025, 00:38:58
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:38:58
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:38:58
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:00
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:39:04
+      [INFO] 0 parameters found  -> 05/09/2025, 00:39:04
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:39:04
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:39:04
+      [INFO] 0 parameters found  -> 05/09/2025, 00:39:05
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:39:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:39:05
+      [INFO] 14 parameters found  -> 05/09/2025, 00:39:06
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:39:06
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:06
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:39:08
+      [INFO] 14 parameters found  -> 05/09/2025, 00:39:09
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 00:39:09
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:09
+[INFO] Starting Static Reflix ... -> 05/09/2025, 00:39:27
+   [INFO] Running injector ... -> 05/09/2025, 00:39:27
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 00:39:27
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 00:39:27
+[INFO] Starting Light Reflix ... -> 05/09/2025, 00:39:27
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:39:27
+      [INFO] 50 parameters found  -> 05/09/2025, 00:39:28
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 00:39:28
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:28
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:29
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:39:31
+      [INFO] 50 parameters found  -> 05/09/2025, 00:39:32
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 00:39:32
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:32
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:35
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:39:37
+      [INFO] 0 parameters found  -> 05/09/2025, 00:39:38
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 00:39:38
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:39:38
+      [INFO] 0 parameters found  -> 05/09/2025, 00:39:39
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 00:39:39
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:39:39
+      [INFO] 22 parameters found  -> 05/09/2025, 00:39:39
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:39:39
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:39
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:39:42
+      [INFO] 22 parameters found  -> 05/09/2025, 00:39:43
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 00:39:43
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:39:48
+      [INFO] 14 parameters found  -> 05/09/2025, 00:39:49
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 00:39:49
+[ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+ -> 05/09/2025, 00:39:49
+[ERROR] Process interrupted by user. -> 05/09/2025, 00:39:50

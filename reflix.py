@@ -3,7 +3,18 @@ from yaspin import yaspin # type: ignore
 from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse , parse_qs
 from typing import List, Dict
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
+service = Service(ChromeDriverManager().install())
 
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
@@ -52,12 +63,13 @@ input_group.add_argument('-w', '--wordlist',    help='Path to a file containing 
 
 
 # --- Configurations ---
-notif_group = parser.add_argument_group('Configurations')
-notif_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
-notif_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[])
-notif_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
-input_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
-input_group.add_argument('-he', '--heavy', help='If enabled, it re-fuzzes all discovered parameters after light completes (default: False)',action='store_true',  default=False, required=False)
+configue_grou = parser.add_argument_group('Configurations')
+configue_grou.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
+configue_grou.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[])
+configue_grou.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
+configue_grou.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
+configue_grou.add_argument('-he', '--heavy', help='If enabled, it re-fuzzes all discovered parameters after light completes (default: False)',action='store_true',  default=False, required=False)
+configue_grou.add_argument('-hd','--headless', help='Use headless browser (Playwright) to render full DOM and check reflections', action='store_true', default=False)
 
 
 # --- Rate Limit Options ---
@@ -71,7 +83,8 @@ notif_group = parser.add_argument_group('Notification & Logging')
 notif_group.add_argument('-n', '--notify', help='Enable notifications', action='store_true', default=False, required=False)
 notif_group.add_argument('-log', '--logger', help='Enable logger (default: logger.txt)', type=str, default='logger.txt', required=False)
 notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default: False)', action='store_true', default=False, required=False)
-input_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)', action='store_true', default=False, required=False)
+notif_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)', action='store_true', default=False, required=False)
+
 
 
 # --- Output ---
@@ -81,6 +94,8 @@ notif_group.add_argument('-po', '--paramsoutput', help='Path to file where disco
 notif_group.add_argument('-jo', '--jsonoutput',help='file to export results in JSON format',type=str ,required=False)
 
 args = parser.parse_args()
+
+
 
 #Input & Group
 urls_path = args.urlspath
@@ -95,6 +110,7 @@ if args.headers:
         if ':' in header:
             key, value = header.split(':', 1)
             headers[key.strip()] = value.strip()
+
 
 proxy = args.proxy
 chunk = args.chunk
@@ -119,6 +135,8 @@ output = args.output
 params_output = args.paramsoutput
 json_output = args.jsonoutput
 
+#Headless
+headless=args.headless
 
 def read_write_list(list_data: list, file: str, type: str):
 
@@ -147,6 +165,47 @@ def read_write_list(list_data: list, file: str, type: str):
             for item in set(list_data):
                 if item.strip() and item not in existing_items:
                     f.write(item.strip() + '\n')
+
+
+
+def run_headless_scan(target_url, method="GET", search_word="nexovir"):
+    try:
+        chrome_options = Options()
+        chrome_options.headless = True
+        chrome_options.add_argument("--window-size=1920,1080")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument(
+            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        )
+
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+
+        driver.get(target_url)
+
+        try:
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
+            )
+        except:
+            pass 
+
+        html = driver.page_source
+        driver.quit()
+        print(html)
+        if search_word in html:
+            output_line = f"[{method.upper()}] [http] [info] {target_url}"
+            sendmessage(output_line, colour="GREEN", logger=logger, silent=silent)
+            read_write_list([output_line], output, 'a')
+            return {"success": True, "url": target_url, "line": output_line}
+        else:
+            return {"success": False, "url": target_url}
+
+    except Exception as e:
+        sendmessage(f"[ERROR] Selenium scan failed: {str(e)}", colour="RED", logger=logger, silent=silent)
+        return {"success": False, "url": target_url, "error": str(e)}
 
 
 def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir" , proxy =''):  
@@ -297,7 +356,12 @@ def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , param
                 current_params[param] = parameter
 
             new_query = urlencode(current_params, doseq=True)
+            
             full_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
+            
+            if headless:
+                run_headless_scan(full_url, method, parameter)
+
             run_nuclei_scan(full_url , method , headers , None , parameter , proxy)
             time.sleep(delay)
 

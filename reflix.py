@@ -183,7 +183,13 @@ def run_headless_scan(target_url, method="GET", search_word="nexovir"):
 
             
             if search_word in html.lower():
-                output_line = f"[{'\033[92m' + method.upper() + '\033[0m'}] [{'\033[94mhttp\033[0m'}] [{'\033[34minfo\033[0m'}] [{'\033[33mDOM\033[0m'}] {target_url}"
+                green = '\033[92m'
+                blue = '\033[94m'
+                cyan = '\033[34m'
+                yellow = '\033[33m'
+                reset = '\033[0m'
+
+                output_line = f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] [{yellow}DOM{reset}] {target_url}"
                 print(output_line)
                 read_write_list([output_line], output, 'a')
                 return {"success": True, "url": target_url, "line": output_line}
@@ -238,7 +244,10 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
             for line in raw_output:
                 parts = line.split('] ')
                 if len(parts) >= 3:
-                    new_line = '] '.join(parts[:3]) + '] [\033[33mHTML\033[0m] ' + '] '.join(parts[3:])
+                    yellow = '\033[33m'
+                    reset = '\033[0m'
+
+                    new_line = '] '.join(parts[:3]) + f'] [{yellow}HTML{reset}] ' + '] '.join(parts[3:])
                 else:
                     new_line = line 
 

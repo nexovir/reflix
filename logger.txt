@@ -1278,3 +1278,1013 @@ expected str, bytes or os.PathLike object, not NoneType -> 20/07/2025, 02:46:40
 [ERROR] Selenium scan failed: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
  -> 05/09/2025, 00:39:49
 [ERROR] Process interrupted by user. -> 05/09/2025, 00:39:50
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:20:07
+   [INFO] Running injector ... -> 05/09/2025, 05:20:07
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:20:07
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:20:07
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:20:07
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:20:07
+  [ERROR] Error fallparams URL https://nexovir.ir/admin: Command '['fallparams', '-u', 'https://nexovir.ir/admin', '-x', '', '-X', 'GET', '-silent', '-duc']' returned non-zero exit status 1. -> 05/09/2025, 05:20:09
+[ERROR] An error occurred: 'NoneType' object is not iterable -> 05/09/2025, 05:20:09
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:23:19
+   [INFO] Running injector ... -> 05/09/2025, 05:23:19
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:23:19
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:23:19
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:23:19
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:23:19
+  [ERROR] Error fallparams URL https://nexovir.ir/: Command '['fallparams', '-u', 'https://nexovir.ir/', '-x', '', '-X', 'GET', '-silent', '-duc']' returned non-zero exit status 1. -> 05/09/2025, 05:23:21
+[ERROR] An error occurred: 'NoneType' object is not iterable -> 05/09/2025, 05:23:21
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:23:34
+   [INFO] Running injector ... -> 05/09/2025, 05:23:34
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:23:34
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:23:34
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:23:34
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:23:34
+      [INFO] 50 parameters found  -> 05/09/2025, 05:23:35
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:23:35
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:23:35
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:23:38
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:23:40
+      [INFO] 50 parameters found  -> 05/09/2025, 05:23:41
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:23:41
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:23:41
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:23:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:23:45
+  [ERROR] Error fallparams URL https://nexovir.ir/: Command '['fallparams', '-u', 'https://nexovir.ir/', '-x', '', '-X', 'GET', '-silent', '-duc']' returned non-zero exit status 1. -> 05/09/2025, 05:23:46
+[ERROR] An error occurred: 'NoneType' object is not iterable -> 05/09/2025, 05:23:46
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:24:21
+   [INFO] Running injector ... -> 05/09/2025, 05:24:21
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:24:21
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:24:21
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:24:21
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:24:21
+      [INFO] 50 parameters found  -> 05/09/2025, 05:24:22
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:24:22
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:23
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:26
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:24:28
+      [INFO] 50 parameters found  -> 05/09/2025, 05:24:29
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:24:29
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:29
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:31
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:24:33
+      [INFO] 0 parameters found  -> 05/09/2025, 05:24:34
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:24:34
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:24:34
+      [INFO] 0 parameters found  -> 05/09/2025, 05:24:36
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:24:36
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:24:36
+      [INFO] 22 parameters found  -> 05/09/2025, 05:24:38
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:24:38
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:38
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:24:41
+      [INFO] 22 parameters found  -> 05/09/2025, 05:24:44
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:24:44
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:44
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:24:47
+      [INFO] 14 parameters found  -> 05/09/2025, 05:24:48
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:24:48
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:48
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:24:51
+      [INFO] 14 parameters found  -> 05/09/2025, 05:24:52
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:24:52
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:24:52
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:25:46
+   [INFO] Running injector ... -> 05/09/2025, 05:25:46
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:25:46
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:25:46
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:25:46
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:25:46
+      [INFO] 14 parameters found  -> 05/09/2025, 05:25:47
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:25:47
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:25:47
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:25:50
+      [INFO] 14 parameters found  -> 05/09/2025, 05:25:51
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:25:51
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:25:51
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:25:54
+      [INFO] 50 parameters found  -> 05/09/2025, 05:25:55
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:25:55
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:25:55
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:25:59
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:26:00
+      [INFO] 50 parameters found  -> 05/09/2025, 05:26:01
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:26:01
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:26:02
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:26:04
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:26:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:26:07
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:26:07
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:26:07
+      [INFO] 0 parameters found  -> 05/09/2025, 05:26:08
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:26:08
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:26:08
+      [INFO] 22 parameters found  -> 05/09/2025, 05:26:09
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:26:09
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:26:10
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:26:13
+      [INFO] 22 parameters found  -> 05/09/2025, 05:26:14
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:26:14
+[ERROR] Playwright scan failed: BrowserType.launch: Executable doesn't exist at /home/nexovir/.cache/ms-playwright/chromium_headless_shell-1187/chrome-linux/headless_shell
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝ -> 05/09/2025, 05:26:14
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:35:05
+   [INFO] Running injector ... -> 05/09/2025, 05:35:05
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:35:05
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:35:05
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:35:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:35:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:35:05
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:35:05
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:35:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:35:06
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:35:06
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:35:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:35:06
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:35:06
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:35:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:35:06
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:35:06
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:35:06
+      [INFO] 50 parameters found  -> 05/09/2025, 05:35:07
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:35:07
+[ERROR] Playwright scan failed: Page.goto: net::ERR_CONNECTION_RESET at https://memoryleaks.ir/?viewportmeta=zerodium&o=zerodium&i=zerodium&e=zerodium&t=zerodium&n=zerodium&r=zerodium&url=zerodium&name=zerodium&isPartOf=zerodium&description=zerodium&breadcrumb=zerodium&inLanguage=zerodium&itemListElement=zerodium&position=zerodium&potentialAction=zerodium&target=zerodium&urlTemplate=zerodium&query-input=zerodium&valueRequired=zerodium&valueName=zerodium&baseUrl=zerodium&ext=zerodium&svgUrl=zerodium&svgExt=zerodium
+Call log:
+  - navigating to "https://memoryleaks.ir/?viewportmeta=zerodium&o=zerodium&i=zerodium&e=zerodium&t=zerodium&n=zerodium&r=zerodium&url=zerodium&name=zerodium&isPartOf=zerodium&description=zerodium&breadcrumb=zerodium&inLanguage=zerodium&itemListElement=zerodium&position=zerodium&potentialAction=zerodium&target=zerodium&urlTemplate=zerodium&query-input=zerodium&valueRequired=zerodium&valueName=zerodium&baseUrl=zerodium&ext=zerodium&svgUrl=zerodium&svgExt=zerodium", waiting until "domcontentloaded"
+ -> 05/09/2025, 05:35:13
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:35:19
+      [INFO] 50 parameters found  -> 05/09/2025, 05:35:20
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:35:20
+[ERROR] Playwright scan failed: Page.goto: net::ERR_CONNECTION_RESET at https://memoryleaks.ir/?viewportmeta=zerodium&o=zerodium&i=zerodium&e=zerodium&t=zerodium&n=zerodium&r=zerodium&url=zerodium&name=zerodium&isPartOf=zerodium&description=zerodium&breadcrumb=zerodium&inLanguage=zerodium&itemListElement=zerodium&position=zerodium&potentialAction=zerodium&target=zerodium&urlTemplate=zerodium&query-input=zerodium&valueRequired=zerodium&valueName=zerodium&baseUrl=zerodium&ext=zerodium&svgUrl=zerodium&svgExt=zerodium
+Call log:
+  - navigating to "https://memoryleaks.ir/?viewportmeta=zerodium&o=zerodium&i=zerodium&e=zerodium&t=zerodium&n=zerodium&r=zerodium&url=zerodium&name=zerodium&isPartOf=zerodium&description=zerodium&breadcrumb=zerodium&inLanguage=zerodium&itemListElement=zerodium&position=zerodium&potentialAction=zerodium&target=zerodium&urlTemplate=zerodium&query-input=zerodium&valueRequired=zerodium&valueName=zerodium&baseUrl=zerodium&ext=zerodium&svgUrl=zerodium&svgExt=zerodium", waiting until "domcontentloaded"
+ -> 05/09/2025, 05:35:20
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:35:26
+      [INFO] 0 parameters found  -> 05/09/2025, 05:35:27
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:35:27
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:35:27
+      [INFO] 0 parameters found  -> 05/09/2025, 05:35:28
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:35:28
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:37:19
+   [INFO] Running injector ... -> 05/09/2025, 05:37:19
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:37:19
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:37:19
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:37:19
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:37:19
+      [INFO] 14 parameters found  -> 05/09/2025, 05:37:20
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:37:20
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:37:25
+      [INFO] 14 parameters found  -> 05/09/2025, 05:37:27
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:37:27
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:37:31
+      [INFO] 0 parameters found  -> 05/09/2025, 05:37:32
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:37:32
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:37:32
+      [INFO] 0 parameters found  -> 05/09/2025, 05:37:34
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:37:34
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:37:34
+      [INFO] 22 parameters found  -> 05/09/2025, 05:37:35
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:37:35
+[ERROR] Process interrupted by user. -> 05/09/2025, 05:37:37
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:37:44
+   [INFO] Running injector ... -> 05/09/2025, 05:37:44
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:37:44
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:37:44
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:37:44
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:37:44
+      [INFO] 0 parameters found  -> 05/09/2025, 05:37:46
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:37:46
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:37:46
+      [INFO] 0 parameters found  -> 05/09/2025, 05:37:47
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:37:47
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:37:47
+      [INFO] 22 parameters found  -> 05/09/2025, 05:37:49
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:37:49
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:37:51
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:37:54
+      [INFO] 22 parameters found  -> 05/09/2025, 05:37:55
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:37:55
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:37:57
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:38:00
+      [INFO] 50 parameters found  -> 05/09/2025, 05:38:01
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:38:01
+[ERROR] Process interrupted by user. -> 05/09/2025, 05:38:08
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:38:13
+   [INFO] Running injector ... -> 05/09/2025, 05:38:13
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:38:13
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:38:13
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:38:13
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:38:13
+      [INFO] 22 parameters found  -> 05/09/2025, 05:38:15
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:38:15
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:38:17
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:38:20
+      [INFO] 22 parameters found  -> 05/09/2025, 05:38:22
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:38:22
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:38:24
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:38:27
+      [INFO] 14 parameters found  -> 05/09/2025, 05:38:28
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:38:28
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:38:33
+      [INFO] 14 parameters found  -> 05/09/2025, 05:38:34
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:38:34
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:38:39
+      [INFO] 50 parameters found  -> 05/09/2025, 05:38:40
+  [INFO] Start Fuzzing 50 parameters (method: GET) https://memoryleaks.ir -> 05/09/2025, 05:38:40
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:38:48
+      [INFO] 50 parameters found  -> 05/09/2025, 05:38:49
+  [INFO] Start Fuzzing 50 parameters (method: POST) https://memoryleaks.ir -> 05/09/2025, 05:38:49
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:38:57
+      [INFO] 0 parameters found  -> 05/09/2025, 05:38:58
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:38:58
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:38:58
+      [INFO] 0 parameters found  -> 05/09/2025, 05:38:59
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:38:59
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:40:43
+   [INFO] Running injector ... -> 05/09/2025, 05:40:43
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:40:43
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:40:43
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:40:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:40:43
+      [INFO] 22 parameters found  -> 05/09/2025, 05:40:45
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:40:45
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:40:52
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:40:55
+      [INFO] 22 parameters found  -> 05/09/2025, 05:40:56
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:40:56
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:41:04
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:41:07
+      [INFO] 0 parameters found  -> 05/09/2025, 05:41:08
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:41:08
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:41:08
+      [INFO] 0 parameters found  -> 05/09/2025, 05:41:09
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:41:09
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:41:09
+      [INFO] 14 parameters found  -> 05/09/2025, 05:41:11
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:41:11
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:41:21
+      [INFO] 14 parameters found  -> 05/09/2025, 05:41:22
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:41:22
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:41:46
+   [INFO] Running injector ... -> 05/09/2025, 05:41:46
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:41:46
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:41:46
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:41:46
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:41:46
+      [INFO] 14 parameters found  -> 05/09/2025, 05:41:47
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:41:47
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:41:58
+[ERROR] Process interrupted by user. -> 05/09/2025, 05:41:59
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:42:01
+   [INFO] Running injector ... -> 05/09/2025, 05:42:01
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:42:01
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:42:01
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:42:01
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:42:01
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:01
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:42:01
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:42:01
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:02
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:42:02
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:42:02
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:02
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:42:02
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:42:02
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:03
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:42:03
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:03
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:03
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:03
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:03
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:03
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:03
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:42:05
+   [INFO] Running injector ... -> 05/09/2025, 05:42:05
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:42:05
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:42:05
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:42:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:05
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:05
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:05
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:42:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:05
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:42:05
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:42:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:05
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:42:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:42:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:06
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:42:06
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:42:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:06
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:42:06
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:42:11
+   [INFO] Running injector ... -> 05/09/2025, 05:42:11
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:42:11
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:42:11
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:42:11
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:11
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:11
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:11
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:11
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:11
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:42:11
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:42:11
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:11
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:42:11
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:42:11
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:12
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:42:12
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:42:12
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:12
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:42:12
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:42:12
+      [INFO] 0 parameters found  -> 05/09/2025, 05:42:12
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:42:12
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:43:05
+   [INFO] Running injector ... -> 05/09/2025, 05:43:05
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:43:05
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:43:05
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:43:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:43:05
+      [INFO] 22 parameters found  -> 05/09/2025, 05:43:07
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:43:07
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:43:14
+[ERROR] Process interrupted by user. -> 05/09/2025, 05:43:16
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:44:09
+   [INFO] Running injector ... -> 05/09/2025, 05:44:09
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:44:09
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:44:09
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:44:09
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:44:09
+      [INFO] 0 parameters found  -> 05/09/2025, 05:44:10
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:44:10
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:44:10
+      [INFO] 0 parameters found  -> 05/09/2025, 05:44:11
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:44:11
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:44:11
+      [INFO] 14 parameters found  -> 05/09/2025, 05:44:18
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:44:18
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:44:23
+      [INFO] 14 parameters found  -> 05/09/2025, 05:44:24
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:44:24
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:44:29
+      [INFO] 22 parameters found  -> 05/09/2025, 05:44:30
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:44:30
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:44:32
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:44:35
+      [INFO] 22 parameters found  -> 05/09/2025, 05:44:36
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:44:36
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:44:38
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:46:18
+   [INFO] Running injector ... -> 05/09/2025, 05:46:18
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:46:18
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:46:18
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:46:18
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:46:18
+      [INFO] 22 parameters found  -> 05/09/2025, 05:46:20
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:46:20
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:46:23
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:46:25
+      [INFO] 22 parameters found  -> 05/09/2025, 05:46:26
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:46:26
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:46:29
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:46:31
+      [INFO] 14 parameters found  -> 05/09/2025, 05:46:32
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:46:32
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:46:37
+      [INFO] 14 parameters found  -> 05/09/2025, 05:46:39
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:46:39
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:46:45
+      [INFO] 0 parameters found  -> 05/09/2025, 05:46:46
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:46:46
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:46:46
+      [INFO] 0 parameters found  -> 05/09/2025, 05:46:48
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:46:48
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:46:57
+   [INFO] Running injector ... -> 05/09/2025, 05:46:57
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:46:57
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:46:57
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:46:57
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:46:57
+      [INFO] 14 parameters found  -> 05/09/2025, 05:46:59
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:46:59
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:47:05
+      [INFO] 14 parameters found  -> 05/09/2025, 05:47:06
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:47:06
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:47:11
+      [INFO] 22 parameters found  -> 05/09/2025, 05:47:12
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:47:12
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:47:23
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:47:25
+      [INFO] 22 parameters found  -> 05/09/2025, 05:47:26
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:47:26
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:47:29
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:47:31
+      [INFO] 0 parameters found  -> 05/09/2025, 05:47:32
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:47:32
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:47:32
+      [INFO] 0 parameters found  -> 05/09/2025, 05:47:33
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:47:33
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:47:55
+   [INFO] Running injector ... -> 05/09/2025, 05:47:55
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:47:55
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:47:55
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:47:55
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:47:55
+      [INFO] 22 parameters found  -> 05/09/2025, 05:47:56
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:47:56
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:47:58
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:48:01
+      [INFO] 22 parameters found  -> 05/09/2025, 05:48:04
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:48:04
+[ERROR] Playwright scan failed: Page.goto: net::ERR_CONNECTION_REFUSED at https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium
+Call log:
+  - navigating to "https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium", waiting until "networkidle"
+ -> 05/09/2025, 05:48:04
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:48:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:48:06
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:48:06
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:48:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:48:06
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:48:06
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:48:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:48:06
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:48:06
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:48:06
+      [INFO] 0 parameters found  -> 05/09/2025, 05:48:07
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:48:07
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:48:29
+   [INFO] Running injector ... -> 05/09/2025, 05:48:29
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:48:29
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:48:29
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:48:29
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:48:29
+      [INFO] 0 parameters found  -> 05/09/2025, 05:48:30
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:48:30
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:48:30
+      [INFO] 0 parameters found  -> 05/09/2025, 05:48:31
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:48:31
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:48:31
+      [INFO] 22 parameters found  -> 05/09/2025, 05:48:32
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:48:32
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:48:35
+[ERROR] Playwright scan failed: name 'output_line' is not defined -> 05/09/2025, 05:48:35
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:48:37
+      [INFO] 22 parameters found  -> 05/09/2025, 05:48:39
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:48:39
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:48:41
+[ERROR] Playwright scan failed: name 'output_line' is not defined -> 05/09/2025, 05:48:41
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:48:44
+      [INFO] 14 parameters found  -> 05/09/2025, 05:48:45
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:48:45
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:48:50
+      [INFO] 14 parameters found  -> 05/09/2025, 05:48:51
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:48:51
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:53:55
+   [INFO] Running injector ... -> 05/09/2025, 05:53:55
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:53:55
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:53:55
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:53:55
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:53:55
+      [INFO] 0 parameters found  -> 05/09/2025, 05:53:56
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:53:56
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:53:56
+      [INFO] 0 parameters found  -> 05/09/2025, 05:53:57
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:53:57
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:53:57
+  [ERROR] Error fallparams URL https://nexovir.ir/unlock/secure/matrix-login/: Command '['fallparams', '-u', 'https://nexovir.ir/unlock/secure/matrix-login/', '-x', '', '-X', 'GET', '-silent', '-duc']' returned non-zero exit status 1. -> 05/09/2025, 05:53:58
+[ERROR] An error occurred: 'NoneType' object is not iterable -> 05/09/2025, 05:53:58
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:54:01
+   [INFO] Running injector ... -> 05/09/2025, 05:54:01
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:54:01
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:54:01
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:54:01
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:54:01
+      [INFO] 14 parameters found  -> 05/09/2025, 05:54:03
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:54:03
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:54:08
+      [INFO] 14 parameters found  -> 05/09/2025, 05:54:09
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:54:09
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:54:14
+      [INFO] 22 parameters found  -> 05/09/2025, 05:54:15
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:54:15
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:54:18
+[ERROR] Playwright scan failed: name 'output_line' is not defined -> 05/09/2025, 05:54:18
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:54:20
+      [INFO] 22 parameters found  -> 05/09/2025, 05:54:21
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:54:21
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:54:24
+[ERROR] Playwright scan failed: name 'output_line' is not defined -> 05/09/2025, 05:54:24
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:54:26
+      [INFO] 0 parameters found  -> 05/09/2025, 05:54:28
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:54:28
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:54:28
+      [INFO] 0 parameters found  -> 05/09/2025, 05:54:28
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:54:28
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:55:25
+   [INFO] Running injector ... -> 05/09/2025, 05:55:25
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:55:25
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:55:25
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:55:25
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:55:25
+      [INFO] 22 parameters found  -> 05/09/2025, 05:55:26
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:55:26
+[GET] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:55:29
+[ERROR] Playwright scan failed: name 'output_line' is not defined -> 05/09/2025, 05:55:29
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:55:31
+      [INFO] 22 parameters found  -> 05/09/2025, 05:55:33
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:55:33
+[POST] [http] [info] https://nexovir.ir/unlock/secure/matrix-login/?canvas=zerodium&ctx=zerodium&width=zerodium&height=zerodium&letters=zerodium&fontSize=zerodium&columns=zerodium&drops=zerodium&i=zerodium&text=zerodium&params=zerodium&matrixx=zerodium&2d=zerodium&1=zerodium&0=zerodium&resize=zerodium&draw=zerodium&init=zerodium&50=zerodium&viewport=zerodium&username=zerodium&password=zerodium -> 05/09/2025, 05:55:35
+[ERROR] Playwright scan failed: name 'output_line' is not defined -> 05/09/2025, 05:55:35
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:55:38
+      [INFO] 14 parameters found  -> 05/09/2025, 05:55:39
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:55:39
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:55:44
+      [INFO] 14 parameters found  -> 05/09/2025, 05:55:45
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:55:45
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:55:50
+      [INFO] 0 parameters found  -> 05/09/2025, 05:55:51
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:55:51
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:55:51
+      [INFO] 0 parameters found  -> 05/09/2025, 05:55:52
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:55:52
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:56:04
+   [INFO] Running injector ... -> 05/09/2025, 05:56:04
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:56:04
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:56:04
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:56:04
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:04
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:04
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:04
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:04
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:04
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:04
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:56:04
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:05
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:56:05
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:56:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:05
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:56:05
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:56:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:05
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:56:05
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:56:05
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:05
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:56:05
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:56:08
+   [INFO] Running injector ... -> 05/09/2025, 05:56:08
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:56:08
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:56:08
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:56:08
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:56:08
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:08
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:56:08
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:56:08
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:08
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:56:08
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:08
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:08
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:08
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:08
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:09
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:09
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:56:09
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:09
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:56:09
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:56:09
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:09
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:56:09
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:56:14
+   [INFO] Running injector ... -> 05/09/2025, 05:56:14
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:56:14
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:56:14
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:56:14
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:56:14
+      [INFO] 14 parameters found  -> 05/09/2025, 05:56:17
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:56:17
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:56:22
+      [INFO] 14 parameters found  -> 05/09/2025, 05:56:23
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:56:23
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:28
+      [INFO] 22 parameters found  -> 05/09/2025, 05:56:30
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:30
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:35
+      [INFO] 22 parameters found  -> 05/09/2025, 05:56:36
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:56:36
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:56:41
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:42
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:56:42
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:56:42
+      [INFO] 0 parameters found  -> 05/09/2025, 05:56:43
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:56:43
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:57:33
+   [INFO] Running injector ... -> 05/09/2025, 05:57:33
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:57:33
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:57:33
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:57:33
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:57:33
+      [INFO] 14 parameters found  -> 05/09/2025, 05:57:35
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:57:35
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:57:40
+      [INFO] 14 parameters found  -> 05/09/2025, 05:57:42
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:57:42
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:57:47
+      [INFO] 0 parameters found  -> 05/09/2025, 05:57:48
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:57:48
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:57:48
+      [INFO] 0 parameters found  -> 05/09/2025, 05:57:48
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:57:48
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:57:48
+      [INFO] 22 parameters found  -> 05/09/2025, 05:57:50
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:57:50
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:57:54
+      [INFO] 22 parameters found  -> 05/09/2025, 05:57:56
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:57:56
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:58:50
+   [INFO] Running injector ... -> 05/09/2025, 05:58:50
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:58:50
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:58:50
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:58:50
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:58:50
+      [INFO] 14 parameters found  -> 05/09/2025, 05:58:51
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:58:51
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:58:55
+      [INFO] 14 parameters found  -> 05/09/2025, 05:58:57
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:58:57
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:59:01
+      [INFO] 0 parameters found  -> 05/09/2025, 05:59:03
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:59:03
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:59:03
+      [INFO] 0 parameters found  -> 05/09/2025, 05:59:03
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:59:03
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:03
+      [INFO] 0 parameters found  -> 05/09/2025, 05:59:03
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:03
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:03
+      [INFO] 0 parameters found  -> 05/09/2025, 05:59:03
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:03
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:59:14
+   [INFO] Running injector ... -> 05/09/2025, 05:59:14
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:59:14
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:59:14
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:59:14
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:14
+      [INFO] 22 parameters found  -> 05/09/2025, 05:59:15
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:15
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:20
+      [INFO] 22 parameters found  -> 05/09/2025, 05:59:22
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 05:59:22
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:59:26
+      [INFO] 0 parameters found  -> 05/09/2025, 05:59:28
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:59:28
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:59:28
+      [INFO] 0 parameters found  -> 05/09/2025, 05:59:29
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 05:59:29
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:59:29
+      [INFO] 14 parameters found  -> 05/09/2025, 05:59:30
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 05:59:30
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:59:35
+      [INFO] 14 parameters found  -> 05/09/2025, 05:59:36
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 05:59:36
+[INFO] Starting Static Reflix ... -> 05/09/2025, 05:59:59
+   [INFO] Running injector ... -> 05/09/2025, 05:59:59
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 05:59:59
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 05:59:59
+[INFO] Starting Light Reflix ... -> 05/09/2025, 05:59:59
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 05:59:59
+      [INFO] 0 parameters found  -> 05/09/2025, 06:00:00
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:00:00
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:00:00
+      [INFO] 0 parameters found  -> 05/09/2025, 06:00:01
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:00:01
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:00:01
+      [INFO] 14 parameters found  -> 05/09/2025, 06:00:02
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:00:02
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:00:07
+      [INFO] 14 parameters found  -> 05/09/2025, 06:00:08
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:00:08
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:00:13
+      [INFO] 22 parameters found  -> 05/09/2025, 06:00:14
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:00:14
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:00:19
+      [INFO] 22 parameters found  -> 05/09/2025, 06:00:21
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:00:21
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:00:53
+   [INFO] Running injector ... -> 05/09/2025, 06:00:53
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:00:53
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:00:53
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:00:53
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:00:53
+      [INFO] 0 parameters found  -> 05/09/2025, 06:00:54
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:00:54
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:00:54
+      [INFO] 0 parameters found  -> 05/09/2025, 06:00:55
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:00:55
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:00:55
+      [INFO] 22 parameters found  -> 05/09/2025, 06:00:56
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:00:56
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:01:02
+      [INFO] 22 parameters found  -> 05/09/2025, 06:01:03
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:01:03
+[ERROR] Process interrupted by user. -> 05/09/2025, 06:01:05
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:01:35
+   [INFO] Running injector ... -> 05/09/2025, 06:01:35
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:01:35
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:01:35
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:01:35
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:01:35
+      [INFO] 22 parameters found  -> 05/09/2025, 06:01:37
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:01:37
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:01:42
+      [INFO] 22 parameters found  -> 05/09/2025, 06:01:43
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:01:43
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:01:48
+      [INFO] 14 parameters found  -> 05/09/2025, 06:01:50
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:01:50
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:01:55
+      [INFO] 14 parameters found  -> 05/09/2025, 06:01:56
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:01:56
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:02:01
+      [INFO] 0 parameters found  -> 05/09/2025, 06:02:02
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:02:02
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:02:02
+      [INFO] 0 parameters found  -> 05/09/2025, 06:02:03
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:02:03
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:02:13
+   [INFO] Running injector ... -> 05/09/2025, 06:02:13
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:02:13
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:02:13
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:02:13
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:02:13
+      [INFO] 0 parameters found  -> 05/09/2025, 06:02:14
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:02:14
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:02:14
+      [INFO] 0 parameters found  -> 05/09/2025, 06:02:15
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:02:15
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:02:15
+      [INFO] 22 parameters found  -> 05/09/2025, 06:02:16
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:02:16
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:02:21
+      [INFO] 22 parameters found  -> 05/09/2025, 06:02:23
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:02:23
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:02:29
+      [INFO] 14 parameters found  -> 05/09/2025, 06:02:30
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:02:30
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:02:35
+      [INFO] 14 parameters found  -> 05/09/2025, 06:02:36
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:02:36
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:04:07
+   [INFO] Running injector ... -> 05/09/2025, 06:04:07
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:04:07
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:04:07
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:04:07
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:04:07
+      [INFO] 0 parameters found  -> 05/09/2025, 06:04:09
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:04:09
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:04:09
+      [INFO] 0 parameters found  -> 05/09/2025, 06:04:10
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:04:10
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:04:10
+      [INFO] 14 parameters found  -> 05/09/2025, 06:04:12
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:04:12
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:04:16
+      [INFO] 14 parameters found  -> 05/09/2025, 06:04:18
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:04:18
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:04:22
+      [INFO] 22 parameters found  -> 05/09/2025, 06:04:24
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:04:24
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:04:28
+      [INFO] 22 parameters found  -> 05/09/2025, 06:04:30
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:04:30
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:05:47
+   [INFO] Running injector ... -> 05/09/2025, 06:05:47
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:05:47
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:05:47
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:05:47
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:05:47
+      [INFO] 14 parameters found  -> 05/09/2025, 06:05:48
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:05:48
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:05:53
+      [INFO] 14 parameters found  -> 05/09/2025, 06:05:54
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:05:54
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:05:59
+      [INFO] 22 parameters found  -> 05/09/2025, 06:06:00
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:06:00
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:06:05
+      [INFO] 22 parameters found  -> 05/09/2025, 06:06:08
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:06:08
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:06:12
+      [INFO] 0 parameters found  -> 05/09/2025, 06:06:13
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:06:13
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:06:13
+      [INFO] 0 parameters found  -> 05/09/2025, 06:06:14
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:06:14
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:07:10
+   [INFO] Running injector ... -> 05/09/2025, 06:07:10
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:07:10
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:07:10
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:07:10
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:07:10
+      [INFO] 0 parameters found  -> 05/09/2025, 06:07:10
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:07:10
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:07:10
+      [INFO] 0 parameters found  -> 05/09/2025, 06:07:11
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:07:11
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:07:11
+      [INFO] 22 parameters found  -> 05/09/2025, 06:07:13
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:07:13
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:07:18
+      [INFO] 22 parameters found  -> 05/09/2025, 06:07:20
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:07:20
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:07:24
+      [INFO] 14 parameters found  -> 05/09/2025, 06:07:26
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:07:26
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:07:31
+      [INFO] 14 parameters found  -> 05/09/2025, 06:07:32
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:07:32
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:07:44
+   [INFO] Running injector ... -> 05/09/2025, 06:07:44
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:07:44
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:07:44
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:07:44
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:07:44
+      [INFO] 0 parameters found  -> 05/09/2025, 06:07:45
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:07:45
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:07:45
+      [INFO] 0 parameters found  -> 05/09/2025, 06:07:46
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:07:46
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:07:46
+      [INFO] 14 parameters found  -> 05/09/2025, 06:07:47
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:07:47
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:07:52
+      [INFO] 14 parameters found  -> 05/09/2025, 06:07:53
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:07:53
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:07:58
+      [INFO] 22 parameters found  -> 05/09/2025, 06:08:00
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:08:00
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:08:05
+      [INFO] 22 parameters found  -> 05/09/2025, 06:08:06
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:08:06
+[ERROR] Process interrupted by user. -> 05/09/2025, 06:08:06

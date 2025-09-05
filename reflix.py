@@ -10,11 +10,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from playwright.sync_api import sync_playwright
 
-service = Service(ChromeDriverManager().install())
 
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
@@ -170,41 +168,38 @@ def read_write_list(list_data: list, file: str, type: str):
 
 def run_headless_scan(target_url, method="GET", search_word="nexovir"):
     try:
-        chrome_options = Options()
-        chrome_options.headless = True
-        chrome_options.add_argument("--window-size=1920,1080")
-        chrome_options.add_argument("--disable-gpu")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument(
-            "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        )
-
-        driver = webdriver.Chrome(service=service, options=chrome_options)
-
-        driver.get(target_url)
-
-        try:
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.TAG_NAME, "body"))
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True, args=[
+                "--no-sandbox",
+                "--disable-gpu",
+                "--disable-dev-shm-usage",
+            ])
+            context = browser.new_context(
+                user_agent=(
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/120.0.0.0 Safari/537.36"
+                ),
+                viewport={"width": 1920, "height": 1080}
             )
-        except:
-            pass 
 
-        html = driver.page_source
-        driver.quit()
-        print(html)
-        if search_word in html:
-            output_line = f"[{method.upper()}] [http] [info] {target_url}"
-            sendmessage(output_line, colour="GREEN", logger=logger, silent=silent)
-            read_write_list([output_line], output, 'a')
-            return {"success": True, "url": target_url, "line": output_line}
-        else:
-            return {"success": False, "url": target_url}
+            page = context.new_page()
+            page.goto(target_url, wait_until="networkidle")
+
+            html = page.content()
+            browser.close()
+
+            
+            if search_word in html.lower():
+                output_line = f"[{'\033[92m' + method.upper() + '\033[0m'}] [{'\033[94mhttp\033[0m'}] [{'\033[34minfo\033[0m'}] [{'\033[33mDOM\033[0m'}] {target_url}"
+                print(output_line)
+                read_write_list([output_line], output, 'a')
+                return {"success": True, "url": target_url, "line": output_line}
+            else:
+                return {"success": False, "url": target_url}
 
     except Exception as e:
-        sendmessage(f"[ERROR] Selenium scan failed: {str(e)}", colour="RED", logger=logger, silent=silent)
+        sendmessage(f"[ERROR] Playwright scan failed: {str(e)}", colour="RED", logger=logger, silent=silent)
         return {"success": False, "url": target_url, "error": str(e)}
 
 
@@ -248,9 +243,16 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
             raw_output = result.stdout.splitlines()
-            for line in raw_output :
-                lines.append(line)
-                print(line)
+            for line in raw_output:
+                parts = line.split('] ')
+                if len(parts) >= 3:
+                    new_line = '] '.join(parts[:3]) + '] [\033[33mHTML\033[0m] ' + '] '.join(parts[3:])
+                else:
+                    new_line = line 
+
+                lines.append(new_line)
+                print(new_line)
+
 
             read_write_list(lines , output , 'a')
             return {

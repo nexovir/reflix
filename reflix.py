@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yaml , tempfile, json
 from yaspin import yaspin # type: ignore
 from colorama import Fore, Style

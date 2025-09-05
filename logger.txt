@@ -2288,3 +2288,26 @@ Call log:
       [INFO] 22 parameters found  -> 05/09/2025, 06:08:06
   [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:08:06
 [ERROR] Process interrupted by user. -> 05/09/2025, 06:08:06
+[INFO] Starting Static Reflix ... -> 05/09/2025, 06:11:12
+   [INFO] Running injector ... -> 05/09/2025, 06:11:12
+   [SUCCESS] Injector finished successfully -> 05/09/2025, 06:11:12
+  [INFO] Running nuclei scan on 0 generated urls & methods: ['GET', 'POST'] ... -> 05/09/2025, 06:11:12
+[INFO] Starting Light Reflix ... -> 05/09/2025, 06:11:12
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:11:12
+      [INFO] 14 parameters found  -> 05/09/2025, 06:11:14
+  [INFO] Start Fuzzing 14 parameters (method: GET) https://nexovir.ir/ -> 05/09/2025, 06:11:14
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:11:19
+      [INFO] 14 parameters found  -> 05/09/2025, 06:11:21
+  [INFO] Start Fuzzing 14 parameters (method: POST) https://nexovir.ir/ -> 05/09/2025, 06:11:21
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:11:26
+      [INFO] 22 parameters found  -> 05/09/2025, 06:11:28
+  [INFO] Start Fuzzing 22 parameters (method: GET) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:11:28
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:11:32
+      [INFO] 22 parameters found  -> 05/09/2025, 06:11:34
+  [INFO] Start Fuzzing 22 parameters (method: POST) https://nexovir.ir/unlock/secure/matrix-login/ -> 05/09/2025, 06:11:34
+  [INFO] Starting parameter discovery and check reflection (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:11:40
+      [INFO] 0 parameters found  -> 05/09/2025, 06:11:41
+  [INFO] Start Fuzzing 0 parameters (method: GET) https://nexovir.ir/admin -> 05/09/2025, 06:11:41
+  [INFO] Starting parameter discovery and check reflection (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:11:41
+      [INFO] 0 parameters found  -> 05/09/2025, 06:11:42
+  [INFO] Start Fuzzing 0 parameters (method: POST) https://nexovir.ir/admin -> 05/09/2025, 06:11:42

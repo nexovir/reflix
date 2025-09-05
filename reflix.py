@@ -1,17 +1,8 @@
 #!/usr/bin/env python3
-import colorama, time, subprocess, requests , argparse, os , re , pyfiglet , yaml , tempfile, json
+import colorama, time, subprocess, requests , argparse, os , pyfiglet , yaml , tempfile
 from yaspin import yaspin # type: ignore
 from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse , parse_qs
-from typing import List, Dict
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from playwright.sync_api import sync_playwright
 
 

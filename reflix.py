@@ -237,7 +237,7 @@ def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, sear
     try:
         lines = []
         
-        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent' , '-p' , proxy ]
+        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent', '-p', proxy, '-fhr']
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
             raw_output = result.stdout.splitlines()

@@ -5,6 +5,12 @@ from colorama import Fore, Style
 from urllib.parse import urlparse, parse_qsl, urlencode, urlunparse , parse_qs
 from playwright.sync_api import sync_playwright
 
+green = '\033[92m'
+blue = '\033[94m'
+cyan = '\033[34m'
+yellow = '\033[33m'
+reset = '\033[0m'
+
 
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
@@ -53,13 +59,19 @@ input_group.add_argument('-w', '--wordlist',    help='Path to a file containing 
 
 
 # --- Configurations ---
-configue_grou = parser.add_argument_group('Configurations')
-configue_grou.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
-configue_grou.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[])
-configue_grou.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
-configue_grou.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
-configue_grou.add_argument('-he', '--heavy', help='If enabled, it re-fuzzes all discovered parameters after light completes (default: False)',action='store_true',  default=False, required=False)
-configue_grou.add_argument('-hd','--headless', help='Use headless browser (Playwright) to render full DOM and check reflections', action='store_true', default=False)
+configue_group = parser.add_argument_group('Configurations')
+configue_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False)
+configue_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[])
+configue_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False)
+configue_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str,  default='25', required=False)
+configue_group.add_argument('-he', '--heavy', help='If enabled, it re-fuzzes all discovered parameters after light completes (default: False)',action='store_true',  default=False, required=False)
+configue_group.add_argument('-hd','--headless', help='Use headless browser (Playwright) to render full DOM and check reflections', action='store_true', default=False)
+
+
+# --- Injection Types ---
+injection_group = parser.add_argument_group('Injection Types')
+injection_group.add_argument('-pi','--pathinjection', help='Enable path injection testing by using a headless browser (Playwright) to render the full DOM and check for reflections or vulnerabilities in the application.', action='store_true', default=False)
+injection_group.add_argument('-hi','--headerinjection', help='Enable Header injection testing by using a headless browser (Playwright) to render the full DOM and check for reflections or vulnerabilities in the application.', action='store_true', default=False)
 
 
 # --- Rate Limit Options ---
@@ -106,6 +118,8 @@ proxy = args.proxy
 chunk = args.chunk
 heavy = args.heavy
 
+
+
 #Ratelimit Option
 thread = args.thread
 delay = args.delay
@@ -113,6 +127,8 @@ delay = args.delay
 #Injector Mode 
 value_mode = 'append'
 generate_mode = 'all'
+pathinjection = args.pathinjection
+headerinjection = args.headerinjection
 
 #Notification
 notification = args.notify
@@ -157,21 +173,27 @@ def read_write_list(list_data: list, file: str, type: str):
                     f.write(item.strip() + '\n')
 
 
-
-def run_headless_scan(target_url, method="GET", search_word="nexovir"):
+def run_headless_scan(target_url, method="GET", search_word="nexovir", proxy="" , headers=""):
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True, args=[
-                "--no-sandbox",
-                "--disable-gpu",
-                "--disable-dev-shm-usage",
-            ])
+            browser = p.chromium.launch(
+                headless=True, 
+                args=[
+                    "--no-sandbox",
+                    "--disable-gpu",
+                    "--disable-dev-shm-usage",
+                ],
+                proxy={"server": proxy} if proxy else None
+            )
+
             context = browser.new_context(
                 user_agent=(
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                     "AppleWebKit/537.36 (KHTML, like Gecko) "
                     "Chrome/120.0.0.0 Safari/537.36"
                 ),
+                extra_http_headers=headers or {},
+                ignore_https_errors=True,
                 viewport={"width": 1920, "height": 1080}
             )
 
@@ -181,13 +203,7 @@ def run_headless_scan(target_url, method="GET", search_word="nexovir"):
             html = page.content()
             browser.close()
 
-            
             if search_word in html.lower():
-                green = '\033[92m'
-                blue = '\033[94m'
-                cyan = '\033[34m'
-                yellow = '\033[33m'
-                reset = '\033[0m'
 
                 output_line = f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] [{yellow}DOM{reset}] {target_url}"
                 print(output_line)
@@ -199,6 +215,7 @@ def run_headless_scan(target_url, method="GET", search_word="nexovir"):
     except Exception as e:
         sendmessage(f"[ERROR] Playwright scan failed: {str(e)}", colour="RED", logger=logger, silent=silent)
         return {"success": False, "url": target_url, "error": str(e)}
+
 
 
 def run_nuclei_scan(target_url, method='GET', headers=None, post_data=None, search_word = "nexovir" , proxy =''):  
@@ -363,9 +380,10 @@ def run_x8(url, parameters, proxy, thread, delay, method, headers, chunk , param
             full_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
             
             if headless:
-                run_headless_scan(full_url, method, parameter)
+                run_headless_scan(full_url, method, parameter, proxy , headers)
 
             run_nuclei_scan(full_url , method , headers , None , parameter , proxy)
+
             time.sleep(delay)
 
     except Exception as e:
@@ -396,14 +414,102 @@ def heavy_reflix (urls , proxy , thread , delay , methods) :
         for method in methods :
             
             run_x8(url , parameters , proxy , thread , delay , method , headers , chunk , parameter)
+
+
+
+
+def run_path_reflection(url, parameter, proxy=None, thread=None, delay=None, method="GET", headers=None, output="results.txt"):
+    parsed = urlparse(url)
+    path_parts = parsed.path.strip("/").split("/")
+
+    if path_parts:
+        path_parts[-1] = path_parts[-1] + parameter
+    else:
+        path_parts = [parameter]
+
+    new_path = "/" + "/".join(path_parts)
+    injected_url = f"{parsed.scheme}://{parsed.netloc}{new_path}"
+    if parsed.query:
+        injected_url += f"?{parsed.query}"
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(
+                headless=True,
+                args=[
+                    "--no-sandbox",
+                    "--disable-gpu",
+                    "--disable-dev-shm-usage",
+                ],
+                proxy={"server": proxy} if proxy else None
+            )
+
+            context = browser.new_context(
+                user_agent=(
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/120.0.0.0 Safari/537.36"
+                ),
+                extra_http_headers=headers or {},
+                ignore_https_errors=True,
+                viewport={"width": 1920, "height": 1080}
+            )
+            page = context.new_page()
+            if method == 'GET':
+                response = page.goto(injected_url+'/', wait_until="networkidle")
+
+            else : 
+                response = context.request.post(
+                injected_url
+            )
+                
             
-    
+            html = page.content()
+            resp_headers = response.headers if response else {}
+
+            browser.close()
+
+            found_html = parameter.lower() in html.lower()
+            found_header = any(parameter.lower() in str(v).lower() for v in resp_headers.values())
+
+            if found_html:
+                output_line = f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] [{yellow}DOM{reset}] {injected_url}"
+                print(output_line)
+                read_write_list([output_line], output, 'a')
+
+            if found_header:
+                output_line = f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] [{yellow}HEADER{reset}] {injected_url}"
+                print(output_line)
+                read_write_list([output_line], output, 'a')
+
+    except Exception as e:
+        sendmessage(f"[ERROR] Playwright scan failed: {str(e)}", colour="RED", logger=logger, silent=silent)
+        return {"success": False, "url": injected_url, "error": str(e)}
+
+    return {"success": True, "url": injected_url}
+
+
+
+def path_injection_reflix(urls, proxy, thread, delay, methods, parameter, headers=None, output="reflix.output"):
+    sendmessage("[INFO] Starting PATH Reflection Reflix ..." ,  colour="YELLOW" , logger=logger , silent=silent)
+    for url in urls:
+        for method in methods:
+            run_path_reflection(url, parameter, proxy, thread, delay, method, headers, output)
+
+
+
+
 def main():
     try:
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
-        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
-        light_reflix(urls, proxy, thread, delay, methods)
+
+        # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
+        # light_reflix(urls, proxy, thread, delay, methods)
+        
+        if pathinjection:
+            path_injection_reflix(urls, proxy, thread, delay, methods , parameter , headers , output)
+
         if heavy : 
             heavy_reflix(urls , proxy , thread , delay , methods)
 

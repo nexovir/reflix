@@ -582,8 +582,11 @@ def explore_dom_sinks(url, proxy , thread , delay , headers , method):
                 for item in items:
                     if item in html.lower():
                         sinks.append(item.replace('(',''))
-                if sinks : 
-                    output_line = f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] [{yellow}{category}: {red}{str(sinks).replace("'","")}{reset}] {url}"
+
+                if sinks:
+                    
+                    sinks_str = str(sinks).replace("'", "")
+                    output_line = f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] [{yellow}{category}: {red}{sinks_str}{reset}] {url}"
                     print(output_line)
                     read_write_list([output_line], output, 'a')
 

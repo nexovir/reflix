@@ -712,17 +712,17 @@ def main():
         show_banner() if not silent else None
         urls = read_write_list("", urls_path, 'r')
 
-        # static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
+        static_reflix (urls_path, generate_mode ,value_mode ,parameter , wordlist_parameters , chunk , proxy)
         light_reflix(urls, proxy, thread, delay, methods)
         
-        # if pathinjection:
-        #     path_injection_reflix(urls, proxy, thread, delay, methods , parameter , headers , output)
+        if pathinjection:
+            path_injection_reflix(urls, proxy, thread, delay, methods , parameter , headers , output)
 
-        # if headerinjection:
-        #     header_injection_reflix(urls, proxy, thread, delay, methods , parameter , headers , output)
+        if headerinjection:
+            header_injection_reflix(urls, proxy, thread, delay, methods , parameter , headers , output)
 
-        # if heavy : 
-        #     heavy_reflix(urls , proxy , thread , delay , methods)
+        if heavy : 
+            heavy_reflix(urls , proxy , thread , delay , methods)
 
     except KeyboardInterrupt:
         sendmessage(

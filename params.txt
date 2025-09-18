@@ -13,3 +13,15 @@ fontSize
 y
 2d
 Ubuntu
+password
+drops
+resize
+url
+1
+50
+i
+params
+draw
+username
+matrixx
+init

@@ -1,1 +1,2 @@
 [[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] [[33mDOM-XSS-Sinks: [91m[document.write][0m] https://nexovir.ir/static/xss/js/script.js
+[[92mGET[0m] [[94mhttp[0m] [[34minfo[0m] [[33mOpen-Redirection-Sinks: [91m[location, location.href, location.search][0m] https://nexovir.ir/unlock/secure/matrix-login

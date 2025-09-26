@@ -65,7 +65,7 @@ DOM_SOURCES_AND_SINKS = {
         ],
     'JavaScript-Injection-Sinks':
         [
-            'eval',
+            'eval(',
             'function(',
             'settimeout',
             'setinterval',
@@ -199,33 +199,51 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
 parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection and fuzzing tool')
 
 input_group = parser.add_argument_group('Input Options')
-input_group.add_argument('-l', '--urlspath', required=True)
-input_group.add_argument('-p', '--parameter', default='nexovir', required=False)
-input_group.add_argument('-w', '--wordlist', required=False)
+
+# --- Input Group ---
+input_group = parser.add_argument_group('Input Options') 
+input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs for discovery. Note: During parameter discovery, the tool will request and analyze the full content of each URL. However, during parameter fuzzing, URLs with certain file extensions (e.g., .js, .png, .jpg, .ttf, etc.) will be automatically excluded.', required=True) 
+input_group.add_argument('-p', '--parameter', help='Comma-separated parameter to test for reflection (default: "nexovir")', default='nexovir', required=False) input_group.add_argument('-w', '--wordlist', help='Path to a file containing parameters to fuzz for reflection',required=False)
+
+
+# --- Configurations --- 
 configue_group = parser.add_argument_group('Configurations')
-configue_group.add_argument('-X', '--methods', type=str, default="GET,POST", required=False)
-configue_group.add_argument('-H', '--headers', action='append', required=False, default=[])
-configue_group.add_argument('-x', '--proxy', type=str, default='', required=False)
-configue_group.add_argument('-c', '--chunk', type=str, default='25', required=False)
-configue_group.add_argument('-he', '--heavy', action='store_true',  default=False, required=False)
-configue_group.add_argument('-hd','--headless', action='store_true', default=False)
-configue_group.add_argument('-sd','--dom', action='store_true', default=False)
-configue_group.add_argument('-xt','--xss', action='store_true', default=False)
-injection_group = parser.add_argument_group('Injection Types')
-injection_group.add_argument('-pi','--pathinjection', action='store_true', default=False)
-injection_group.add_argument('-hi','--headerinjection', action='store_true', default=False)
-ratelimit_group = parser.add_argument_group('Rate Limit Options')
-ratelimit_group.add_argument('-t', '--thread', type=int, default=1, required=False)
-ratelimit_group.add_argument('-rd', '--delay', type=int, default=0, required=False)
-notif_group = parser.add_argument_group('Notification & Logging')
-notif_group.add_argument('-n', '--notify', action='store_true', default=False, required=False)
-notif_group.add_argument('-log', '--logger', type=str, default='logger.txt', required=False)
-notif_group.add_argument('-s', '--silent', action='store_true', default=False, required=False)
-notif_group.add_argument('-d', '--debug', action='store_true', default=False, required=False)
-notif_group = parser.add_argument_group('Outputs')
-notif_group.add_argument('-o', '--output', type=str, default='reflix.output', required=False)
-notif_group.add_argument('-po', '--paramsoutput', required=False, default='all_params.txt')
-notif_group.add_argument('-jo', '--jsonoutput', type=str, required=False)
+configue_group = parser.add_argument_group('Configurations') 
+configue_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False) 
+configue_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[]) 
+configue_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False) 
+configue_group.add_argument('-c', '--chunk', help='Number of URLs to process per batch (default: 25)',type=str, default='25', required=False) 
+configue_group.add_argument('-he', '--heavy', help='If enabled, it re-fuzzes all discovered parameters after light completes (default: False)',action='store_true', default=False, required=False) 
+configue_group.add_argument('-hd','--headless', help='Use headless browser (Playwright) to render full DOM and check reflections', action='store_true', default=False) 
+configue_group.add_argument('-sd','--dom',help='Render pages with Playwright (headless) to execute JS and detect runtime sources/sinks (history.state, localStorage, IndexedDB). Slower but finds dynamic reflections.', action='store_true', default=False) 
+configue_group.add_argument('-xt','--xss',help='Try to XSS test like (\',",<) ', action='store_true', default=False)
+
+
+# --- Injection Types --- 
+injection_group = parser.add_argument_group('Injection Types') 
+injection_group.add_argument('-pi','--pathinjection', help='Enable path injection testing by using a headless browser (Playwright) to render the full DOM and check for reflections or vulnerabilities in the application.', action='store_true', default=False) 
+injection_group.add_argument('-hi','--headerinjection', help='Enable Header injection testing by using a headless browser (Playwright) to render the full DOM and check for reflections or vulnerabilities in the application.', action='store_true', default=False)
+
+# --- Rate Limit Options --- 
+ratelimit_group = parser.add_argument_group('Rate Limit Options') 
+ratelimit_group.add_argument('-t', '--thread',type=int,help='Number of concurrent threads to use (default: 1)',default=1,required=False) 
+ratelimit_group.add_argument('-rd', '--delay',type=int,help='Delay (in seconds) between requests (default: 0)',default=0,required=False)
+
+# --- Notification & Logging Group --- 
+notif_group = parser.add_argument_group('Notification & Logging') 
+notif_group.add_argument('-n', '--notify', help='Enable notifications', action='store_true', default=False, required=False) 
+notif_group.add_argument('-log', '--logger', help='Enable logger (default: logger.txt)', type=str, default='logger.txt', required=False) 
+notif_group.add_argument('-s', '--silent', help='Disable prints output to the command line (default: False)', action='store_true', default=False, required=False) 
+notif_group.add_argument('-d', '--debug', help='Enable Debug Mode (default: False)', action='store_true', default=False, required=False)
+
+
+# --- Output --- 
+output_group = parser.add_argument_group('Outputs') 
+output_group.add_argument('-o', '--output',help='output file to write found issues/vulnerabilities ', type=str , default='reflix.output' , required=False) 
+output_group.add_argument('-po', '--paramsoutput', help='Path to file where discovered parameters will be saved (default: all_params.txt)', required=False , default='all_params.txt') 
+output_group.add_argument('-jo', '--jsonoutput',help='file to export results in JSON format',type=str ,required=False)
+
+
 args = parser.parse_args()
 
 urls_path = args.urlspath

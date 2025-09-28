@@ -209,7 +209,6 @@ input_group.add_argument('-w', '--wordlist', help='Path to a file containing par
 
 # --- Configurations --- 
 configue_group = parser.add_argument_group('Configurations')
-configue_group = parser.add_argument_group('Configurations') 
 configue_group.add_argument('-X', '--methods', help='HTTP methods to use for requests (e.g., GET,POST) (default "GET,POST")', type=str, default="GET,POST", required=False) 
 configue_group.add_argument('-H', '--headers',help='Custom headers to include in requests (format: "Header: value" support multi -H)',action='append',required=False,default=[]) 
 configue_group.add_argument('-x', '--proxy', help='HTTP proxy to use (e.g., http://127.0.0.1:8080)', type=str, default='', required=False) 

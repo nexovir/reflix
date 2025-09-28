@@ -203,7 +203,8 @@ input_group = parser.add_argument_group('Input Options')
 # --- Input Group ---
 input_group = parser.add_argument_group('Input Options') 
 input_group.add_argument('-l', '--urlspath', help='Path to file containing list of target URLs for discovery. Note: During parameter discovery, the tool will request and analyze the full content of each URL. However, during parameter fuzzing, URLs with certain file extensions (e.g., .js, .png, .jpg, .ttf, etc.) will be automatically excluded.', required=True) 
-input_group.add_argument('-p', '--parameter', help='Comma-separated parameter to test for reflection (default: "nexovir")', default='nexovir', required=False) input_group.add_argument('-w', '--wordlist', help='Path to a file containing parameters to fuzz for reflection',required=False)
+input_group.add_argument('-p', '--parameter', help='Comma-separated parameter to test for reflection (default: "nexovir")', default='nexovir', required=False) 
+input_group.add_argument('-w', '--wordlist', help='Path to a file containing parameters to fuzz for reflection',required=False)
 
 
 # --- Configurations --- 
@@ -256,6 +257,7 @@ if args.headers:
         if ':' in header:
             key, value = header.split(':', 1)
             headers[key.strip()] = value.strip()
+            
 proxy = args.proxy
 chunk = args.chunk
 heavy = args.heavy

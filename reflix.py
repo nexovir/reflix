@@ -1,18 +1,33 @@
 #!/usr/bin/env python3
 """
 Reflix - Smart parameter injection and reflection fuzzing tool
-Fixed/completed version (no headless browser).
 
 Requires external tools on PATH: fallparams, nuclei
-(URL-injection generation is now built in - no external `injector` tool needed)
+(URL-injection generation is built in - no external `injector` tool needed)
 Requires: pyfiglet, colorama, pyyaml, requests
     pip install pyfiglet colorama pyyaml requests --break-system-packages
 
-NOTE: This version no longer depends on Playwright / a headless browser.
+Pipeline (in order):
+  1. Parameter Discovery - fallparams runs on every non-binary URL (incl.
+     .js/.css) to find real parameter names actually used by that page/script.
+  2. DOM Scan (optional, -sd) - keyword scan for known DOM XSS source/sink
+     API names in the raw response body.
+  3. Reflection Fuzz - every fuzzable URL is tested with the parameters
+     discovered ON THAT URL in phase 1, merged with the optional -w/--wordlist
+     seed list. If neither produced anything for a given URL, root/ignore
+     injection is skipped for it entirely (no meaningless canary-as-param
+     noise) - only 'combine' mode (mutating a param the URL's query string
+     already has) still runs, since that never needed a wordlist to begin
+     with.
+  4. Path Injection (optional, -pi) / Header Injection (optional, -hi).
+  5. Heavy Reflix (optional, -hv) - cross-pollination pass: every fuzzable
+     URL is re-tested against the UNION of every parameter discovered across
+     ALL urls this run (+ the -w seed), not just its own. Most expensive
+     stage by design, hence opt-in.
+
 All reflection checks (body, path, header, DOM source/sink keyword scan) are
-done with plain HTTP requests against the raw response body/headers, which is
-enough for keyword-based reflection detection and is much faster/lighter than
-spinning up a browser for every URL.
+done with plain HTTP requests against the raw response body/headers - no
+headless browser needed.
 """
 
 import colorama
@@ -29,7 +44,7 @@ import asyncio
 import json
 import urllib3
 from colorama import Fore, Style
-from urllib.parse import urlparse, urlencode, urlunparse, parse_qs, parse_qsl
+from urllib.parse import urlparse, urlencode, urlunparse, parse_qsl
 
 colorama.init()
 
@@ -238,7 +253,7 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
                 pass
 
 
-VERSION = "1.1.0"
+VERSION = "1.3.0"
 
 parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection and reflection fuzzing tool')
 parser.add_argument('--version', action='version', version=f'Reflix v{VERSION}')
@@ -250,7 +265,10 @@ input_group.add_argument('-l', '--urls-path', dest='urlspath', required=True,
 input_group.add_argument('-p', '--parameter', default='nexovir', required=False,
                           help='Canary value used to detect reflection (default: "nexovir")')
 input_group.add_argument('-w', '--wordlist', required=False,
-                          help='Path to a file containing extra parameter names to fuzz')
+                          help='Optional. Extra parameter names to seed the fuzzer with, merged per-URL '
+                               'with whatever fallparams auto-discovers on that URL. If omitted, the '
+                               'tool relies entirely on auto-discovery instead of guessing - this is the '
+                               'recommended default and avoids sending meaningless canary-as-param noise.')
 
 # --- Request Configuration ---
 config_group = parser.add_argument_group('Request Configuration')
@@ -270,6 +288,9 @@ config_group.add_argument('-gm', '--generate-mode', dest='generatemode',
                            help='How candidate URLs are generated in the static stage (default: all)')
 config_group.add_argument('-to', '--timeout', dest='timeout', type=int, default=15, required=False,
                            help='Per-request timeout in seconds (default: 15)')
+config_group.add_argument('-rl', '--rate-limit', dest='ratelimit', type=float, default=70, required=False,
+                           help='Global cap on requests sent per second, across all threads (default: 70). '
+                                'Set to 0 to disable rate limiting entirely (unlimited).')
 
 # --- Scan Modules ---
 modules_group = parser.add_argument_group('Scan Modules')
@@ -305,7 +326,14 @@ notif_group.add_argument('-lf', '--log-file', dest='logger', type=str, default=N
                           help='Optional log file path (off by default). Console output is controlled '
                                'by -v/--verbose, not by this flag.')
 notif_group.add_argument('-s', '--silent', action='store_true', default=False, required=False,
-                          help='Suppress the banner and informational console output')
+                          help='Suppress the banner, status summary, live progress line, and informational '
+                               'console output')
+notif_group.add_argument('-q', '--quiet-findings', dest='quiet', action='store_true', default=False,
+                          required=False,
+                          help='Keep the banner, status summary, and live progress counter on screen, but '
+                               'do not print vulnerability/finding lines to the console. Findings are '
+                               'still recorded and still written to -o/-jo/-lf if those are set. Ignored '
+                               'if -s/--silent is also set (silent already suppresses everything).')
 notif_group.add_argument('-v', '--verbose', dest='debug', action='store_true', default=False, required=False,
                           help='Print INFO/DEBUG level status messages to the console (findings are always printed)')
 
@@ -351,11 +379,13 @@ header_wordlist_path = args.headerwordlist
 notification = args.notify
 logger = args.logger
 silent = args.silent
+quiet = args.quiet
 debug = args.debug
 output = args.output
 params_output = args.paramsoutput
 json_output = args.jsonoutput
 timeout = args.timeout
+rate_limit = max(0.0, args.ratelimit)
 
 
 def parse_delay(delay_str: str):
@@ -394,6 +424,49 @@ def parse_delay(delay_str: str):
 # random delay drawn uniformly from that range is applied after every task.
 delay_range = parse_delay(args.delay)
 
+
+class RateLimiter:
+    """Global asyncio token-bucket rate limiter.
+
+    Caps the total number of requests/tasks *started* per second across the
+    whole run, regardless of how many --threads are running concurrently.
+    This is independent from --delay (which just pauses a single task after
+    it finishes) - the rate limiter is what actually guarantees "~N req/s"
+    as an overall ceiling, like ffuf's -rate flag.
+
+    rate <= 0 means unlimited (no gating at all).
+    """
+
+    def __init__(self, rate_per_sec: float):
+        self.rate = max(0.0, float(rate_per_sec))
+        self._lock = asyncio.Lock()
+        # Start with a single token's worth of headroom (not a full bucket)
+        # so the tool doesn't fire an initial burst of `rate` requests all
+        # at once before settling into the steady ~rate req/s - it ramps up
+        # smoothly from the very first request instead.
+        self._tokens = 1.0 if self.rate > 0 else 0.0
+        self._last = time.monotonic()
+
+    async def acquire(self):
+        if self.rate <= 0:
+            return
+        while True:
+            async with self._lock:
+                now = time.monotonic()
+                elapsed = now - self._last
+                self._last = now
+                self._tokens = min(self.rate, self._tokens + elapsed * self.rate)
+                if self._tokens >= 1:
+                    self._tokens -= 1
+                    return
+                wait_for = (1 - self._tokens) / self.rate
+            await asyncio.sleep(wait_for)
+
+
+# Shared across every request the tool sends (nuclei runs, fallparams runs,
+# reflection checks, path/header injection, heavy re-fuzz, ...).
+rate_limiter = RateLimiter(rate_limit)
+
 INJECTIONS = [f"%27{parameter}", f'%22{parameter}', f"%3E{parameter}"]
 INJECTION_RESULTS = [f"'{parameter}".lower(), f'"{parameter}'.lower(), f"&gt;{parameter}".lower()]
 
@@ -404,6 +477,15 @@ findings_data = []
 # even when -po/--params-output was never given
 discovered_parameters = set()
 
+# per-url map: url -> list of parameters fallparams found on THAT specific
+# url. This is what lets fuzz_phase fuzz each url with parameters that
+# actually exist on it, instead of a meaningless canary-as-param guess.
+discovered_by_url = {}
+
+# extra parameter names seeded from -w/--wordlist (if given), loaded once in
+# main() and merged into discovery results for every url's fuzz pass.
+wordlist_seed = []
+
 # global concurrency limiter, driven by --threads
 sem = asyncio.Semaphore(thread)
 
@@ -413,6 +495,89 @@ json_write_lock = asyncio.Lock()
 
 # requests.Session reused across the run for connection pooling
 session = requests.Session()
+
+# --- Live ffuf-style progress state -----------------------------------
+# Each pipeline stage (static/light/path/header/heavy) calls run_phase()
+# with its own list of tasks; run_phase resets these counters and prints
+# a live-updating "done/total" line as tasks complete. All of it is a
+# no-op when -s/--silent is set.
+progress_lock = asyncio.Lock()
+progress_done = 0
+progress_total = 0
+current_phase = ""
+
+
+async def bump_progress():
+    global progress_done
+    async with progress_lock:
+        progress_done += 1
+        if not silent and progress_total:
+            print(f"\r[{cyan}*{reset}] {current_phase}: {progress_done}/{progress_total}",
+                  end='', flush=True)
+
+
+async def run_phase(tasks, phase_name):
+    """Run a batch of sem_task-wrapped coroutines while showing a live
+    'phase: done/total' progress line (unless --silent)."""
+    global progress_done, progress_total, current_phase
+    progress_done = 0
+    progress_total = len(tasks)
+    current_phase = phase_name
+    if not tasks:
+        return
+    if not silent:
+        print(f"[{cyan}*{reset}] {current_phase}: 0/{progress_total}", end='', flush=True)
+    await asyncio.gather(*tasks)
+    if not silent:
+        print()  # newline once the phase's progress line is done filling in
+
+
+def show_status():
+    """Print an ffuf-style pre-run summary: target file, wordlist, threads,
+    rate limit, delay, methods, etc. Skipped entirely when --silent."""
+    if silent:
+        return
+    wl_display = wordlist_parameters if wordlist_parameters else "(none - auto-discovery only via fallparams)"
+    rate_display = f"~{rate_limit:.0f} req/s" if rate_limit > 0 else "unlimited"
+    if delay_range == (0.0, 0.0):
+        delay_display = "0s"
+    elif delay_range[0] == delay_range[1]:
+        delay_display = f"{delay_range[0]}s (fixed)"
+    else:
+        delay_display = f"{delay_range[0]}-{delay_range[1]}s (random)"
+
+    lines = [
+        f" :: URL list     : {urls_path}",
+        f" :: Wordlist     : {wl_display}",
+        f" :: Canary       : {parameter}",
+        f" :: Methods      : {','.join(methods)}",
+        f" :: Threads      : {thread}",
+        f" :: Rate limit   : {rate_display}",
+        f" :: Delay        : {delay_display}",
+        f" :: Chunk size   : {chunk}",
+    ]
+    extra_modules = []
+    if dom:
+        extra_modules.append("dom-scan")
+    if xss:
+        extra_modules.append("xss-test")
+    if pathinjection:
+        extra_modules.append("path-injection")
+    if headerinjection:
+        extra_modules.append("header-injection")
+    if heavy:
+        extra_modules.append("heavy")
+    if quiet:
+        extra_modules.append("quiet-findings (console)")
+    if extra_modules:
+        lines.append(f" :: Modules      : {', '.join(extra_modules)}")
+    if proxy:
+        lines.append(f" :: Proxy        : {proxy}")
+
+    print(f"{cyan}{'-' * 60}{reset}")
+    for line in lines:
+        print(f"{cyan}{line}{reset}")
+    print(f"{cyan}{'-' * 60}{reset}\n")
 
 
 async def append_json_line(path, obj):
@@ -448,9 +613,12 @@ async def dump_findings_json(path):
 
 
 async def sem_task(coro):
-    """Run coroutine under the global concurrency limit, applying --delay
-    (fixed or randomized within the given range) afterwards."""
+    """Run coroutine under the global concurrency limit AND the global rate
+    limiter (--rate-limit, default 70 req/s), applying --delay (fixed or
+    randomized within the given range) afterwards, then bump the live
+    progress counter."""
     async with sem:
+        await rate_limiter.acquire()
         try:
             result = await coro
         finally:
@@ -458,6 +626,7 @@ async def sem_task(coro):
             if hi > 0:
                 wait_for = random.uniform(lo, hi) if hi > lo else lo
                 await asyncio.sleep(wait_for)
+            await bump_progress()
         return result
 
 
@@ -559,7 +728,15 @@ async def record_finding(method, severity, place, url, http_type="http"):
     sev_color = cyan if severity == "info" else red
     output_line = (f"[{green}{method.upper()}{reset}] [{blue}{http_type}{reset}] "
                    f"[{sev_color}{severity}{reset}] [{yellow}{place}{reset}] {url}")
-    print(output_line)
+    # -q/--quiet-findings: keep banner/status/progress on screen but never
+    # print the actual finding line to the console (it's still recorded
+    # below and still written to -o/-jo/-lf regardless of this flag).
+    if not silent and not quiet:
+        # Move off the live progress line before printing a finding so it
+        # doesn't get overwritten mid-line, then let the progress line resume.
+        if progress_total:
+            print()
+        print(output_line)
     finding = {
         "method": method.upper(),
         "severity": severity,
@@ -623,6 +800,7 @@ async def try_to_xss(url: str, method, reflection_place):
         return
     for injection_element in INJECTIONS:
         target_url = url.replace(parameter, injection_element)
+        await rate_limiter.acquire()
         html, _, _ = await asyncio.to_thread(http_request, target_url, method, headers, None, proxy, timeout)
         if html is None:
             continue
@@ -671,13 +849,16 @@ async def run_nuclei_scan(target_url, method='GET', req_headers=None, post_data=
 
         if result.returncode == 0:
             raw_output = [l for l in result.stdout.splitlines() if l.strip()]
-            for line in raw_output:
-                parts = line.split('] ')
-                if len(parts) >= 3:
-                    new_line = '] '.join(parts[:3]) + f'] [{yellow}HTML{reset}] ' + '] '.join(parts[3:])
-                else:
-                    new_line = line
-                print(new_line)
+            if raw_output and not silent and not quiet:
+                if progress_total:
+                    print()
+                for line in raw_output:
+                    parts = line.split('] ')
+                    if len(parts) >= 3:
+                        new_line = '] '.join(parts[:3]) + f'] [{yellow}HTML{reset}] ' + '] '.join(parts[3:])
+                    else:
+                        new_line = line
+                    print(new_line)
             if raw_output:
                 finding = {
                     "method": method.upper(),
@@ -707,35 +888,6 @@ async def run_nuclei_scan(target_url, method='GET', req_headers=None, post_data=
             pass
 
 
-async def static_reflix(base_urls, generate_mode_: str, value_mode_: str, parameter_: str,
-                         wordlist_parameters_path, chunk_, proxy_):
-    sendmessage("[INFO] Starting Static Reflix ...", colour="YELLOW", logger=logger, telegram=notification,
-                silent=silent)
-
-    wl_params = await read_write_list("", wordlist_parameters_path, 'r') if wordlist_parameters_path else []
-    if not wl_params:
-        # No wordlist given: still let root/ignore modes produce something
-        # by fuzzing with the single target parameter instead of doing nothing.
-        wl_params = [parameter_]
-
-    sendmessage("   [INFO] Generating candidate URLs ...", colour="YELLOW", logger=logger, silent=silent)
-    try:
-        urls = await asyncio.to_thread(generate_injected_urls, base_urls, generate_mode_, value_mode_,
-                                        parameter_, wl_params, chunk_)
-    except Exception as e:
-        sendmessage(f"  [ERROR] URL generation failed: {str(e)}", colour="RED", logger=logger, silent=silent)
-        return
-
-    sendmessage(f"   [SUCCESS] Generated {len(urls)} candidate URLs", colour="GREEN", logger=logger, silent=silent)
-    sendmessage(f"  [INFO] Running nuclei scan on {len(urls)} generated urls & methods: {methods} ...",
-                colour="YELLOW", logger=logger, silent=silent)
-
-    tasks = [sem_task(run_nuclei_scan(url, method, headers, None, parameter_, proxy_))
-             for url in urls for method in methods]
-    if tasks:
-        await asyncio.gather(*tasks)
-
-
 async def run_fallparams(url, proxy_, method, req_headers):
     sendmessage(f"  [INFO] Starting parameter discovery (method: {method}) {url}", colour="YELLOW", logger=logger,
                 silent=silent)
@@ -750,6 +902,7 @@ async def run_fallparams(url, proxy_, method, req_headers):
                                  stderr=subprocess.PIPE, text=True)
         return [l for l in result.stdout.splitlines() if l.strip()]
 
+    await rate_limiter.acquire()
     try:
         parameters = await asyncio.to_thread(_run)
         sendmessage(f"      [INFO] {len(parameters)} parameters found", logger=logger, silent=silent)
@@ -759,30 +912,6 @@ async def run_fallparams(url, proxy_, method, req_headers):
         return []
     except Exception as e:
         sendmessage(f"  [ERROR] Error fallparams URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
-        return []
-
-
-async def run_x8(url, parameters, proxy_, method, req_headers, chunk_, parameter_):
-    try:
-        sendmessage(f"  [INFO] Start fuzzing {len(parameters)} parameters (method: {method}) {url}",
-                    colour="YELLOW", logger=logger, silent=silent)
-        if not parameters:
-            return []
-        chunk_size = max(1, int(chunk_))
-        chunked_params = [parameters[i:i + chunk_size] for i in range(0, len(parameters), chunk_size)]
-        parsed = urlparse(url)
-        base_query = parse_qs(parsed.query)
-
-        for group in chunked_params:
-            current_params = base_query.copy()
-            for param in group:
-                current_params[param] = parameter_
-            new_query = urlencode(current_params, doseq=True)
-            full_url = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query,
-                                    parsed.fragment))
-            await run_nuclei_scan(full_url, method, req_headers, None, parameter_, proxy_)
-    except Exception as e:
-        sendmessage(f"[ERROR] Error in run_x8 with URL {url}: {str(e)}", colour="RED", logger=logger, silent=silent)
         return []
 
 
@@ -822,7 +951,10 @@ async def explore_dom_sinks(url, req_headers, method):
 
         output_line = (f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] "
                         f"[{yellow}{category}: {red}{sinks_str}{reset}] {url}")
-        print(output_line)
+        if not silent and not quiet:
+            if progress_total:
+                print()
+            print(output_line)
         finding = {
             "method": method.upper(),
             "severity": "info",
@@ -839,56 +971,117 @@ async def explore_dom_sinks(url, req_headers, method):
     return {"success": True, "url": url}
 
 
-async def process_url_method(url, method):
-    # Parameter discovery runs on every non-binary URL, including .js/.css -
-    # that's exactly where fallparams tends to find real API param names.
+async def discover_one(url, method):
+    """Run fallparams on a single url+method, and fold any parameters found
+    into both the global `discovered_parameters` set (used by --heavy and
+    the final summary) and the per-url `discovered_by_url` map (used by
+    fuzz_phase to fuzz *this* url with the params that were actually found
+    on it, instead of a meaningless canary-as-param guess)."""
     parameters = await run_fallparams(url, proxy, method, headers)
     if not parameters:
         return
     discovered_parameters.update(parameters)
+    existing = discovered_by_url.setdefault(url, [])
+    for p in parameters:
+        if p not in existing:
+            existing.append(p)
     if params_output:
         await read_write_list(parameters, params_output, 'a')
 
-    # But actually injecting/fuzzing those params only makes sense against
-    # fuzzable endpoints - a static .js/.css file won't reflect a query
-    # param back no matter what you send it.
-    if not is_fuzzable(url):
-        sendmessage(f"  [INFO] Skipping fuzz on static asset (discovery only): {url}",
-                    colour="YELLOW", logger=logger, silent=silent)
+
+async def discovery_phase(urls, methods):
+    """PHASE 1 - Parameter discovery. Runs fallparams on every non-binary URL
+    (including .js/.css - that's exactly where fallparams tends to find real
+    API param names) for every method, before any fuzzing happens. This is
+    what lets fuzz_phase fuzz each URL with parameters that actually exist
+    on it, instead of falling back to a meaningless canary-as-param guess
+    when no -w/--wordlist is given."""
+    sendmessage("[INFO] Starting Parameter Discovery ...", colour="YELLOW", logger=logger,
+                telegram=notification, silent=silent)
+    tasks = [sem_task(discover_one(url, method)) for url in urls for method in methods]
+    await run_phase(tasks, "Parameter Discovery")
+    sendmessage(f"   [SUCCESS] Discovered {len(discovered_parameters)} unique parameter(s) "
+                f"across {len(urls)} URL(s)", colour="GREEN", logger=logger, silent=silent)
+
+
+async def dom_scan_phase(urls):
+    """Optional (-sd/--dom-scan) recon pass: keyword-scan every non-binary
+    URL's raw body for known DOM source/sink API names. Independent of
+    fuzzing - just static analysis of what's already on the page/script."""
+    sendmessage("[INFO] Starting DOM Scan ...", colour="YELLOW", logger=logger, silent=silent)
+    tasks = [sem_task(explore_dom_sinks(url, headers, 'GET')) for url in urls]
+    await run_phase(tasks, "DOM Scan")
+
+
+async def fuzz_one_url(url, method):
+    """PHASE 2 - Reflection fuzz for a single url+method.
+
+    The parameter set used for the root/ignore injection modes is built
+    from what's actually meaningful for THIS url:
+      - the -w/--wordlist seed list (if the user gave one), plus
+      - whatever fallparams found on this exact url during discovery_phase
+
+    If that combined set is empty (no -w given and fallparams found nothing
+    on this url), generate_injected_urls naturally skips root/ignore entirely
+    for it - no meaningless 'canary=canary' request gets sent. The 'combine'
+    mode (mutating a param the url's query string already has) still runs
+    regardless, since it never depended on a wordlist to begin with.
+    """
+    own_params = list(dict.fromkeys(wordlist_seed + discovered_by_url.get(url, [])))
+    try:
+        candidate_urls = await asyncio.to_thread(
+            generate_injected_urls, [url], generate_mode, value_mode, parameter, own_params, chunk)
+    except Exception as e:
+        sendmessage(f"[ERROR] URL generation failed for {url}: {str(e)}", colour="RED", logger=logger,
+                    silent=silent)
         return
-    await run_x8(url, parameters, proxy, method, headers, chunk, parameter)
+    for candidate_url in candidate_urls:
+        await run_nuclei_scan(candidate_url, method, headers, None, parameter, proxy)
 
 
-async def light_reflix(urls, methods):
-    sendmessage("[INFO] Starting Light Reflix ...", colour="YELLOW", logger=logger, silent=silent)
-    tasks = []
-    for url in urls:
-        if dom:
-            tasks.append(sem_task(explore_dom_sinks(url, headers, 'GET')))
-        for method in methods:
-            tasks.append(sem_task(process_url_method(url, method)))
-    if tasks:
-        await asyncio.gather(*tasks)
+async def fuzz_phase(urls, methods):
+    """PHASE 2 driver - only runs against the fuzzable subset (binary assets
+    and static .js/.css/.map files were already filtered out by main(), since
+    query params on those never reflect anything no matter what's sent)."""
+    sendmessage("[INFO] Starting Reflection Fuzz ...", colour="YELLOW", logger=logger, silent=silent)
+    tasks = [sem_task(fuzz_one_url(url, method)) for url in urls for method in methods]
+    await run_phase(tasks, "Reflection Fuzz")
+
+
+async def heavy_one(url, method):
+    """Cross-pollination fuzz: test THIS url against the full UNION of every
+    parameter discovered across ALL urls this run (plus the -w seed list),
+    not just the ones found on this specific url. Only runs under -hv/--heavy
+    since it's the most request-expensive stage by design."""
+    all_params = list(dict.fromkeys(wordlist_seed + sorted(discovered_parameters)))
+    if not all_params:
+        return
+    try:
+        candidate_urls = await asyncio.to_thread(
+            generate_injected_urls, [url], 'ignore', value_mode, parameter, all_params, chunk)
+    except Exception as e:
+        sendmessage(f"[ERROR] URL generation failed for {url}: {str(e)}", colour="RED", logger=logger,
+                    silent=silent)
+        return
+    for candidate_url in candidate_urls:
+        await run_nuclei_scan(candidate_url, method, headers, None, parameter, proxy)
 
 
 async def heavy_reflix(urls, methods):
     sendmessage("[INFO] Starting Heavy Reflix ...", colour="YELLOW", logger=logger, silent=silent)
     # Use whatever fallparams has found so far this run, regardless of
     # whether -po/--params-output was set (that flag only controls whether
-    # it's *also* written to disk).
-    parameters = list(discovered_parameters)
+    # it's *also* written to disk), plus anything persisted from a previous run.
     if params_output:
-        # merge in anything from a previous run that was persisted to disk
         on_disk = await read_write_list('', params_output, 'r')
         for p in on_disk:
-            if p not in discovered_parameters:
-                parameters.append(p)
-    if not parameters:
+            discovered_parameters.add(p)
+    if not discovered_parameters and not wordlist_seed:
+        sendmessage("   [INFO] No parameters discovered and no -w wordlist given - skipping Heavy Reflix "
+                    "(nothing meaningful to cross-test).", colour="YELLOW", logger=logger, silent=silent)
         return
-    tasks = [sem_task(run_x8(url, parameters, proxy, method, headers, chunk, parameter))
-             for url in urls for method in methods]
-    if tasks:
-        await asyncio.gather(*tasks)
+    tasks = [sem_task(heavy_one(url, method)) for url in urls for method in methods]
+    await run_phase(tasks, "Heavy Reflix")
 
 
 async def run_path_reflection(url, parameter_, method="GET"):
@@ -923,8 +1116,7 @@ async def run_path_reflection(url, parameter_, method="GET"):
 async def path_injection_reflix(urls, methods, parameter_):
     sendmessage("[INFO] Starting PATH Reflection Reflix ...", colour="YELLOW", logger=logger, silent=silent)
     tasks = [sem_task(run_path_reflection(url, parameter_, method)) for url in urls for method in methods]
-    if tasks:
-        await asyncio.gather(*tasks)
+    await run_phase(tasks, "Path Injection")
 
 
 async def load_header_test_keys(extra_path):
@@ -968,8 +1160,7 @@ async def header_injection_reflix(urls, methods, parameter_):
                 logger=logger, silent=silent)
     tasks = [sem_task(run_header_reflection(url, parameter_, method, header_keys))
              for url in urls for method in methods]
-    if tasks:
-        await asyncio.gather(*tasks)
+    await run_phase(tasks, "Header Injection")
 
 
 async def main():
@@ -985,7 +1176,7 @@ async def main():
         # whole pipeline - nothing textual to discover or reflect there.
         urls = [u for u in all_urls if not is_binary_asset(u)]
         # Fuzzable subset: everything except binaries AND static JS/CSS/map
-        # files, which get discovery only (see process_url_method).
+        # files, which get discovery only, not fuzzing (see fuzz_phase/main).
         fuzzable_urls = [u for u in urls if is_fuzzable(u)]
 
         skipped_binary = len(all_urls) - len(urls)
@@ -996,6 +1187,8 @@ async def main():
                   f"{skipped_static} static JS/CSS/map file(s) kept for "
                   f"parameter discovery only (no fuzzing).")
 
+        show_status()
+
         # If -o points at a .json file, start it clean so this run's JSONL
         # stream (one finding per line, written live as things are found)
         # doesn't get appended onto a previous run's leftovers.
@@ -1005,8 +1198,30 @@ async def main():
                 os.makedirs(d, exist_ok=True)
             open(output, 'w', encoding='utf-8').close()
 
-        await static_reflix(fuzzable_urls, generate_mode, value_mode, parameter, wordlist_parameters, chunk, proxy)
-        await light_reflix(urls, methods)
+        # Load the -w/--wordlist seed list once (if given). This is merged
+        # per-url with whatever fallparams discovers on that url in
+        # discovery_phase - it's an *extra* seed now, not the sole source of
+        # truth, so omitting -w no longer means "guess a fake canary param".
+        global wordlist_seed
+        if wordlist_parameters:
+            wordlist_seed = await read_write_list("", wordlist_parameters, 'r')
+            sendmessage(f"[INFO] Loaded {len(wordlist_seed)} seed parameter(s) from -w wordlist",
+                        colour="YELLOW", logger=logger, silent=silent)
+        else:
+            sendmessage("[INFO] No -w/--wordlist given - relying entirely on fallparams auto-discovery "
+                        "for parameter names.", colour="YELLOW", logger=logger, silent=silent)
+
+        # PHASE 1: discover real parameters on every non-binary URL (incl.
+        # .js/.css - fallparams pulls real API/param names out of JS source).
+        await discovery_phase(urls, methods)
+
+        # Optional recon: DOM source/sink keyword scan.
+        if dom:
+            await dom_scan_phase(urls)
+
+        # PHASE 2: reflection fuzz - only the fuzzable subset, using each
+        # url's own discovered params (+ -w seed) rather than a fake canary.
+        await fuzz_phase(fuzzable_urls, methods)
 
         if pathinjection:
             await path_injection_reflix(fuzzable_urls, methods, parameter)

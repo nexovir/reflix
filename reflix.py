@@ -21,6 +21,7 @@ import subprocess
 import requests
 import argparse
 import os
+import random
 import pyfiglet
 import yaml
 import tempfile
@@ -163,6 +164,14 @@ STATIC_TEXT_EXTENSIONS = {'.js', '.mjs', '.cjs', '.css', '.map'}
 NON_FUZZABLE_EXTENSIONS = BINARY_EXTENSIONS | STATIC_TEXT_EXTENSIONS
 
 
+def is_json_output_path(path):
+    """True if the given -o/--output path should get a clean JSON array
+    instead of the default plain-text line-per-finding log (i.e. it ends
+    with .json). Lets '-o output.json' produce a full structured JSON
+    export without needing the separate -jo flag."""
+    return bool(path) and path.lower().endswith('.json')
+
+
 def url_ext(url):
     return os.path.splitext(urlparse(url).path.lower())[1]
 
@@ -282,8 +291,11 @@ modules_group.add_argument('-hv', '--heavy', action='store_true', default=False,
 ratelimit_group = parser.add_argument_group('Rate Limiting')
 ratelimit_group.add_argument('-t', '--threads', dest='thread', type=int, default=1, required=False,
                               help='Maximum number of concurrent tasks (default: 1)')
-ratelimit_group.add_argument('-rd', '--delay', type=int, default=0, required=False,
-                              help='Seconds to wait after each task completes (default: 0)')
+ratelimit_group.add_argument('-rd', '--delay', dest='delay', type=str, default='0', required=False,
+                              help='Seconds to wait after each task completes. Accepts a single value '
+                                   '(e.g. "1.5") or a random range "min-max" (e.g. "0.1-2.0"), in which '
+                                   'case a random delay is drawn uniformly from that range after every '
+                                   'task (default: 0)')
 
 # --- Notification & Logging ---
 notif_group = parser.add_argument_group('Notification & Logging')
@@ -301,7 +313,11 @@ notif_group.add_argument('-v', '--verbose', dest='debug', action='store_true', d
 output_group = parser.add_argument_group('Outputs')
 output_group.add_argument('-o', '--output', type=str, default=None, required=False,
                            help='Optional file to also write confirmed findings to (off by default; '
-                                'findings are always printed to the console)')
+                                'findings are always printed to the console). If the path ends in '
+                                '.json (e.g. "-o output.json"), each finding is streamed to it live, '
+                                'one JSON object per line (JSON Lines format), as soon as it is found - '
+                                'so nothing is lost if the run is interrupted. Any other extension gets '
+                                'the plain-text line log instead.')
 output_group.add_argument('-po', '--params-output', dest='paramsoutput', default=None, required=False,
                            help='Optional file to also write every parameter discovered by fallparams to '
                                 '(off by default; discovered parameters are kept in memory either way, '
@@ -327,7 +343,6 @@ heavy = args.heavy
 dom = args.dom
 xss = args.xss
 thread = max(1, args.thread)
-delay = args.delay
 value_mode = args.valuemode
 generate_mode = args.generatemode
 pathinjection = args.pathinjection
@@ -342,6 +357,43 @@ params_output = args.paramsoutput
 json_output = args.jsonoutput
 timeout = args.timeout
 
+
+def parse_delay(delay_str: str):
+    """
+    Parse the -rd/--delay value into a (low, high) float tuple.
+
+    Accepts:
+      - a single number, e.g. "1.5"      -> (1.5, 1.5)  (fixed delay)
+      - a range "min-max", e.g. "0.1-2.0" -> (0.1, 2.0)  (random delay per task)
+
+    Falls back to (0.0, 0.0) - i.e. no delay - on any parse error, with a
+    warning so a typo doesn't silently blow past rate limits.
+    """
+    delay_str = (delay_str or '0').strip()
+    if '-' in delay_str:
+        parts = delay_str.split('-', 1)
+        try:
+            lo, hi = float(parts[0]), float(parts[1])
+            if lo < 0 or hi < 0:
+                raise ValueError("negative delay")
+            return (lo, hi) if lo <= hi else (hi, lo)
+        except ValueError:
+            print(f"{yellow}[WARN] Invalid --delay range '{delay_str}', ignoring (no delay applied){reset}")
+            return (0.0, 0.0)
+    try:
+        v = float(delay_str)
+        if v < 0:
+            raise ValueError("negative delay")
+        return (v, v)
+    except ValueError:
+        print(f"{yellow}[WARN] Invalid --delay value '{delay_str}', ignoring (no delay applied){reset}")
+        return (0.0, 0.0)
+
+
+# (low, high) seconds - low == high means a fixed delay, low < high means a
+# random delay drawn uniformly from that range is applied after every task.
+delay_range = parse_delay(args.delay)
+
 INJECTIONS = [f"%27{parameter}", f'%22{parameter}', f"%3E{parameter}"]
 INJECTION_RESULTS = [f"'{parameter}".lower(), f'"{parameter}'.lower(), f"&gt;{parameter}".lower()]
 
@@ -355,18 +407,57 @@ discovered_parameters = set()
 # global concurrency limiter, driven by --threads
 sem = asyncio.Semaphore(thread)
 
+# serializes writes to the -o JSON(L) output file so concurrent findings
+# never interleave/corrupt each other's lines
+json_write_lock = asyncio.Lock()
+
 # requests.Session reused across the run for connection pooling
 session = requests.Session()
 
 
+async def append_json_line(path, obj):
+    """Append a single finding to `path` as one JSON object per line
+    (JSON Lines format), immediately as it's found - so nothing is lost
+    if the run is interrupted partway through. Writes are serialized via
+    json_write_lock so concurrent findings can't interleave mid-line."""
+    line = json.dumps(obj, ensure_ascii=False)
+
+    def _append():
+        d = os.path.dirname(path)
+        if d:
+            os.makedirs(d, exist_ok=True)
+        with open(path, 'a', encoding='utf-8') as f:
+            f.write(line + '\n')
+
+    async with json_write_lock:
+        await asyncio.to_thread(_append)
+
+
+async def dump_findings_json(path):
+    """Write the full findings_data list out as one clean, pretty-printed
+    JSON array. Used for -jo/--json-output (a single complete array written
+    once at the end of the run, separate from the streaming JSONL that -o
+    writes when given a .json path)."""
+    def _dump():
+        d = os.path.dirname(path)
+        if d:
+            os.makedirs(d, exist_ok=True)
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(findings_data, f, indent=2, ensure_ascii=False, sort_keys=False)
+    await asyncio.to_thread(_dump)
+
+
 async def sem_task(coro):
-    """Run coroutine under the global concurrency limit, applying --delay afterwards."""
+    """Run coroutine under the global concurrency limit, applying --delay
+    (fixed or randomized within the given range) afterwards."""
     async with sem:
         try:
             result = await coro
         finally:
-            if delay:
-                await asyncio.sleep(delay)
+            lo, hi = delay_range
+            if hi > 0:
+                wait_for = random.uniform(lo, hi) if hi > lo else lo
+                await asyncio.sleep(wait_for)
         return result
 
 
@@ -469,14 +560,18 @@ async def record_finding(method, severity, place, url, http_type="http"):
     output_line = (f"[{green}{method.upper()}{reset}] [{blue}{http_type}{reset}] "
                    f"[{sev_color}{severity}{reset}] [{yellow}{place}{reset}] {url}")
     print(output_line)
-    if output:
-        await read_write_list([output_line], output, 'a')
-    findings_data.append({
+    finding = {
         "method": method.upper(),
         "severity": severity,
         "place": place,
         "url": url,
-    })
+    }
+    if output:
+        if is_json_output_path(output):
+            await append_json_line(output, finding)
+        else:
+            await read_write_list([output_line], output, 'a')
+    findings_data.append(finding)
 
 
 async def read_write_list(list_data, file: str, type: str):
@@ -584,15 +679,19 @@ async def run_nuclei_scan(target_url, method='GET', req_headers=None, post_data=
                     new_line = line
                 print(new_line)
             if raw_output:
-                if output:
-                    await read_write_list(raw_output, output, 'a')
-                findings_data.append({
+                finding = {
                     "method": method.upper(),
                     "severity": "info",
                     "place": "HTML",
                     "url": target_url,
                     "nuclei_lines": raw_output,
-                })
+                }
+                if output:
+                    if is_json_output_path(output):
+                        await append_json_line(output, finding)
+                    else:
+                        await read_write_list(raw_output, output, 'a')
+                findings_data.append(finding)
                 if xss:
                     await try_to_xss(target_url, method, 'HTML')
             return {'success': True, 'raw_results': raw_output, 'stats': f"line count: {len(raw_output)}"}
@@ -724,15 +823,19 @@ async def explore_dom_sinks(url, req_headers, method):
         output_line = (f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] "
                         f"[{yellow}{category}: {red}{sinks_str}{reset}] {url}")
         print(output_line)
-        if output:
-            await read_write_list([output_line], output, 'a')
-        findings_data.append({
+        finding = {
             "method": method.upper(),
             "severity": "info",
             "place": category,
             "url": url,
             "sinks": [{"keyword": keyword, "lines": hit_lines} for keyword, hit_lines in matches],
-        })
+        }
+        if output:
+            if is_json_output_path(output):
+                await append_json_line(output, finding)
+            else:
+                await read_write_list([output_line], output, 'a')
+        findings_data.append(finding)
     return {"success": True, "url": url}
 
 
@@ -893,6 +996,15 @@ async def main():
                   f"{skipped_static} static JS/CSS/map file(s) kept for "
                   f"parameter discovery only (no fuzzing).")
 
+        # If -o points at a .json file, start it clean so this run's JSONL
+        # stream (one finding per line, written live as things are found)
+        # doesn't get appended onto a previous run's leftovers.
+        if output and is_json_output_path(output):
+            d = os.path.dirname(output)
+            if d:
+                os.makedirs(d, exist_ok=True)
+            open(output, 'w', encoding='utf-8').close()
+
         await static_reflix(fuzzable_urls, generate_mode, value_mode, parameter, wordlist_parameters, chunk, proxy)
         await light_reflix(urls, methods)
 
@@ -903,12 +1015,15 @@ async def main():
         if heavy:
             await heavy_reflix(fuzzable_urls, methods)
 
+        # -o/--output when the path ends in .json was already streamed live,
+        # one JSON object per line, by append_json_line() as findings came
+        # in - nothing left to write here.
+
+        # -jo/--json-output: always a full clean JSON array, written once at
+        # the end, independent of -o.
         if json_output:
             try:
-                def _dump():
-                    with open(json_output, 'w') as f:
-                        json.dump(findings_data, f, indent=2, ensure_ascii=False, sort_keys=False)
-                await asyncio.to_thread(_dump)
+                await dump_findings_json(json_output)
                 if not silent:
                     print(f"[{green}+{reset}] {len(findings_data)} findings written to {json_output}")
             except Exception as e:
@@ -919,7 +1034,10 @@ async def main():
             print(f"\n[{green}+{reset}] Done. {len(findings_data)} finding(s), "
                   f"{len(discovered_parameters)} parameter(s) discovered.")
             if output:
-                print(f"[{green}+{reset}] Findings also written to {output}")
+                if is_json_output_path(output):
+                    print(f"[{green}+{reset}] Findings streamed live to {output} (JSON Lines, one finding per line)")
+                else:
+                    print(f"[{green}+{reset}] Findings also written to {output}")
             if params_output:
                 print(f"[{green}+{reset}] Parameters also written to {params_output}")
 

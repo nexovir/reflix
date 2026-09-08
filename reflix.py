@@ -58,6 +58,9 @@ blue = '\033[94m'
 cyan = '\033[34m'
 yellow = '\033[33m'
 red = '\033[91m'
+magenta = '\033[95m'
+bold = '\033[1m'
+dim = '\033[2m'
 reset = '\033[0m'
 
 DEFAULT_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -497,14 +500,46 @@ json_write_lock = asyncio.Lock()
 session = requests.Session()
 
 # --- Live ffuf-style progress state -----------------------------------
-# Each pipeline stage (static/light/path/header/heavy) calls run_phase()
-# with its own list of tasks; run_phase resets these counters and prints
-# a live-updating "done/total" line as tasks complete. All of it is a
-# no-op when -s/--silent is set.
+# Each pipeline stage (discovery/dom-scan/fuzz/path/header/heavy) calls
+# run_phase() with its own list of tasks; run_phase resets these counters
+# and prints a live-updating progress line - percentage, ACTUAL measured
+# req/s (not just the -rl ceiling), and elapsed time - as tasks complete.
+# All of it is a no-op when -s/--silent is set.
 progress_lock = asyncio.Lock()
 progress_done = 0
 progress_total = 0
 current_phase = ""
+phase_start_time = 0.0
+
+# One-line plain-English explanation of what each phase is actually doing,
+# printed once when the phase starts so the output is self-explanatory
+# without needing to read the source or guess what e.g. "Heavy Reflix" means.
+PHASE_INFO = {
+    "Parameter Discovery": "running fallparams on every URL to find real parameter names",
+    "DOM Scan":             "keyword-scanning response bodies for DOM XSS source/sink patterns",
+    "Reflection Fuzz":      "injecting discovered/seeded parameters, checking for reflection via nuclei",
+    "Path Injection":       "injecting the canary into the URL path, checking for reflection",
+    "Header Injection":     "injecting the canary into common request headers, checking for reflection",
+    "Heavy Reflix":         "cross-testing every URL against ALL parameters discovered this run",
+}
+
+
+def format_duration(seconds):
+    seconds = max(0, int(seconds))
+    h, rem = divmod(seconds, 3600)
+    m, s = divmod(rem, 60)
+    return f"{h}:{m:02d}:{s:02d}" if h else f"{m:02d}:{s:02d}"
+
+
+def _progress_line():
+    pct = (progress_done / progress_total * 100) if progress_total else 0
+    elapsed = max(time.monotonic() - phase_start_time, 0.001)
+    rate = progress_done / elapsed
+    bar_width = 24
+    filled = int(bar_width * progress_done / progress_total) if progress_total else 0
+    bar = f"{green}{'█' * filled}{dim}{'░' * (bar_width - filled)}{reset}"
+    return (f"\r  {bar} {bold}{progress_done}/{progress_total}{reset} ({pct:5.1f}%)  "
+            f"{cyan}{rate:5.1f} req/s{reset}  {dim}elapsed {format_duration(elapsed)}{reset}   ")
 
 
 async def bump_progress():
@@ -512,24 +547,34 @@ async def bump_progress():
     async with progress_lock:
         progress_done += 1
         if not silent and progress_total:
-            print(f"\r[{cyan}*{reset}] {current_phase}: {progress_done}/{progress_total}",
-                  end='', flush=True)
+            print(_progress_line(), end='', flush=True)
 
 
-async def run_phase(tasks, phase_name):
-    """Run a batch of sem_task-wrapped coroutines while showing a live
-    'phase: done/total' progress line (unless --silent)."""
-    global progress_done, progress_total, current_phase
+async def run_phase(tasks, phase_name, desc_override=None):
+    """Run a batch of sem_task-wrapped coroutines while showing a live,
+    ffuf-style progress line (percentage / measured req/s / elapsed time)
+    - unless --silent. Prints a short heading with a plain-English
+    description of the phase before starting, and a done-in-Xs summary
+    line after, so the output is self-explanatory at a glance."""
+    global progress_done, progress_total, current_phase, phase_start_time
     progress_done = 0
     progress_total = len(tasks)
     current_phase = phase_name
+    phase_start_time = time.monotonic()
     if not tasks:
         return
     if not silent:
-        print(f"[{cyan}*{reset}] {current_phase}: 0/{progress_total}", end='', flush=True)
+        desc = desc_override if desc_override is not None else PHASE_INFO.get(phase_name, "")
+        heading = f"\n{magenta}▶{reset} {bold}{phase_name}{reset}"
+        if desc:
+            heading += f" {dim}— {desc}{reset}"
+        print(heading)
+        print(_progress_line(), end='', flush=True)
     await asyncio.gather(*tasks)
     if not silent:
-        print()  # newline once the phase's progress line is done filling in
+        elapsed = time.monotonic() - phase_start_time
+        print(f"\r  {green}✓{reset} {bold}{progress_total}/{progress_total}{reset} (100.0%)  "
+              f"{dim}finished in {format_duration(elapsed)}{reset}" + " " * 20)
 
 
 def show_status():
@@ -996,19 +1041,17 @@ async def discovery_phase(urls, methods):
     what lets fuzz_phase fuzz each URL with parameters that actually exist
     on it, instead of falling back to a meaningless canary-as-param guess
     when no -w/--wordlist is given."""
-    sendmessage("[INFO] Starting Parameter Discovery ...", colour="YELLOW", logger=logger,
-                telegram=notification, silent=silent)
     tasks = [sem_task(discover_one(url, method)) for url in urls for method in methods]
     await run_phase(tasks, "Parameter Discovery")
-    sendmessage(f"   [SUCCESS] Discovered {len(discovered_parameters)} unique parameter(s) "
-                f"across {len(urls)} URL(s)", colour="GREEN", logger=logger, silent=silent)
+    if not silent:
+        print(f"  {dim}→ {len(discovered_parameters)} unique parameter(s) found across "
+              f"{len(discovered_by_url)}/{len(urls)} URL(s){reset}")
 
 
 async def dom_scan_phase(urls):
     """Optional (-sd/--dom-scan) recon pass: keyword-scan every non-binary
     URL's raw body for known DOM source/sink API names. Independent of
     fuzzing - just static analysis of what's already on the page/script."""
-    sendmessage("[INFO] Starting DOM Scan ...", colour="YELLOW", logger=logger, silent=silent)
     tasks = [sem_task(explore_dom_sinks(url, headers, 'GET')) for url in urls]
     await run_phase(tasks, "DOM Scan")
 
@@ -1043,7 +1086,6 @@ async def fuzz_phase(urls, methods):
     """PHASE 2 driver - only runs against the fuzzable subset (binary assets
     and static .js/.css/.map files were already filtered out by main(), since
     query params on those never reflect anything no matter what's sent)."""
-    sendmessage("[INFO] Starting Reflection Fuzz ...", colour="YELLOW", logger=logger, silent=silent)
     tasks = [sem_task(fuzz_one_url(url, method)) for url in urls for method in methods]
     await run_phase(tasks, "Reflection Fuzz")
 
@@ -1068,7 +1110,6 @@ async def heavy_one(url, method):
 
 
 async def heavy_reflix(urls, methods):
-    sendmessage("[INFO] Starting Heavy Reflix ...", colour="YELLOW", logger=logger, silent=silent)
     # Use whatever fallparams has found so far this run, regardless of
     # whether -po/--params-output was set (that flag only controls whether
     # it's *also* written to disk), plus anything persisted from a previous run.
@@ -1077,8 +1118,9 @@ async def heavy_reflix(urls, methods):
         for p in on_disk:
             discovered_parameters.add(p)
     if not discovered_parameters and not wordlist_seed:
-        sendmessage("   [INFO] No parameters discovered and no -w wordlist given - skipping Heavy Reflix "
-                    "(nothing meaningful to cross-test).", colour="YELLOW", logger=logger, silent=silent)
+        if not silent:
+            print(f"\n{magenta}▶{reset} {bold}Heavy Reflix{reset} {dim}— skipped: "
+                  f"no parameters discovered and no -w wordlist given{reset}")
         return
     tasks = [sem_task(heavy_one(url, method)) for url in urls for method in methods]
     await run_phase(tasks, "Heavy Reflix")
@@ -1114,7 +1156,6 @@ async def run_path_reflection(url, parameter_, method="GET"):
 
 
 async def path_injection_reflix(urls, methods, parameter_):
-    sendmessage("[INFO] Starting PATH Reflection Reflix ...", colour="YELLOW", logger=logger, silent=silent)
     tasks = [sem_task(run_path_reflection(url, parameter_, method)) for url in urls for method in methods]
     await run_phase(tasks, "Path Injection")
 
@@ -1154,19 +1195,18 @@ async def run_header_reflection(url, parameter_, method="GET", header_keys=None)
 
 
 async def header_injection_reflix(urls, methods, parameter_):
-    sendmessage("[INFO] Starting HEADER Reflection Reflix ...", colour="YELLOW", logger=logger, silent=silent)
     header_keys = await load_header_test_keys(header_wordlist_path)
-    sendmessage(f"   [INFO] Testing {len(header_keys)} header names per request", colour="YELLOW",
-                logger=logger, silent=silent)
     tasks = [sem_task(run_header_reflection(url, parameter_, method, header_keys))
              for url in urls for method in methods]
-    await run_phase(tasks, "Header Injection")
+    desc = f"{PHASE_INFO['Header Injection']} ({len(header_keys)} header names/request)"
+    await run_phase(tasks, "Header Injection", desc_override=desc)
 
 
 async def main():
     try:
         if not silent:
             show_banner()
+        run_start_time = time.monotonic()
         all_urls = await read_write_list("", urls_path, 'r')
         if not all_urls:
             sendmessage("[ERROR] No URLs loaded from urls_path", colour="RED", logger=logger)
@@ -1181,11 +1221,14 @@ async def main():
 
         skipped_binary = len(all_urls) - len(urls)
         skipped_static = len(urls) - len(fuzzable_urls)
-        if not silent and (skipped_binary or skipped_static):
-            print(f"[{yellow}*{reset}] {len(all_urls)} URLs loaded — "
-                  f"{skipped_binary} binary asset(s) skipped entirely, "
-                  f"{skipped_static} static JS/CSS/map file(s) kept for "
-                  f"parameter discovery only (no fuzzing).")
+        if not silent:
+            print(f"{green}✓{reset} Loaded {bold}{len(all_urls)}{reset} URL(s) "
+                  f"({len(fuzzable_urls)} fuzzable", end="")
+            if skipped_binary or skipped_static:
+                print(f", {skipped_binary} binary skipped, {skipped_static} static "
+                      f"JS/CSS/map kept for discovery-only)")
+            else:
+                print(")")
 
         show_status()
 
@@ -1205,15 +1248,14 @@ async def main():
         global wordlist_seed
         if wordlist_parameters:
             wordlist_seed = await read_write_list("", wordlist_parameters, 'r')
-            sendmessage(f"[INFO] Loaded {len(wordlist_seed)} seed parameter(s) from -w wordlist",
-                        colour="YELLOW", logger=logger, silent=silent)
-        else:
-            sendmessage("[INFO] No -w/--wordlist given - relying entirely on fallparams auto-discovery "
-                        "for parameter names.", colour="YELLOW", logger=logger, silent=silent)
+            if not silent:
+                print(f"{green}✓{reset} Loaded {bold}{len(wordlist_seed)}{reset} seed parameter(s) from -w wordlist")
+        elif not silent:
+            print(f"{dim}ℹ No -w/--wordlist given - relying entirely on fallparams auto-discovery{reset}")
 
         # PHASE 1: discover real parameters on every non-binary URL (incl.
         # .js/.css - fallparams pulls real API/param names out of JS source).
-        await discovery_phase(urls, methods)
+        await discovery_phase(urls, ['GET'])
 
         # Optional recon: DOM source/sink keyword scan.
         if dom:
@@ -1239,22 +1281,26 @@ async def main():
         if json_output:
             try:
                 await dump_findings_json(json_output)
-                if not silent:
-                    print(f"[{green}+{reset}] {len(findings_data)} findings written to {json_output}")
             except Exception as e:
                 sendmessage(f"[ERROR] Failed to write JSON output: {str(e)}", colour="RED", logger=logger,
                             silent=silent)
 
         if not silent:
-            print(f"\n[{green}+{reset}] Done. {len(findings_data)} finding(s), "
-                  f"{len(discovered_parameters)} parameter(s) discovered.")
+            total_elapsed = time.monotonic() - run_start_time
+            print(f"\n{cyan}{'-' * 60}{reset}")
+            sev_summary = f"{bold}{len(findings_data)}{reset} finding(s)"
+            print(f"{green}✓{reset} Done in {bold}{format_duration(total_elapsed)}{reset} — {sev_summary}, "
+                  f"{bold}{len(discovered_parameters)}{reset} parameter(s) discovered")
             if output:
                 if is_json_output_path(output):
-                    print(f"[{green}+{reset}] Findings streamed live to {output} (JSON Lines, one finding per line)")
+                    print(f"  {dim}→ findings streamed live to {output} (JSON Lines){reset}")
                 else:
-                    print(f"[{green}+{reset}] Findings also written to {output}")
+                    print(f"  {dim}→ findings also written to {output}{reset}")
             if params_output:
-                print(f"[{green}+{reset}] Parameters also written to {params_output}")
+                print(f"  {dim}→ parameters also written to {params_output}{reset}")
+            if json_output:
+                print(f"  {dim}→ full JSON array written to {json_output}{reset}")
+            print(f"{cyan}{'-' * 60}{reset}")
 
     except KeyboardInterrupt:
         sendmessage("[ERROR] Process interrupted by user.", telegram=notification, colour="RED", logger=logger,

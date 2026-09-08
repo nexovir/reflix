@@ -1,0 +1,1 @@
+{"method": "GET", "severity": "info", "place": "DOM-XSS-Sinks", "url": "https://survey.netgear.com/email-signup", "sinks": [{"keyword": "document.write", "lines": [55]}]}

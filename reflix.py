@@ -28,6 +28,20 @@ Pipeline (in order):
 All reflection checks (body, path, header, DOM source/sink keyword scan) are
 done with plain HTTP requests against the raw response body/headers - no
 headless browser needed.
+
+--- Per-parameter canary numbering ---
+When multiple wordlist parameters get batched into the same chunked
+root/ignore request, each parameter is given its OWN numbered canary value
+(param1=nexovir1&param2=nexovir2&...) instead of an identical canary for
+every parameter. This costs zero extra requests - it's just what value gets
+written into the URL that was going to be built anyway. Because every
+numbered canary still contains the base canary string as a substring (e.g.
+"nexovir7" contains "nexovir"), nuclei's existing word-matcher keeps working
+unchanged. Only when nuclei reports a match on a request does the tool look
+at the raw response body it already captured (no extra fetch) and figure out
+exactly which parameter's numbered value actually appears in it, so the
+finding line can say precisely which parameter(s) reflected instead of "some
+parameter in this chunk reflected, go find out which one yourself".
 """
 
 import colorama
@@ -42,6 +56,7 @@ import yaml
 import tempfile
 import asyncio
 import json
+import itertools
 import urllib3
 from colorama import Fore, Style
 from urllib.parse import urlparse, urlencode, urlunparse, parse_qsl
@@ -181,6 +196,21 @@ STATIC_TEXT_EXTENSIONS = {'.js', '.mjs', '.cjs', '.css', '.map'}
 
 NON_FUZZABLE_EXTENSIONS = BINARY_EXTENSIONS | STATIC_TEXT_EXTENSIONS
 
+# unique per-parameter canary counter for chunked root/ignore injection, so
+# every parameter batched into the same request gets its own distinguishable
+# value (param1=nexovir1&param2=nexovir2...) instead of an identical canary -
+# this costs zero extra requests, it only changes what value is written into
+# the URL that was going to be built anyway, and lets a hit be traced back to
+# the exact parameter(s) that reflected once nuclei reports a match.
+param_canary_counter = itertools.count(1)
+
+# generated_url -> {param_name: canary_value}, populated by
+# generate_injected_urls' append_wordlist_params(), consumed by
+# run_nuclei_scan() ONLY on confirmed matches to identify which parameter(s)
+# reflected - never touched on non-matching requests, so it adds no
+# per-request overhead.
+url_param_canaries = {}
+
 
 def is_json_output_path(path):
     """True if the given -o/--output path should get a clean JSON array
@@ -243,6 +273,20 @@ def parse_raw_http_response(raw_response):
     return content_type, size_page
 
 
+def extract_raw_body(raw_response):
+    """Same split logic as parse_raw_http_response, but returns just the
+    body text. Used ONLY after nuclei already reported a match, to figure
+    out which numbered per-parameter canary actually appears in the body
+    that was already captured - no extra HTTP request involved."""
+    if not raw_response:
+        return ""
+    for sep in ("\r\n\r\n", "\n\n"):
+        if sep in raw_response:
+            _, _, body = raw_response.partition(sep)
+            return body
+    return raw_response
+
+
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
     twitter = Style.BRIGHT + Fore.CYAN + "X.com: @nexovir" + Style.RESET_ALL
@@ -293,7 +337,7 @@ def sendmessage(message: str, telegram: bool = False, colour: str = "YELLOW", lo
                 pass
 
 
-VERSION = "1.3.0"
+VERSION = "1.4.0"
 
 parser = argparse.ArgumentParser(description='Reflix - Smart parameter injection and reflection fuzzing tool')
 parser.add_argument('--version', action='version', version=f'Reflix v{VERSION}')
@@ -508,7 +552,7 @@ class RateLimiter:
 rate_limiter = RateLimiter(rate_limit)
 
 INJECTIONS = [f"%27{parameter}", f'%22{parameter}', f"%3E{parameter}"]
-INJECTION_RESULTS = [f"'{parameter}".lower(), f'"{parameter}'.lower(), f"&gt;{parameter}".lower()]
+INJECTION_RESULTS = [f"'{parameter}".lower(), f'"{parameter}'.lower(), f">{parameter}".lower()]
 
 # structured findings, populated by record_finding() - exported as JSON at the end if -jo is set
 findings_data = []
@@ -750,6 +794,13 @@ def generate_injected_urls(base_urls, generate_mode_, value_mode_, parameter_, w
       - ignore  : keep the existing query string and append wordlist parameters
       - all     : run all three modes and merge the results
     Returns a de-duplicated, order-preserved list of URLs.
+
+    For root/ignore, every parameter batched into the same chunked request
+    gets its own numbered canary value (param1=nexovir1&param2=nexovir2...)
+    instead of an identical one - this is still exactly ONE request per
+    chunk, nothing extra is sent. The mapping of which parameter got which
+    numbered value is recorded in url_param_canaries so a match can later be
+    traced back to the exact parameter(s) that reflected.
     """
     chunk_size = max(1, int(chunk_))
     generated = []
@@ -773,9 +824,20 @@ def generate_injected_urls(base_urls, generate_mode_, value_mode_, parameter_, w
         for url in target_urls:
             for i in range(0, len(params), chunk_size):
                 chunk_params = params[i:i + chunk_size]
-                query_string = '&'.join(f"{p}={parameter_}" for p in chunk_params)
+                pairs = []
+                canary_map = {}
+                for p in chunk_params:
+                    # each parameter in this chunk gets its own numbered
+                    # canary - same single request, just distinguishable
+                    # values, so a hit can be attributed to the right param.
+                    value = f"{parameter_}{next(param_canary_counter)}"
+                    pairs.append(f"{p}={value}")
+                    canary_map[p] = value
+                query_string = '&'.join(pairs)
                 sep = '&' if '?' in url else '?'
-                out.append(f"{url}{sep}{query_string}")
+                new_url = f"{url}{sep}{query_string}"
+                url_param_canaries[new_url] = canary_map
+                out.append(new_url)
         return out
 
     def combine_mode():
@@ -963,13 +1025,25 @@ async def run_nuclei_scan(target_url, method='GET', req_headers=None, post_data=
                 content_type, size_page = parse_raw_http_response(match.get('response', ''))
                 matched_at = match.get('matched-at') or target_url
 
+                # Only on a confirmed match: check the raw body nuclei
+                # already captured (no extra request) against the per-param
+                # canary map built when this url was generated, so we can
+                # say exactly which parameter(s) reflected.
+                raw_body = extract_raw_body(match.get('response', ''))
+                canary_map = url_param_canaries.get(target_url)
+                reflected_params = []
+                if canary_map and raw_body:
+                    lowered_body = raw_body.lower()
+                    reflected_params = [p for p, v in canary_map.items() if v.lower() in lowered_body]
+                place_label = f"HTML[{','.join(reflected_params)}]" if reflected_params else "HTML"
+
                 meta_tags = ""
                 if content_type:
                     meta_tags += f" [{blue}{content_type}{reset}]"
                 meta_tags += f" [{magenta}{size_page}b{reset}]"
 
                 display_line = (f"[{green}{method.upper()}{reset}] [{blue}http{reset}] "
-                                 f"[{cyan}info{reset}] [{yellow}HTML{reset}]{meta_tags} {matched_at}")
+                                 f"[{cyan}info{reset}] [{yellow}{place_label}{reset}]{meta_tags} {matched_at}")
                 raw_output.append(display_line)
 
                 if not silent and not quiet:
@@ -980,10 +1054,11 @@ async def run_nuclei_scan(target_url, method='GET', req_headers=None, post_data=
                 finding = {
                     "method": method.upper(),
                     "severity": "info",
-                    "place": "HTML",
+                    "place": place_label,
                     "url": matched_at,
                     "content_type": content_type,
                     "size_page": size_page,
+                    "reflected_params": reflected_params,
                 }
                 if output:
                     if is_json_output_path(output):

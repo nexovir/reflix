@@ -206,6 +206,43 @@ def is_fuzzable(url):
     return url_ext(url) not in NON_FUZZABLE_EXTENSIONS
 
 
+def extract_meta(body_text, resp_headers):
+    """Extract Content-Type and page size (bytes) from a response, used to
+    enrich every finding with [content_type] [size_page] info."""
+    content_type = ""
+    for k, v in (resp_headers or {}).items():
+        if k.lower() == "content-type":
+            content_type = v.split(";")[0].strip()
+            break
+    size_page = len(body_text.encode('utf-8', errors='ignore')) if body_text is not None else 0
+    return content_type, size_page
+
+
+def parse_raw_http_response(raw_response):
+    """Extract Content-Type and body size (bytes) straight out of nuclei's
+    own captured raw response text (headers+body), so run_nuclei_scan never
+    needs to fire a second HTTP request just to get this metadata - zero
+    extra requests, faster, and no additional load on the target."""
+    if not raw_response:
+        return "", 0
+    # headers/body are separated by the first blank line (CRLF or LF style)
+    for sep in ("\r\n\r\n", "\n\n"):
+        if sep in raw_response:
+            head, _, body = raw_response.partition(sep)
+            break
+    else:
+        head, body = raw_response, ""
+
+    content_type = ""
+    for line in head.splitlines():
+        if line.lower().startswith("content-type:"):
+            content_type = line.split(":", 1)[1].split(";")[0].strip()
+            break
+
+    size_page = len(body.encode('utf-8', errors='ignore'))
+    return content_type, size_page
+
+
 def show_banner():
     banner = pyfiglet.figlet_format("Reflix")
     twitter = Style.BRIGHT + Fore.CYAN + "X.com: @nexovir" + Style.RESET_ALL
@@ -767,12 +804,24 @@ def generate_injected_urls(base_urls, generate_mode_, value_mode_, parameter_, w
     return list(dict.fromkeys(generated))
 
 
-async def record_finding(method, severity, place, url, http_type="http"):
+async def record_finding(method, severity, place, url, http_type="http", content_type="", size_page=None):
     """Print+log a finding in the standard line format, and keep a structured
-    copy for --json-output. Used by every reflection check in the tool."""
+    copy for --json-output. Used by every reflection check in the tool.
+
+    content_type / size_page are optional metadata about the response that
+    triggered the finding - when given, they're shown as extra
+    [content_type] [size_pageb] tags in the console line and stored as
+    "content_type"/"size_page" fields in the JSON/JSONL output."""
     sev_color = cyan if severity == "info" else red
+
+    meta_tags = ""
+    if content_type:
+        meta_tags += f" [{blue}{content_type}{reset}]"
+    if size_page is not None:
+        meta_tags += f" [{magenta}{size_page}b{reset}]"
+
     output_line = (f"[{green}{method.upper()}{reset}] [{blue}{http_type}{reset}] "
-                   f"[{sev_color}{severity}{reset}] [{yellow}{place}{reset}] {url}")
+                   f"[{sev_color}{severity}{reset}] [{yellow}{place}{reset}]{meta_tags} {url}")
     # -q/--quiet-findings: keep banner/status/progress on screen but never
     # print the actual finding line to the console (it's still recorded
     # below and still written to -o/-jo/-lf regardless of this flag).
@@ -787,6 +836,8 @@ async def record_finding(method, severity, place, url, http_type="http"):
         "severity": severity,
         "place": place,
         "url": url,
+        "content_type": content_type,
+        "size_page": size_page,
     }
     if output:
         if is_json_output_path(output):
@@ -846,13 +897,15 @@ async def try_to_xss(url: str, method, reflection_place):
     for injection_element in INJECTIONS:
         target_url = url.replace(parameter, injection_element)
         await rate_limiter.acquire()
-        html, _, _ = await asyncio.to_thread(http_request, target_url, method, headers, None, proxy, timeout)
+        html, resp_headers, _ = await asyncio.to_thread(http_request, target_url, method, headers, None, proxy, timeout)
         if html is None:
             continue
         lowered_html = html.lower()
         for inject_elm in INJECTION_RESULTS:
             if inject_elm in lowered_html:
-                await record_finding(method, "medium", reflection_place, target_url)
+                content_type, size_page = extract_meta(html, resp_headers)
+                await record_finding(method, "medium", reflection_place, target_url,
+                                      content_type=content_type, size_page=size_page)
                 break
 
 
@@ -886,40 +939,61 @@ async def run_nuclei_scan(target_url, method='GET', req_headers=None, post_data=
         temp_path = temp_file.name
 
     try:
-        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent', '-fhr']
+        # -jsonl + -irr: nuclei emits one JSON object per match, including
+        # the raw request/response it already captured - so content-type and
+        # body size for the finding come straight out of that JSON, with
+        # ZERO extra HTTP requests to the target (faster, less load, and no
+        # separate rate-limiter slot needed for metadata alone).
+        cmd = ['nuclei', '-u', target_url, '-t', temp_path, '-duc', '-silent', '-jsonl', '-irr']
         if proxy_:
             cmd.extend(['-proxy', proxy_])
 
         result = await asyncio.to_thread(subprocess.run, cmd, capture_output=True, text=True)
 
         if result.returncode == 0:
-            raw_output = [l for l in result.stdout.splitlines() if l.strip()]
-            if raw_output and not silent and not quiet:
-                if progress_total:
-                    print()
-                for line in raw_output:
-                    parts = line.split('] ')
-                    if len(parts) >= 3:
-                        new_line = '] '.join(parts[:3]) + f'] [{yellow}HTML{reset}] ' + '] '.join(parts[3:])
-                    else:
-                        new_line = line
-                    print(new_line)
-            if raw_output:
+            raw_lines = [l for l in result.stdout.splitlines() if l.strip()]
+            raw_output = []
+
+            for line in raw_lines:
+                try:
+                    match = json.loads(line)
+                except (json.JSONDecodeError, ValueError):
+                    continue
+
+                content_type, size_page = parse_raw_http_response(match.get('response', ''))
+                matched_at = match.get('matched-at') or target_url
+
+                meta_tags = ""
+                if content_type:
+                    meta_tags += f" [{blue}{content_type}{reset}]"
+                meta_tags += f" [{magenta}{size_page}b{reset}]"
+
+                display_line = (f"[{green}{method.upper()}{reset}] [{blue}http{reset}] "
+                                 f"[{cyan}info{reset}] [{yellow}HTML{reset}]{meta_tags} {matched_at}")
+                raw_output.append(display_line)
+
+                if not silent and not quiet:
+                    if progress_total:
+                        print()
+                    print(display_line)
+
                 finding = {
                     "method": method.upper(),
                     "severity": "info",
                     "place": "HTML",
-                    "url": target_url,
-                    "nuclei_lines": raw_output,
+                    "url": matched_at,
+                    "content_type": content_type,
+                    "size_page": size_page,
                 }
                 if output:
                     if is_json_output_path(output):
                         await append_json_line(output, finding)
                     else:
-                        await read_write_list(raw_output, output, 'a')
+                        await read_write_list([display_line], output, 'a')
                 findings_data.append(finding)
-                if xss:
-                    await try_to_xss(target_url, method, 'HTML')
+
+            if raw_output and xss:
+                await try_to_xss(target_url, method, 'HTML')
             return {'success': True, 'raw_results': raw_output, 'stats': f"line count: {len(raw_output)}"}
         else:
             if result.stderr.strip():
@@ -966,10 +1040,11 @@ async def explore_dom_sinks(url, req_headers, method):
     number(s) each keyword was found on so it can be located quickly."""
     sendmessage(f"  [INFO] Starting DOM sinks/sources exploration url: {url}", colour="YELLOW", logger=logger,
                 silent=silent)
-    html, _, _ = await asyncio.to_thread(http_request, url, method, req_headers, None, proxy, timeout)
+    html, resp_headers, _ = await asyncio.to_thread(http_request, url, method, req_headers, None, proxy, timeout)
     if html is None:
         return {"success": False, "url": url}
 
+    content_type, size_page = extract_meta(html, resp_headers)
     lines = html.splitlines()
     lowered_lines = [l.lower() for l in lines]
 
@@ -994,8 +1069,13 @@ async def explore_dom_sinks(url, req_headers, method):
             display_parts.append(f"{keyword}@L{line_str}")
         sinks_str = " ".join(display_parts)
 
+        meta_tags = ""
+        if content_type:
+            meta_tags += f" [{blue}{content_type}{reset}]"
+        meta_tags += f" [{magenta}{size_page}b{reset}]"
+
         output_line = (f"[{green}{method.upper()}{reset}] [{blue}http{reset}] [{cyan}info{reset}] "
-                        f"[{yellow}{category}: {red}{sinks_str}{reset}] {url}")
+                        f"[{yellow}{category}: {red}{sinks_str}{reset}]{meta_tags} {url}")
         if not silent and not quiet:
             if progress_total:
                 print()
@@ -1005,6 +1085,8 @@ async def explore_dom_sinks(url, req_headers, method):
             "severity": "info",
             "place": category,
             "url": url,
+            "content_type": content_type,
+            "size_page": size_page,
             "sinks": [{"keyword": keyword, "lines": hit_lines} for keyword, hit_lines in matches],
         }
         if output:
@@ -1143,15 +1225,18 @@ async def run_path_reflection(url, parameter_, method="GET"):
     if html is None:
         return {"success": False, "url": injected_url}
 
+    content_type, size_page = extract_meta(html, resp_headers)
     found_html = parameter_.lower() in html.lower()
     found_header = any(parameter_.lower() in str(v).lower() for v in resp_headers.values())
 
     if found_html:
-        await record_finding(method, "info", "PATH-BODY", injected_url)
+        await record_finding(method, "info", "PATH-BODY", injected_url,
+                              content_type=content_type, size_page=size_page)
         if xss:
             await try_to_xss(injected_url, method, 'PATH-BODY')
     if found_header:
-        await record_finding(method, "info", "PATH-HEADER", injected_url)
+        await record_finding(method, "info", "PATH-HEADER", injected_url,
+                              content_type=content_type, size_page=size_page)
     return {"success": True, "url": injected_url}
 
 
@@ -1182,15 +1267,18 @@ async def run_header_reflection(url, parameter_, method="GET", header_keys=None)
     if html is None:
         return {"success": False, "url": url}
 
+    content_type, size_page = extract_meta(html, resp_headers)
     found_html = parameter_.lower() in html.lower()
     found_header = any(parameter_.lower() in str(v).lower() for v in resp_headers.values())
 
     if found_html:
-        await record_finding(method, "info", "HEADER-BODY", url)
+        await record_finding(method, "info", "HEADER-BODY", url,
+                              content_type=content_type, size_page=size_page)
         if xss:
             await try_to_xss(url, method, 'HEADER-BODY')
     if found_header:
-        await record_finding(method, "info", "HEADER-RESPONSE", url)
+        await record_finding(method, "info", "HEADER-RESPONSE", url,
+                              content_type=content_type, size_page=size_page)
     return {"success": True, "url": url}
 
 
